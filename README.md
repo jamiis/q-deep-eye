@@ -1,5 +1,6 @@
 ## Setup
-(Download and install ALE)[http://www.arcadelearningenvironment.org/downloads/]. Instructions for installation are in manual.pdf.
+[Download and install ALE](http://www.arcadelearningenvironment.org/downloads/). 
+Instructions for installation are in the ale folder in manual.pdf.
 
 Clone this repo and run following (note: it'll be different for your system)
 
