@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 apt-get update
-apt-get install -y git vim
+apt-get install -y git vim htop
 
-cd /vagrant/Human_Level_Control_through_Deep_Reinforcement_Learning/
+cd Human_Level_Control_through_Deep_Reinforcement_Learning/
 if [ -d "torch" ]; then
     echo "Dependencies already installed"
 else
@@ -21,3 +21,4 @@ else
     mv ROMS/* .
     rm -rf ROMS
 fi
+cd ..
