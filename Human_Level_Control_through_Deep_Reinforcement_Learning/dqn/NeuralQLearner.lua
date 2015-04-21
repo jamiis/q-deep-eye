@@ -8,6 +8,8 @@ if not dqn then
     require 'initenv'
 end
 
+require 'math'
+
 local nql = torch.class('dqn.NeuralQLearner')
 
 
@@ -137,9 +139,32 @@ function nql:__init(args)
     self.tderr_avg = 0 -- TD error running average.
 
     self.q_max = 1
-    self.r_max = 1
+    self.max_reward = 1
 
     self.w, self.dw = self.network:getParameters()
+    local wtmp, dwtmp = self.network:parameters()
+    -- print('self.w[8] = ', wtmp[8]:type())
+    
+    --A memory pool to store the hashed frames
+    self.memory = torch.zeros(100, 512)
+    --self.memory_square = torch.Tensor(100,512)
+    -- self.memory_sum = 0
+    -- self.memory_square_sum = 0
+    -- for i=1,self.memory:size()[1],1 do
+    --     for j = 1, self.memory
+    self.memory_head = 1
+    -- print('size of memory pool = ', self.memo:size())
+
+    self.rho_lookback = 10
+    self.r_pool = torch.zeros(self.rho_lookback+1)
+    self.r_pool:fill(0) --for easily maintainable reward pool     
+    self.r_pool_head = 1
+    self.rho_lambda = 0.5 --desire for reward
+    self.rho = 0
+    for i=1,self.rho_lookback,1 do
+        self.rho = self.rho+self.rho_lambda^(self.rho_lookback-i+1)*math.exp(-self.r_pool[i+1])
+    end
+
     self.dw:zero()
 
     self.deltas = self.dw:clone():fill(0)
@@ -153,6 +178,32 @@ function nql:__init(args)
     end
 end
 
+function nql:update_memory()
+    self.memory[self.memory_head] =  self.network:parameters()[8]
+    self.memory_head = self.memory_head%self.memory:size()[1]+1
+end
+
+function nql:update_rho(reward)
+    self.r_pool[self.r_pool_head] = reward
+    local rlb = self.rho_lambda
+    local latest_r = self.r_pool[self.r_pool_head]
+    local oldest_r = self.r_pool[self.r_pool_head%self.rho_lookback+1]    
+    self.rho  =     self.rho*rlb 
+                +   rlb*math.exp(-latest_r) 
+                -   rlb^(self.rho_lookback+1)*math.exp(-oldest_r)
+    self.r_pool_head = self.r_pool_head%self.rho_lookback+1
+end
+
+function nql:get_normalized_rho()
+    local rlb = self.rho_lambda
+    -- local latest_r = self.r_pool[self.r_pool_head]
+    -- local oldest_r = self.r_pool[self.r_pool_head%self.rho_lookback+1]    
+    local lb = rlb*math.exp(-self.max_reward)*(1-rlb^self.rho_lookback)/(1-rlb)
+    -- local lb = 0
+    local ub = rlb*math.exp(0)*(1-rlb^self.rho_lookback)/(1-rlb)
+    --print ('lb = ', lb, 'ub = ', ub, 'rho = ', self.rho)
+    return math.min((self.rho-lb)/(ub-lb),1)
+end
 
 function nql:reset(state)
     if not state then
@@ -209,7 +260,7 @@ function nql:getQUpdate(args)
     delta = r:clone():float()
 
     if self.rescale_r then
-        delta:div(self.r_max)
+        delta:div(self.max_reward)
     end
     delta:add(q2)
 
@@ -275,6 +326,8 @@ function nql:qLearnMinibatch()
     -- accumulate update
     self.deltas:mul(0):addcdiv(self.lr, self.dw, self.tmp)
     self.w:add(self.deltas)
+    --print('w = ', w)
+    io.stdin:read'*l'
 end
 
 
@@ -309,9 +362,10 @@ function nql:perceive(reward, rawstate, terminal, testing, testing_ep)
         reward = math.max(reward, self.min_reward)
     end
     if self.rescale_r then
-        self.r_max = math.max(self.r_max, reward)
+        self.max_reward = math.max(self.max_reward, reward)
     end
-
+    self:update_rho(reward)
+    print('reward = ', reward, 'normalized rho=',self:get_normalized_rho())
     self.transitions:add_recent_state(state, terminal)
 
     local currentFullState = self.transitions:get_recent()
@@ -328,11 +382,45 @@ function nql:perceive(reward, rawstate, terminal, testing, testing_ep)
 
     curState= self.transitions:get_recent()
     curState = curState:resize(1, unpack(self.input_dims))
+    --Compute the novelty of the current state
+    --Currently the novelty function has no upper bound. 
+    local Nov = 0
+    local memory_size = self.memory:size()
+    local x = self.network:parameters()[8]
+    -- print('x = ',x:size(),'\n\n')
+    local x_avg, x_var = 0,0
+    local m_avg, m_var = 0,0
+    for i=1,self.memory:size()[1],1 do
+        x_avg = x_avg+x[i]
+        x_var = x_var+x[i]*x[i]
+        local diff = self.memory[i] - x
+        for j=1,self.memory:size()[2],1 do
+            Nov = Nov+(self.memory[i][j]-x[j])*(self.memory[i][j]-x[j])
+            m_avg = m_avg + self.memory[i][j]
+            m_var = m_var + self.memory[i][j]^2
+        end
+    end
+    Nov = Nov/self.memory:size()[1]--/self.memory:size()[2]
+    -- x_avg = x_avg/memory_size[1]/memory_size[2]
+    -- x_var = x_var/(memory_size[1]*memory_size[2]-1) - x:size()[1]*memory_size[1]*memory_size[2]/(memory_size[1]*memory_size[2]-1)
+    -- m_avg = m_avg/x:size()[1]
+    -- m_var = m_var/(x:size()[1]-1) - x:size()[1]*m_avg^2/(x:size()[1]-1)    
+    -- print('self.memory:size = ',self.memory:size()[1],self.memory:size()[2])
+    -- print('x_avg = ', x_avg)
+    -- print('x_var = ', x_var)
+    -- print('m_avg = ', m_avg)
+    -- print('m_var = ', m_var)
+    print('Nov=', Nov)
+
+    -- print(curState[1][4])
+    --Updating the high level memory
+    self:update_memory()
+    --Compute the novelty of the current state. 
 
     -- Select action
     local actionIndex = 1
     if not terminal then
-        actionIndex = self:eGreedy(curState, testing_ep)
+        actionIndex = self:myEGreedy(curState, testing_ep)
     end
 
     self.transitions:add_recent_action(actionIndex)
@@ -364,8 +452,21 @@ function nql:perceive(reward, rawstate, terminal, testing, testing_ep)
     end
 end
 
+function nql:myEGreedy(state, testing_ep)
+    self.ep = testing_ep or self:get_normalized_rho()
+    -- (self.ep_end +
+    --             math.max(0, (self.ep_start - self.ep_end) * (self.ep_endt -
+    --             math.max(0, self.numSteps - self.learn_start))/self.ep_endt))
+    -- Epsilon greedy
+    if torch.uniform() < self.ep then
+        return torch.random(1, self.n_actions)
+    else
+        return self:greedy(state)
+    end
+end
 
-function nql:eGreedy(state, testing_ep)
+
+function nql:eGreedy(statmyE, testing_ep)
     self.ep = testing_ep or (self.ep_end +
                 math.max(0, (self.ep_start - self.ep_end) * (self.ep_endt -
                 math.max(0, self.numSteps - self.learn_start))/self.ep_endt))

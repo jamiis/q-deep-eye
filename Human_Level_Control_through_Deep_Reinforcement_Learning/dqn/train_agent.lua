@@ -81,7 +81,13 @@ print("Iteration ..", step)
 while step < opt.steps do
     step = step + 1
     local action_index = agent:perceive(reward, screen, terminal)
-
+    print('step = ', step)
+    if step == 100 then
+        for i=1,agent.memory:size()[1],1 do
+            print('memory['..i..'] = ', agent.memory[i])
+        end
+        os.exit()
+    end
     -- game over? get next game!
     if not terminal then
         screen, reward, terminal = game_env:step(game_actions[action_index], true)
