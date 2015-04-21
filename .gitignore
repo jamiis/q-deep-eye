@@ -1,5 +1,7 @@
 Human_Level_Control_through_Deep_Reinforcement_Learning/torch
 Human_Level_Control_through_Deep_Reinforcement_Learning/roms
+Human_Level_Control_through_Deep_Reinforcement_Learning/all_roms
+Human_Level_Control_through_Deep_Reinforcement_Learning/dqn/DQN*
 .vagrant
 .DS_Store
 ale
