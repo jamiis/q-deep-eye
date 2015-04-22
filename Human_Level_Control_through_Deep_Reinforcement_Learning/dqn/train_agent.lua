@@ -90,7 +90,9 @@ while step < opt.steps do
     step = step + 1
     local action_index = agent:perceive(reward, screen, terminal)
     -- print('step = ', step)
-    logger:log(step,reward,screen,terminal)
+    if step > learn_start then
+        logger:log(step,reward,screen,terminal)
+    end
     -- if step == 100 then
     --     -- for i=1,agent.memory:size()[1],1 do
     --     --     print('memory['..i..'] = ', agent.memory[i])
