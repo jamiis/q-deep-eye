@@ -8,6 +8,8 @@ if not dqn then
     require "initenv"
 end
 
+require "log"
+
 local cmd = torch.CmdLine()
 cmd:text()
 cmd:text('Train Agent in Environment:')
@@ -44,6 +46,8 @@ cmd:option('-verbose', 2,
 cmd:option('-threads', 1, 'number of BLAS threads')
 cmd:option('-gpu', -1, 'gpu flag')
 
+cmd:option('-log_folder', '', 'the folder to hold the log files')
+
 cmd:text()
 
 local opt = cmd:parse(arg)
@@ -69,6 +73,9 @@ local td_history = {}
 local reward_history = {}
 local step = 0
 time_history[1] = 0
+local logger = create_log(agent, game_env,opt)
+
+
 
 local total_reward
 local nrewards
@@ -77,17 +84,20 @@ local episode_reward
 
 local screen, reward, terminal = game_env:getState()
 
+
 print("Iteration ..", step)
 while step < opt.steps do
     step = step + 1
     local action_index = agent:perceive(reward, screen, terminal)
-    print('step = ', step)
+    -- print('step = ', step)
+    logger:log(step,reward,screen,terminal)
     if step == 100 then
-        for i=1,agent.memory:size()[1],1 do
-            print('memory['..i..'] = ', agent.memory[i])
-        end
+        -- for i=1,agent.memory:size()[1],1 do
+        --     print('memory['..i..'] = ', agent.memory[i])
+        -- end
         os.exit()
     end
+
     -- game over? get next game!
     if not terminal then
         screen, reward, terminal = game_env:step(game_actions[action_index], true)

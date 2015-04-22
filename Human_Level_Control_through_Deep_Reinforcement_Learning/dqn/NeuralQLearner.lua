@@ -147,13 +147,15 @@ function nql:__init(args)
     
     --A memory pool to store the hashed frames
     self.memory = torch.zeros(100, 512)
-    --self.memory_square = torch.Tensor(100,512)
-    -- self.memory_sum = 0
-    -- self.memory_square_sum = 0
-    -- for i=1,self.memory:size()[1],1 do
-    --     for j = 1, self.memory
     self.memory_head = 1
-    -- print('size of memory pool = ', self.memo:size())
+    self.last_novelty = 1
+
+    --Hashing function
+    --TODO: Currently the hasher won't be saved. Thus for each new training session
+    --both the hashing function and the memories are completely different. 
+    self.hasher = nn.Sequential()
+    self.hasher:add(nn.Reshape(84*84))
+    self.hasher:add(nn.Linear(84*84,512)) 
 
     self.rho_lookback = 10
     self.r_pool = torch.zeros(self.rho_lookback+1)
@@ -178,8 +180,11 @@ function nql:__init(args)
     end
 end
 
-function nql:update_memory()
-    self.memory[self.memory_head] =  self.network:parameters()[8]
+function nql:update_memory(state)
+    --self.memory[self.memory_head] =  self.network:parameters()[8]
+    -- os.exit()
+    local repr = self.hasher:forward(state)
+    self.memory[self.memory_head] = repr
     self.memory_head = self.memory_head%self.memory:size()[1]+1
 end
 
@@ -203,6 +208,49 @@ function nql:get_normalized_rho()
     local ub = rlb*math.exp(0)*(1-rlb^self.rho_lookback)/(1-rlb)
     --print ('lb = ', lb, 'ub = ', ub, 'rho = ', self.rho)
     return math.min((self.rho-lb)/(ub-lb),1)
+end
+
+--compute the novelty of the given state. For the current formula, the novely is 
+--not bounded. 
+function nql:get_novelty(state)
+    --Compute the novelty of the current state
+    --Currently the novelty function has no upper bound. 
+    local Nov = 0
+    local memory_size = self.memory:size()
+    local x = self.hasher:forward(state)
+    -- print('x = ',x:size(),'\n\n')
+    local x_avg, x_var = 0,0
+    local m_avg, m_var = 0,0
+    local min_dist = 2^1000
+    for i=1,memory_size[1],1 do
+        -- x_avg = x_avg+x[i]
+        -- x_var = x_var+x[i]*x[i]
+        local diff = self.memory[i] - x
+        local dist = 0
+        for j=1,memory_size[2],1 do
+            dist = dist + (self.memory[i][j]-x[j])*(self.memory[i][j]-x[j])
+            if dist < min_dist then
+                min_dist = dist
+            end
+            -- m_avg = m_avg + self.memory[i][j]
+            -- m_var = m_var + self.memory[i][j]^2
+        end
+    end
+    --Nov = 2*(1/(1+math.exp(-min_dist*10^7))-0.5)
+    --print('min_dist =',min_dist, 'Nov = ',Nov)
+    Nov = 100000000*min_dist
+    -- Nov = Nov/self.memory:size()[1]--/self.memory:size()[2]
+    -- x_avg = x_avg/memory_size[1]/memory_size[2]
+    -- x_var = x_var/(memory_size[1]*memory_size[2]-1) - x:size()[1]*memory_size[1]*memory_size[2]/(memory_size[1]*memory_size[2]-1)
+    -- m_avg = m_avg/x:size()[1]
+    -- m_var = m_var/(x:size()[1]-1) - x:size()[1]*m_avg^2/(x:size()[1]-1)    
+    -- print('self.memory:size = ',self.memory:size()[1],self.memory:size()[2])
+    -- print('x_avg = ', x_avg)
+    -- print('x_var = ', x_var)
+    -- print('m_avg = ', m_avg)
+    -- print('m_var = ', m_var)
+    self.last_novelty = Nov
+    return Nov
 end
 
 function nql:reset(state)
@@ -365,7 +413,7 @@ function nql:perceive(reward, rawstate, terminal, testing, testing_ep)
         self.max_reward = math.max(self.max_reward, reward)
     end
     self:update_rho(reward)
-    print('reward = ', reward, 'normalized rho=',self:get_normalized_rho())
+    --print('reward = ', reward, 'normalized rho=',self:get_normalized_rho())
     self.transitions:add_recent_state(state, terminal)
 
     local currentFullState = self.transitions:get_recent()
@@ -382,39 +430,15 @@ function nql:perceive(reward, rawstate, terminal, testing, testing_ep)
 
     curState= self.transitions:get_recent()
     curState = curState:resize(1, unpack(self.input_dims))
-    --Compute the novelty of the current state
-    --Currently the novelty function has no upper bound. 
-    local Nov = 0
-    local memory_size = self.memory:size()
-    local x = self.network:parameters()[8]
-    -- print('x = ',x:size(),'\n\n')
-    local x_avg, x_var = 0,0
-    local m_avg, m_var = 0,0
-    for i=1,self.memory:size()[1],1 do
-        x_avg = x_avg+x[i]
-        x_var = x_var+x[i]*x[i]
-        local diff = self.memory[i] - x
-        for j=1,self.memory:size()[2],1 do
-            Nov = Nov+(self.memory[i][j]-x[j])*(self.memory[i][j]-x[j])
-            m_avg = m_avg + self.memory[i][j]
-            m_var = m_var + self.memory[i][j]^2
-        end
-    end
-    Nov = Nov/self.memory:size()[1]--/self.memory:size()[2]
-    -- x_avg = x_avg/memory_size[1]/memory_size[2]
-    -- x_var = x_var/(memory_size[1]*memory_size[2]-1) - x:size()[1]*memory_size[1]*memory_size[2]/(memory_size[1]*memory_size[2]-1)
-    -- m_avg = m_avg/x:size()[1]
-    -- m_var = m_var/(x:size()[1]-1) - x:size()[1]*m_avg^2/(x:size()[1]-1)    
-    -- print('self.memory:size = ',self.memory:size()[1],self.memory:size()[2])
-    -- print('x_avg = ', x_avg)
-    -- print('x_var = ', x_var)
-    -- print('m_avg = ', m_avg)
-    -- print('m_var = ', m_var)
-    print('Nov=', Nov)
+    
+
+    --Compute the novelty
+    Nov = self:get_novelty(state)
+    --print('Nov = ', Nov)
 
     -- print(curState[1][4])
     --Updating the high level memory
-    self:update_memory()
+    self:update_memory(state)
     --Compute the novelty of the current state. 
 
     -- Select action
@@ -551,3 +575,4 @@ function nql:report()
     print(get_weight_norms(self.network))
     print(get_grad_norms(self.network))
 end
+

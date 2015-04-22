@@ -7,6 +7,7 @@ See LICENSE file for full terms of limited license.
 require 'convnet'
 
 return function(args)
+print(args)
     args.n_units        = {32, 64, 64}
     args.filter_size    = {8, 4, 3}
     args.filter_stride  = {4, 2, 1}
