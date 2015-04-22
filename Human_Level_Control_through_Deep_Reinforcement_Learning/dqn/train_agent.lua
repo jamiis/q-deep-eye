@@ -91,12 +91,12 @@ while step < opt.steps do
     local action_index = agent:perceive(reward, screen, terminal)
     -- print('step = ', step)
     logger:log(step,reward,screen,terminal)
-    if step == 100 then
-        -- for i=1,agent.memory:size()[1],1 do
-        --     print('memory['..i..'] = ', agent.memory[i])
-        -- end
-        os.exit()
-    end
+    -- if step == 100 then
+    --     -- for i=1,agent.memory:size()[1],1 do
+    --     --     print('memory['..i..'] = ', agent.memory[i])
+    --     -- end
+    --     os.exit()
+    -- end
 
     -- game over? get next game!
     if not terminal then
