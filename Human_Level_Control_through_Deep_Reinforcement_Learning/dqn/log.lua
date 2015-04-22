@@ -13,6 +13,7 @@ function create_log(agent, env, opt)
 	logger.agent = agent
 	logger.env = env
 	logger.file = io.open(logger.filename, "w")
+	logger.scorefile = io.open(logger.filename..'.scr', 'w')
 	function logger:log(step, reward, rawstate, term)
 		local state = self.agent:preprocess(rawstate)  
 		local repr = self.agent.hasher:forward(state)
@@ -29,6 +30,9 @@ function create_log(agent, env, opt)
 			printstring=printstring..' '..string.format('%5f',repr[i])
 		end
 		self.file:write(printstring..'\n')
+	end
+	function logger:logscore(step, nepoch, score)
+		self.scorefile:write(string.format('step=%d,nepoch=%d,score=%d\n',step,nepoch,score))
 	end
 	return logger
 end

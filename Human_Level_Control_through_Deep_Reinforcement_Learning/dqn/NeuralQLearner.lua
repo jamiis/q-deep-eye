@@ -433,7 +433,7 @@ function nql:perceive(reward, rawstate, terminal, testing, testing_ep)
     
 
     --Compute the novelty
-    Nov = self:get_novelty(state)
+    --Nov = self:get_novelty(state)
     --print('Nov = ', Nov)
 
     -- print(curState[1][4])

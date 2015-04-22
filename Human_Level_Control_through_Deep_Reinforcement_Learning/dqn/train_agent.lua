@@ -83,7 +83,8 @@ local nepisodes
 local episode_reward
 
 local screen, reward, terminal = game_env:getState()
-
+local score = reward
+local nepoch = 1
 
 print("Iteration ..", step)
 while step < opt.steps do
@@ -103,7 +104,11 @@ while step < opt.steps do
     -- game over? get next game!
     if not terminal then
         screen, reward, terminal = game_env:step(game_actions[action_index], true)
+        score = score + reward
     else
+        logger:logscore(step,nepoch,score)
+        score = 0
+        nepoch = nepoch+1
         if opt.random_starts > 0 then
             screen, reward, terminal = game_env:nextRandomGame()
         else
