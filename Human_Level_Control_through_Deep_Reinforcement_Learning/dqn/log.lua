@@ -34,6 +34,7 @@ function create_log(agent, env, opt)
 	function logger:logscore(step, nepoch, score)
 		self.scorefile:write(string.format('step=%d,nepoch=%d,score=%d\n',step,nepoch,score))
 	end
+	logger.file:write("Log file created. Number of frames for epsilon = "..agent.rho_lookback..", rho_lambda = "..agent.rho_lambda.."\n")
 	return logger
 end
 
