@@ -155,7 +155,7 @@ while step < opt.steps do
             td_history[ind] = agent.tderr_avg
             qmax_history[ind] = agent.q_max
         end
-        print("V", v_history[ind], "TD error", td_history[ind], "Qmax", qmax_history[ind])
+        print("V", v_history[ind], "TD error", td_history[ind], "Qmax", qmax_history[ind], "avg_reward", total_reward)
 
         reward_history[ind] = total_reward
         reward_counts[ind] = nrewards
