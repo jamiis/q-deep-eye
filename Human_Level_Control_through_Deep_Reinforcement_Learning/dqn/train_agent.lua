@@ -70,6 +70,11 @@ local reward_history = {}
 local step = 0
 time_history[1] = 0
 
+local success, ret = pcall(torch.load, opt.network)
+if success then
+    step = ret["step"]
+end
+
 local total_reward
 local nrewards
 local nepisodes
@@ -94,8 +99,8 @@ while step < opt.steps do
     end
 
     if step % opt.prog_freq == 0 then
-        assert(step==agent.numSteps, 'trainer step: ' .. step ..
-                ' & agent.numSteps: ' .. agent.numSteps)
+        --assert(step==agent.numSteps, 'trainer step: ' .. step ..
+        --        ' & agent.numSteps: ' .. agent.numSteps)
         print("Steps: ", step)
         agent:report()
         collectgarbage()
@@ -186,17 +191,19 @@ while step < opt.steps do
             filename = filename .. "_" .. math.floor(step / opt.save_versions)
         end
         filename = filename
-        torch.save(filename .. ".t7", {agent = agent,
+        torch.save(filename .. ".t7", {
+                                -- agent = agent,
                                 model = agent.network,
                                 best_model = agent.best_network,
-                                reward_history = reward_history,
-                                reward_counts = reward_counts,
-                                episode_counts = episode_counts,
-                                time_history = time_history,
-                                v_history = v_history,
-                                td_history = td_history,
-                                qmax_history = qmax_history,
-                                arguments=opt})
+                                --reward_history = reward_history,
+                                --reward_counts = reward_counts,
+                                --episode_counts = episode_counts,
+                                --time_history = time_history,
+                                --v_history = v_history,
+                                --td_history = td_history,
+                                --qmax_history = qmax_history,
+                                arguments=opt,
+                                step = step})
         if opt.saveNetworkParams then
             local nets = {network=w:clone():float()}
             torch.save(filename..'.params.t7', nets, 'ascii')
