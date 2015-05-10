@@ -7,6 +7,7 @@ See LICENSE file for full terms of limited license.
 if not dqn then
     require "initenv"
 end
+require "connections"
 
 local cmd = torch.CmdLine()
 cmd:text()
@@ -53,6 +54,8 @@ local game_env, game_actions, agent, opt = setup(opt)
 --We don't need the agent here. 
 --What we need is connections to the children
 --TODO initialize the connections to the slaves
+--local slaves = initialize_connections( ... )
+local slaves = {{ip="0.0.0.0"}, {ip="1.1.1.1"}, {ip="2.2.2.2"}}
 
 
 -- override print to always flush the output
@@ -81,17 +84,21 @@ local episode_reward
 
 local screen, reward, terminal = game_env:getState()
 
+
+
 print("Iteration ..", step)
 while step < opt.steps do
     step = step + 1
     --local action_index = agent:perceive(reward, screen, terminal)
 
-    local state = agent.preprocess(screen):float()
+    local state = agent:preprocess(screen):float()
     --TODO broadcast preprocessed screen to all the slaves and get the actions
-    local action_counts
+    local action_counts = {}
     for i,v in ipairs(slaves) do
         --Call the method Lance writes here
-        local a = 1
+        local a  = get_action(v, reward, state, terminal)
+        print(step, a)
+        --local a = 1
         if action_counts[a] then
             action_counts[a] = action_counts[a]+1
         else

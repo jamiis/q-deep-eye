@@ -11,9 +11,13 @@ end
 -- local con = {ip="52.5.123.123", ......}
 
 
--- inputs: 	state		The preprocessed screen
---			connect 	A coonection object
+-- inputs: 	connect 	A coonection object
+--			reward		The reward
+--			state		The preprocessed screen
+--			terminal	terminal
+
 -- returns: action 		The action returned by the slave
-function get_action( ... )
-	-- body
+function get_action(connect, reward, state, terminal)
+	-- TODO: body
+	return 1
 end
