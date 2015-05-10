@@ -86,14 +86,14 @@ local reward_history = {}
 local step = 0
 time_history[1] = 0
 
-local total_reward = 0
-local episode_reward = 0
+local total_reward
 local nrewards
-local nepisodes = 0
+local nepisodes
 local episode_reward
 
 local screen, reward, terminal = game_env:getState()
-episode_reward = episode_reward+reward
+
+
 
 print("Iteration ..", step)
 while step < opt.steps do
@@ -129,13 +129,7 @@ while step < opt.steps do
     -- game over? get next game!
     if not terminal then
         screen, reward, terminal = game_env:step(game_actions[action_index], true)
-        total_reward = total_reward+reward
-        episode_reward = episode_reward+reward
     else
-        print("Game_over: Final score = ", episode_reward, "nepisodes = ", nepisodes+1)
-        total_reward = total_reward+episode_reward
-        episode_reward = 0
-        nepisodes = nepisodes+1
         if opt.random_starts > 0 then
             screen, reward, terminal = game_env:nextRandomGame()
         else
