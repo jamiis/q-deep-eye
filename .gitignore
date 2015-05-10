@@ -6,6 +6,9 @@ Human_Level_Control_through_Deep_Reinforcement_Learning/dqn/DQN*
 .DS_Store
 ale
 *.swp
+report/report.aux
+report/report.log
+report/report.out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
