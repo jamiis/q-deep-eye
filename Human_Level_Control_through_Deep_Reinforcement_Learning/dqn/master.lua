@@ -147,7 +147,7 @@ while step < opt.steps do
 
     if step%opt.output_freq ==0 then
         print("iteration ..", step)
-        print("action = ", action_index, "reward" = reward, "max_vote" = max_vote)
+        print("action = ", action_index, "reward=", reward, "max_vote=", max_vote)
     end
     -- if step % opt.eval_freq == 0 and step > learn_start then
 
