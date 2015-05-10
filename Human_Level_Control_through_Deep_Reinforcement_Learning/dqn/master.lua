@@ -102,8 +102,10 @@ while step < opt.steps do
 
     local state = agent:preprocess(screen):float()
     local action_counts = {}
-    for i,v in ipairs(slaves) do
-        local a  = get_action(v, reward, state, terminal)
+    collected_actions = collect_actions(slaves, reward, state, terminal)
+
+    for i,a in ipairs(collected_actions) do
+        --local a  = get_action(v, reward, state, terminal)
         -- print(step, a)
         --local a = 1
         if action_counts[a] then

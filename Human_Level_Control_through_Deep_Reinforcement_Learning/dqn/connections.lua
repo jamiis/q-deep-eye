@@ -1,6 +1,7 @@
 local socket = require("socket")
 local string = require("string")
 local torch = require("torch")
+local lanes = require("lanes")
 
 -- returns the connection to the slave servers
 -- inputs: IP_list   a list of server ips
@@ -24,16 +25,30 @@ end
 
 
 -- inputs: 	connect 	A coonection object to the slave
---			reward		The reward
---			state		The preprocessed screen
---			terminal	terminal
+--			texttosend	The texttosend
 
 -- returns: action 		The action returned by the slave
-function get_action(connect, reward, state, terminal)
+function get_action(connect, texttosend)
 	text = totext(reward,state,terminal)
 	connect:send(text.."\n")
 	local a = connect:receive()
 	return a+0
+end
+
+--inputs:
+--			slaves      A list of the connections
+--			reward		The reward
+--			state		The preprocessed screen
+--			terminal	terminal
+--returns:	actions  	A list of actions
+function collect_actions(slaves, reward, state, terminal)
+	text = totext(reward,state, terminal)
+	f = lanes.gen(get_action)
+	actions = {}
+	for i,v in ipairs(slaves) do
+		actions[i] = f(v,text)
+	end
+	return actions
 end
 
 function totext(reward, state, terminal)
