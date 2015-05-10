@@ -8,7 +8,7 @@ if not dqn then
     require "initenv"
 end
 require("connections")
-local string = require("strings")
+local string = require("string")
 
 local cmd = torch.CmdLine()
 cmd:text()
@@ -98,6 +98,7 @@ print("Iteration ..", step)
 while step < opt.steps do
     step = step + 1
     --local action_index = agent:perceive(reward, screen, terminal)
+    print("step = ", tostring(step))
 
     local state = agent:preprocess(screen):float()
     local action_counts = {}
@@ -120,7 +121,7 @@ while step < opt.steps do
             --TODO think of a better way to break the tie
         end
     end
-
+    print("action =",action_index)
     -- game over? get next game!
     if not terminal then
         screen, reward, terminal = game_env:step(game_actions[action_index], true)

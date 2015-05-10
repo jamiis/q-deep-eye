@@ -80,6 +80,7 @@ print "Waiting for incoming connection"
 local client = m:accept()
 print "Server is up."
 
+local step =0
 while true do
 	msg, errmsg=client:receive()
 	if msg == 'exit' or not msg then
@@ -87,9 +88,11 @@ while true do
 	end
 	reward, state, terminal = parse_rst(msg)
 	a = agent:perceive(reward, state, terminal, testing_ep)
+	print("step = ", tostring(step), "action = ", a)
 	client:send(tostring(a))
 end
 
+print("Exiting")
 client:shutdown()
 client:close()
 --Receives the preprocessed state. Response by returning the action
