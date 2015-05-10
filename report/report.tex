@@ -9,7 +9,7 @@
 
 \DeclareMathOperator{\E}{\mathbb{E}}
 
-\title{Bootstrap Aggregation of Deep Q-Networks}
+\title{Bagging Deep Q-Networks}
 
 \author{
 Jamis Johnson, Lance Legal, Angus Ding \\
@@ -70,16 +70,40 @@ $Q(s,a;\theta) \approx Q^*(s,a)$. Spatial, convolutional neural networks have dr
 the accuracy of image recognition tasks in recent years are therefore a natural fit as a 
 state-space function approximator of raw image data[3,4,5,6,7].
 
-
 \subsubsection*{Memory replay}
-TODO
+DeepMind emplyed a biologically-inspired memory replay mechanism that was integral
+to the success of Q-networks. Experiences, $e_t = (s_t,a_t,r_t,s_{t+1})$, are stored 
+at every time step $t$, where data set $ D_t = \{ e_{1}, \dots, e_{t} \} $. 
+Q-learning updates are applied during learning on uniformly sampled experiences, 
+with the loss function
+
+\[
+L_i(\theta_i) = \E_{(s,a,r,s') \sim U(D)} \bigg[ 
+    \left( r + \gamma \max_{a'} Q(s',a';\theta^-_i) - Q(s,a;\theta)\right)^2 
+\bigg]
+\]
+
+$\theta_i$ are the parameters to the Q-network and $\theta^-_i$ are the parameters used 
+in the previous iteration to calculate the target.
 
 \subsubsection*{Network architecture}
 TODO
 
-
 \subsection{Bagging}
-\subsubsection*{Algorithm}
+Bootstrap aggregation is a standard technique for improving the stability
+and performance of statistical classifiers[8].
+It is commonplace to employ this method when modeling using decision trees, but has 
+also been shown to produce good results when applied to artificial neural networks[9,10].
+
+Bagging averages across an ensemble of classifiers $f^{*n}(x)$, where $n \in [1,N]$
+and training data consists of $N$ Bootstrap samples, such that
+
+\[
+f_{bag}(x) = \frac{1}{N} \sum_{n=1}^{N} f^{*n}(x)
+\]
+
+An intuitive way to think about bagging is: "the wisdom of crowds."
+
 \subsubsection*{Bagging Q-networks}
 
 \subsection{Alternate Approaches Considererd}
@@ -165,6 +189,12 @@ learning." {\it Nature} 518.7540 (2015): 529-533.
 [6] He, Kaiming, et al. "Delving deep into rectifiers: Surpassing human-level performance on imagenet classification." {\it arXiv preprint arXiv:1502.01852} (2015).
 
 [7] Sermanet, Pierre, et al. "Overfeat: Integrated recognition, localization and detection using convolutional networks." {\it arXiv preprint arXiv:1312.6229} (2013).
+
+[8] Breiman, Leo. "Bagging predictors." {\it Machine learning} 24.2 (1996): 123-140.
+
+[9] Schwenk, Holger, and Yoshua Bengio. "Boosting neural networks." {\it Neural Computation} 12.8 (2000): 1869-1887.
+
+[10] Ha, Kyoungnam, Sungzoon Cho, and Douglas MacLachlan. "Response models based on bagging neural networks." {\it Journal of Interactive Marketing} 19.1 (2005): 17-30.
 
 [] Krizhevsky, Alex. "One weird trick for parallelizing convolutional neural networks." {\it arXiv preprint arXiv}:1404.5997 (2014).
 
