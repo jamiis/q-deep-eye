@@ -1,10 +1,10 @@
 local socket = require("socket")
 local string = require("string")
 local torch = require("torch")
+
 -- returns the connection to the slave servers
 -- inputs: IP_list   a list of server ips
 -- returns: connects a list of connections
-
 function initialize_connections(IP_list)
 	local connections = {}
 	local index = 1
