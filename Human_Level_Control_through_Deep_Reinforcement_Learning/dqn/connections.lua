@@ -1,7 +1,7 @@
 local socket = require("socket")
 local string = require("string")
 local torch = require("torch")
-local lanes = require("lanes")
+local lanes = require("lanes").configure()
 
 -- returns the connection to the slave servers
 -- inputs: IP_list   a list of server ips
