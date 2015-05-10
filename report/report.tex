@@ -2,13 +2,16 @@
 \usepackage{nips15submit_e,times}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath,amssymb}
 %\documentstyle[nips14submit_09,times,art10]{article} % For LaTeX 2.09
 
+\DeclareMathOperator{\E}{\mathbb{E}}
 
-\title{Ensemble of Q-Networks}
+\title{Bootstrap Aggregation of Deep Q-Networks}
 
 \author{
-\And
 Jamis Johnson, Lance Legal, Angus Ding \\
 Department of Computer Science\\
 Columbia University \\
@@ -31,18 +34,144 @@ New York, NY\\
 
 \begin{document}
 
-
 \maketitle
 
-
 \begin{abstract}
-I know this is dumb but I'm tired right now Lorem Ipsum 
-Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
+Recent advancements by DeepMind in leveraging convolutional neural networks to 
+represent the state space in Q-learning have dramatically improved the performance 
+of algorithmic game playing, outperforming nearly all competing algorithms across 49
+Atari 2600 games. In this paper, we propose a straight forward, distributed method for 
+increasing the efficacy of deep Q-network agents thorugh the well-known ensemble algorithm,
+boostrap aggregation. We have developed software to orchestrate the deployment, training, 
+and testing of this method on a cluster of GPU optimized, Amazon Web Service EC-2 
+virtual machines. We provide results demonstarting the effectiveness of training time
+on performance as well as ensemble size to performance.
 \end{abstract}
 
-\section{Q-Networks}
-We should simply push all of the NIPS formatting down so we can reference it. 
-It'll be very useful while editing the latex.
+\section{Overview}
+Q-networks have been shown to outperform 43 state-of-the-art agents across a 
+diverse array of 49 Atari 2600 games, often by extreme margins.
+
+\subsection{Deep Q-networks}
+Q-learning is a long-standing, model-free reinforcement learning algorithm used to find 
+an optimal action-selection policy[1]. Deep Q-networks are a novel approach to 
+Q-learning in which deep convolutional neural networks are used to reduce high-dimensional 
+raw input to a set of possible actions[2]. The convolutional neural network approximates the 
+optimal action-value function
+
+\[
+Q^*(s,a) = \max_{\pi} \E \left[ r_t + \gamma r_{t+1} \gamma^2 r_{t+2} + \dots | s_t = s, a_t = a, \pi \right]
+\]
+
+which is the maximum sum of discounted rewards at time $t$. It is quite common 
+to approximate $Q^*$ using a linear approximator, but in this case a 
+nonlinear convolutional neural network is used such that, given $\theta$ weights, 
+$Q(s,a;\theta) \approx Q^*(s,a)$. Spatial, convolutional neural networks have drastically increased 
+the accuracy of image recognition tasks in recent years are therefore a natural fit as a 
+state-space function approximator of raw image data[3,4,5,6,7].
+
+
+\subsubsection*{Memory replay}
+TODO
+
+\subsubsection*{Network architecture}
+TODO
+
+
+\subsection{Bagging}
+\subsubsection*{Algorithm}
+\subsubsection*{Bagging Q-networks}
+
+\subsection{Alternate Approaches Considererd}
+Let's not opine too long on these alternate approaches as they are second to bagging
+
+\subsubsection*{Multi-GPU Training Performance Speedup}
+Krhizevsky(spelling)'s "neat trick" to optimizing the traning of convolutional neural networks
+across multiple GPUs[TODO] was initially appealing but fell by the wayside when it became clear 
+that saturating the memory and compute power of a single NVIDIA K520 GPU would not be straight 
+forward. We still feel there is room for work to be done here in optimizing DeepMind's now dated
+deep Q-network Torch code to automatically utilize multiple, single-machine GPUs.
+
+\subsubsection*{Novel Exploratory Parameter}
+
+\section{Implementation}
+
+\subsection{Cluster Architecture}
+
+\begin{figure}[H]
+\begin{center}
+%\framebox[4.0in]{$\;$}
+%\includegraphics[width=1.0\textwidth]{filename}
+\fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+\end{center}
+\caption{Cluster Architecture}
+\end{figure}
+
+
+\begin{table}[H]
+\caption{TODO: Title}
+\label{sample-table}
+\begin{center}
+    \begin{tabular}{l | ccc}
+        {\bf Config} & \multicolumn{1}{c}{\bf Space}  & \multicolumn{1}{c}{\bf Breakout} & \multicolumn{1}{c}{\bf Pacman} \\
+        \\ \hline \\
+        3x6     &6 &5 &5 \\
+        3x10    &6 &5 &5 \\
+        3x18    &6 &5 &5 \\
+    \end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Results}
+
+\begin{figure}[H]
+\begin{center}
+%\framebox[4.0in]{$\;$}
+%\includegraphics[width=1.0\textwidth]{filename}
+\fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+\end{center}
+\caption{Effect of Ensemble Size on Performance.}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+%\framebox[4.0in]{$\;$}
+%\includegraphics[width=1.0\textwidth]{filename}
+\fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+\end{center}
+\caption{Effect of Training Time on Ensembles.}
+\end{figure}
+
+
+\section{Conclusion}
+\subsubsection*{Acknowledgments}
+Thanks Mom
+
+\subsubsection*{References}
+
+\small{
+[1] Watkins, Christopher JCH, and Peter Dayan. "Q-learning." {\it Machine learning} 8.3-4 (1992): 279-292.
+
+[2] Mnih, Volodymyr, et al. "Human-level control through deep reinforcement 
+learning." {\it Nature} 518.7540 (2015): 529-533.
+
+[3] Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." {\it Advances in neural information processing systems}. 2012.
+
+[4] Szegedy, Christian, et al. "Going deeper with convolutions." {\it arXiv preprint arXiv:1409.4842} (2014).
+
+[5] Simonyan, Karen, and Andrew Zisserman. "Very deep convolutional networks for large-scale image recognition." {\it arXiv preprint arXiv:1409.1556} (2014).
+
+[6] He, Kaiming, et al. "Delving deep into rectifiers: Surpassing human-level performance on imagenet classification." {\it arXiv preprint arXiv:1502.01852} (2015).
+
+[7] Sermanet, Pierre, et al. "Overfeat: Integrated recognition, localization and detection using convolutional networks." {\it arXiv preprint arXiv:1312.6229} (2013).
+
+[] Krizhevsky, Alex. "One weird trick for parallelizing convolutional neural networks." {\it arXiv preprint arXiv}:1404.5997 (2014).
+
+[] Dean, Jeffrey, et al. "Large scale distributed deep networks." {\it Advances in Neural Information Processing Systems}. 2012.
+
+[] Collobert, Ronan, Koray Kavukcuoglu, and Clément Farabet. "Torch7: A matlab-like environment for machine learning." {\it BigLearn, NIPS Workshop}. No. EPFL-CONF-192376. 2011.
+}
 
 \section{Submission of papers to NIPS 2015}
 
@@ -398,30 +527,5 @@ See section 4.4 in the graphics bundle documentation (\url{http://www.ctan.org/t
  
 A number of width problems arise when LaTeX cannot properly hyphenate a
 line. Please give LaTeX hyphenation hints using the \verb+\-+ command.
-
-
-\subsubsection*{Acknowledgments}
-
-Use unnumbered third level headings for the acknowledgments. All
-acknowledgments go at the end of the paper. Do not include 
-acknowledgments in the anonymized submission, only in the 
-final paper. 
-
-\subsubsection*{References}
-
-References follow the acknowledgments. Use unnumbered third level heading for
-the references. Any choice of citation style is acceptable as long as you are
-consistent. It is permissible to reduce the font size to `small' (9-point) 
-when listing the references. {\bf Remember that this year you can use
-a ninth page as long as it contains \emph{only} cited references.}
-
-\small{
-[1] Mnih, Volodymyr, et al. "Human-level control through deep reinforcement 
-learning." {it Nature} 518.7540 (2015): 529-533.
-
-[2] Krizhevsky, Alex. "One weird trick for parallelizing convolutional neural networks." {it arXiv preprint arXiv}:1404.5997 (2014).
-
-[3] Dean, Jeffrey, et al. "Large scale distributed deep networks." {it Advances in Neural Information Processing Systems}. 2012.
-}
 
 \end{document}
