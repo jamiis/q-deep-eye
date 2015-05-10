@@ -88,8 +88,8 @@ while true do
 	end
 	reward, state, terminal = parse_rst(msg)
 	a = agent:perceive(reward, state, terminal, testing_ep)
+	client:send(tostring(a).."\n")
 	print("step = ", tostring(step), "action = ", a)
-	client:send(tostring(a))
 end
 
 print("Exiting")
