@@ -7,7 +7,8 @@ See LICENSE file for full terms of limited license.
 if not dqn then
     require "initenv"
 end
-require "connections"
+require("connections")
+local string = require("strings")
 
 local cmd = torch.CmdLine()
 cmd:text()
@@ -44,6 +45,7 @@ cmd:option('-verbose', 2,
            'the higher the level, the more information is printed to screen')
 cmd:option('-threads', 1, 'number of BLAS threads')
 cmd:option('-gpu', -1, 'gpu flag')
+cmd:option('-ip_list', '', 'list of slave ips')
 
 cmd:text()
 
@@ -53,9 +55,15 @@ local opt = cmd:parse(arg)
 local game_env, game_actions, agent, opt = setup(opt)
 --We don't need the agent here. 
 --What we need is connections to the children
---TODO initialize the connections to the slaves
+local ip_list = {}
+local index = 1
+for i in string.gmatch(opt.ip_list, "[^ ]+") do
+    ip_list[index] = i
+    index = index+1
+end
+local slaves = initialize_connections(ip_list)
 --local slaves = initialize_connections( ... )
-local slaves = {{ip="0.0.0.0"}, {ip="1.1.1.1"}, {ip="2.2.2.2"}}
+
 
 
 -- override print to always flush the output
@@ -92,10 +100,8 @@ while step < opt.steps do
     --local action_index = agent:perceive(reward, screen, terminal)
 
     local state = agent:preprocess(screen):float()
-    --TODO broadcast preprocessed screen to all the slaves and get the actions
     local action_counts = {}
     for i,v in ipairs(slaves) do
-        --Call the method Lance writes here
         local a  = get_action(v, reward, state, terminal)
         print(step, a)
         --local a = 1
@@ -111,6 +117,7 @@ while step < opt.steps do
         if v > max_vote then
             max_vote = v
             action_index = i
+            --TODO think of a better way to break the tie
         end
     end
 
@@ -241,4 +248,11 @@ while step < opt.steps do
     --     io.flush()
     --     collectgarbage()
     -- end
+end
+
+
+for i,v in ipairs(slaves) do
+    v:send('exit\n')
+    v:shutdown()
+    v:close()    
 end

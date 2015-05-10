@@ -71,6 +71,7 @@ function nql:__init(args)
               " is not a string!")
     end
 
+
     local msg, err = pcall(require, self.network)
     if not msg then
         -- try to load saved agent
@@ -312,6 +313,7 @@ function nql:perceive(reward, rawstate, terminal, testing, testing_ep)
         self.r_max = math.max(self.r_max, reward)
     end
 
+    --==============The works that should be done by the children=========
     self.transitions:add_recent_state(state, terminal)
 
     local currentFullState = self.transitions:get_recent()
@@ -362,6 +364,8 @@ function nql:perceive(reward, rawstate, terminal, testing, testing_ep)
     else
         return 0
     end
+    -- #=========End the works done by the children=================
+
 end
 
 

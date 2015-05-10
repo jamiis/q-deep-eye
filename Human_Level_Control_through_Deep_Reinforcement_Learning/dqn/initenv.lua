@@ -12,6 +12,7 @@ require 'nnutils'
 require 'image'
 require 'Scale'
 require 'NeuralQLearner'
+require 'NeuralQAgent'
 require 'TransitionTable'
 require 'Rectifier'
 

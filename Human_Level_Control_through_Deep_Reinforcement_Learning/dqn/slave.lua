@@ -7,7 +7,8 @@ See LICENSE file for full terms of limited license.
 if not dqn then
     require "initenv"
 end
-
+require("connections")
+local socket = require("socket")
 local cmd = torch.CmdLine()
 cmd:text()
 cmd:text('Train Agent in Environment:')
@@ -69,11 +70,28 @@ local td_history = {}
 local reward_history = {}
 local step = 0
 time_history[1] = 0
+local testing_ep = 0
 
 --TODO: Launch a server here. 
+local m = socket.tcp()
+print(m:bind('*', 2600))
+print(m:listen(32)) --we only need at most 15?
+print "Waiting for incoming connection"
+local client = m:accept()
 print "Server is up."
 
+while true do
+	msg=client:receive()
+	if msg == 'exit' then
+		break
+	end
+	reward, state, terminal = parse_rst(msg)
+	a = agent:perceive(reward, state, terminal, testing_ep)
+	client:send(tostring(a))
+end
 
+client:shutdown()
+client:close()
 --Receives the preprocessed state. Response by returning the action
 --inputs: ??	Whatever is received from the socket
 
