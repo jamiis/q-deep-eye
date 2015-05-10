@@ -81,8 +81,8 @@ local client = m:accept()
 print "Server is up."
 
 while true do
-	msg=client:receive()
-	if msg == 'exit' then
+	msg, errmsg=client:receive()
+	if msg == 'exit' or not msg then
 		break
 	end
 	reward, state, terminal = parse_rst(msg)

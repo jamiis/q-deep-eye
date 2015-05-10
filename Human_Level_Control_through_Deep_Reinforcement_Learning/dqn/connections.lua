@@ -53,7 +53,7 @@ function parse_rst(str)
 		index = index+1
 	end
 	local reward = lines[1]+0
-	local terminal = lines[3]+0
+	local terminal = lines[3]=='true'
 	local state=torch.Tensor(84*84)
 	
 	local index=0
