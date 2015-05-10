@@ -41,6 +41,7 @@ num_threads=4
 save_net_weights= true
 save_versions=1
 filename_handle="pretrained"
+output_freq=15
 #load_network=$agent_type"_"$1"_FULL_Y_"35000".t7"
 #echo $load_network
 IPLIST=""
@@ -49,7 +50,7 @@ for i in `seq 0 $((${#BASH_ARGV[*]}-4))`; do
 	IPLIST=$IPLIST" "$IP
 done
 
-args="-framework $FRAMEWORK -game_path $game_path -name $filename_handle -env $ENV -env_params $env_params -agent $agent -agent_params $agent_params -steps $steps -eval_freq $eval_freq -eval_steps $eval_steps -prog_freq $prog_freq -save_freq $save_freq -actrep $actrep -gpu $gpu -random_starts $random_starts -pool_frms $pool_frms -seed $seed -threads $num_threads -save_versions $save_versions -ip_list $IPLIST"
+args="-framework $FRAMEWORK -game_path $game_path -name $filename_handle -env $ENV -env_params $env_params -agent $agent -agent_params $agent_params -steps $steps -eval_freq $eval_freq -eval_steps $eval_steps -prog_freq $prog_freq -save_freq $save_freq -actrep $actrep -gpu $gpu -random_starts $random_starts -pool_frms $pool_frms -seed $seed -threads $num_threads -save_versions $save_versions -ip_list $IPLIST -output_freq $output_freq"
 echo $args
 
 cd dqn

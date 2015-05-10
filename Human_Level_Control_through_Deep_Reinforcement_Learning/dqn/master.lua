@@ -46,6 +46,7 @@ cmd:option('-verbose', 2,
 cmd:option('-threads', 1, 'number of BLAS threads')
 cmd:option('-gpu', -1, 'gpu flag')
 cmd:option('-ip_list', '', 'list of slave ips')
+cmd:option('-output_freq', '', 'output frequency')
 
 cmd:text()
 
@@ -98,13 +99,13 @@ print("Iteration ..", step)
 while step < opt.steps do
     step = step + 1
     --local action_index = agent:perceive(reward, screen, terminal)
-    print("step = ", tostring(step))
+    -- print("step = ", tostring(step))
 
     local state = agent:preprocess(screen):float()
     local action_counts = {}
     for i,v in ipairs(slaves) do
         local a  = get_action(v, reward, state, terminal)
-        print(step, a)
+        -- print(step, a)
         --local a = 1
         if action_counts[a] then
             action_counts[a] = action_counts[a]+1
@@ -114,14 +115,15 @@ while step < opt.steps do
     end
     local max_vote, action_index
     max_vote = 0
-    for i,v in ipairs(action_counts) do
+    for i,v in pairs(action_counts) do
         if v > max_vote then
             max_vote = v
             action_index = i
             --TODO think of a better way to break the tie
         end
     end
-    print("action =",action_index)
+    -- print (action_counts)
+    -- print("step=", step,"action =",action_index)
     -- game over? get next game!
     if not terminal then
         screen, reward, terminal = game_env:step(game_actions[action_index], true)
@@ -143,6 +145,10 @@ while step < opt.steps do
 
     if step%1000 == 0 then collectgarbage() end
 
+    if step%opt.output_freq ==0 then
+        print("iteration ..", step)
+        print("action = ", action_index, "reward" = reward, "max_vote" = max_vote)
+    end
     -- if step % opt.eval_freq == 0 and step > learn_start then
 
     --     screen, reward, terminal = game_env:newGame()

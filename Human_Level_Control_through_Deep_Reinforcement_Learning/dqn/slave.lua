@@ -44,6 +44,7 @@ cmd:option('-verbose', 2,
            'the higher the level, the more information is printed to screen')
 cmd:option('-threads', 1, 'number of BLAS threads')
 cmd:option('-gpu', -1, 'gpu flag')
+cmd:option('-output_freq', '', 'output frequency')
 
 cmd:text()
 
@@ -82,6 +83,7 @@ print "Server is up."
 
 local step =0
 while true do
+	step = step +1
 	msg, errmsg=client:receive()
 	if msg == 'exit' or not msg then
 		break
@@ -89,7 +91,9 @@ while true do
 	reward, state, terminal = parse_rst(msg)
 	a = agent:perceive(reward, state, terminal, testing_ep)
 	client:send(tostring(a).."\n")
-	print("step = ", tostring(step), "action = ", a)
+	if step %opt.output_freq ==0 then
+		print("step = ", tostring(step), "action = ", a)
+	end
 end
 
 print("Exiting")
