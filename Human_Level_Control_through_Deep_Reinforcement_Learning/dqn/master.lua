@@ -86,14 +86,13 @@ local reward_history = {}
 local step = 0
 time_history[1] = 0
 
-local total_reward
+local total_reward = 0
+local episode_reward = 0
 local nrewards
-local nepisodes
-local episode_reward
+local nepisodes = 0
 
 local screen, reward, terminal = game_env:getState()
-
-
+episode_reward = episode_reward+reward
 
 print("Iteration ..", step)
 while step < opt.steps do
@@ -103,7 +102,14 @@ while step < opt.steps do
 
     local state = agent:preprocess(screen):float()
     local action_counts = {}
-    collected_actions = collect_actions(slaves, reward, state, terminal)
+    local collected_actions = {}
+
+    local texttosend = totext(reward, state, terminal)
+    for i, v in ipairs(slaves) do
+        local a = get_action(v, texttosend)
+        collected_actions[i] = a
+    end
+    --collected_actions = collect_actions(slaves, reward, state, terminal)
 
     for i,a in ipairs(collected_actions) do
         --local a  = get_action(v, reward, state, terminal)
@@ -129,7 +135,13 @@ while step < opt.steps do
     -- game over? get next game!
     if not terminal then
         screen, reward, terminal = game_env:step(game_actions[action_index], true)
+        total_reward = total_reward+reward
+        episode_reward = episode_reward+reward
     else
+        print("Game_over: Final score = ", episode_reward, "nepisodes = ", nepisodes+1)
+        total_reward = total_reward+episode_reward
+        episode_reward = 0
+        nepisodes = nepisodes+1
         if opt.random_starts > 0 then
             screen, reward, terminal = game_env:nextRandomGame()
         else
@@ -149,7 +161,7 @@ while step < opt.steps do
 
     if step%opt.output_freq ==0 then
         print("iteration ..", step)
-        print("action = ", action_index, "reward=", reward, "max_vote=", max_vote)
+        print("action = ", action_index, "reward=", episode_reward, "max_vote=", max_vote)
     end
     -- if step % opt.eval_freq == 0 and step > learn_start then
 
