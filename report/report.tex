@@ -2,10 +2,12 @@
 \usepackage{nips15submit_e,times}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{graphicx}
+\usepackage{float}
 %\documentstyle[nips14submit_09,times,art10]{article} % For LaTeX 2.09
 
 
-\title{Ensemble of Q-Networks}
+\title{Bootstrap Aggregation of Q-Networks}
 
 \author{
 \And
@@ -41,8 +43,101 @@ Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
 \end{abstract}
 
 \section{Q-Networks}
+Abstract: quick dqn reference. 
+why an ensemble of networks is a good approach (each network, even 
+with the same architecture, explores random paths through games and 
+therefore have different experiences. intuitively, a democratic vote 
+across those experiences should yield superior results to a single dqn). 
+touch on our methods for getting results (aws cluster etc). briefly 
+address other approaches we took.
 We should simply push all of the NIPS formatting down so we can reference it. 
 It'll be very useful while editing the latex.
+
+\section{Overview}
+
+blah blah blah
+blah blah blah
+blah blah blah
+blah blah blah
+blah blah blah
+
+\subsection{Deep Q-networks}
+
+\subsection{Bootstrap Aggregating}
+\subsubsection*{Algorithm}
+\subsubsection*{Bagging Q-networks}
+
+\subsection{Alternate Approaches Considererd}
+Let's not opine too long on these alternate approaches as they are second to bagging
+\subsubsection*{Multi-GPU Training Performance Speedup}
+\subsubsection*{Novel Exploratory Parameter}
+
+\section{Implementation}
+
+\subsection{Cluster Architecture}
+
+\begin{figure}[H]
+\begin{center}
+%\framebox[4.0in]{$\;$}
+%\includegraphics[width=1.0\textwidth]{filename}
+\fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+\end{center}
+\caption{Cluster Architecture}
+\end{figure}
+
+
+\begin{table}[H]
+\caption{TODO: Title}
+\label{sample-table}
+\begin{center}
+    \begin{tabular}{l | ccc}
+        {\bf Config} & \multicolumn{1}{c}{\bf Space}  & \multicolumn{1}{c}{\bf Breakout} & \multicolumn{1}{c}{\bf Pacman} \\
+        \\ \hline \\
+        3x6     &6 &5 &5 \\
+        3x10    &6 &5 &5 \\
+        3x18    &6 &5 &5 \\
+    \end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Results}
+
+\begin{figure}[H]
+\begin{center}
+%\framebox[4.0in]{$\;$}
+%\includegraphics[width=1.0\textwidth]{filename}
+\fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+\end{center}
+\caption{Effect of Ensemble Size on Performance.}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+%\framebox[4.0in]{$\;$}
+%\includegraphics[width=1.0\textwidth]{filename}
+\fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+\end{center}
+\caption{Effect of Training Time on Ensembles.}
+\end{figure}
+
+
+\section{Conclusion}
+\subsubsection*{Acknowledgments}
+Thanks Mom
+
+\subsubsection*{References}
+
+\small{
+[1] Mnih, Volodymyr, et al. "Human-level control through deep reinforcement 
+learning." {it Nature} 518.7540 (2015): 529-533.
+
+[2] Krizhevsky, Alex. "One weird trick for parallelizing convolutional neural networks." {it arXiv preprint arXiv}:1404.5997 (2014).
+
+[3] Dean, Jeffrey, et al. "Large scale distributed deep networks." {it Advances in Neural Information Processing Systems}. 2012.
+
+[4] Collobert, Ronan, Koray Kavukcuoglu, and Clément Farabet. "Torch7: A matlab-like environment for machine learning." {it BigLearn, NIPS Workshop}. No. EPFL-CONF-192376. 2011.
+}
 
 \section{Submission of papers to NIPS 2015}
 
@@ -398,30 +493,5 @@ See section 4.4 in the graphics bundle documentation (\url{http://www.ctan.org/t
  
 A number of width problems arise when LaTeX cannot properly hyphenate a
 line. Please give LaTeX hyphenation hints using the \verb+\-+ command.
-
-
-\subsubsection*{Acknowledgments}
-
-Use unnumbered third level headings for the acknowledgments. All
-acknowledgments go at the end of the paper. Do not include 
-acknowledgments in the anonymized submission, only in the 
-final paper. 
-
-\subsubsection*{References}
-
-References follow the acknowledgments. Use unnumbered third level heading for
-the references. Any choice of citation style is acceptable as long as you are
-consistent. It is permissible to reduce the font size to `small' (9-point) 
-when listing the references. {\bf Remember that this year you can use
-a ninth page as long as it contains \emph{only} cited references.}
-
-\small{
-[1] Mnih, Volodymyr, et al. "Human-level control through deep reinforcement 
-learning." {it Nature} 518.7540 (2015): 529-533.
-
-[2] Krizhevsky, Alex. "One weird trick for parallelizing convolutional neural networks." {it arXiv preprint arXiv}:1404.5997 (2014).
-
-[3] Dean, Jeffrey, et al. "Large scale distributed deep networks." {it Advances in Neural Information Processing Systems}. 2012.
-}
 
 \end{document}
