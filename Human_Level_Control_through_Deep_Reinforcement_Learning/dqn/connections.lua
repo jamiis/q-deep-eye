@@ -30,8 +30,7 @@ end
 
 -- returns: action 		The action returned by the slave
 function get_action(connect, texttosend)
-	text = totext(reward,state,terminal)
-	connect:send(text.."\n")
+	connect:send(texttosend.."\n")
 	local a = connect:receive()
 	return a+0
 end
