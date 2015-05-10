@@ -90,6 +90,7 @@ local total_reward = 0
 local episode_reward = 0
 local nrewards
 local nepisodes = 0
+local episode_reward
 
 local screen, reward, terminal = game_env:getState()
 episode_reward = episode_reward+reward
@@ -154,7 +155,7 @@ while step < opt.steps do
 
     if step%opt.output_freq ==0 then
         print("iteration ..", step)
-        print("action = ", action_index, "reward=", episode_reward, "max_vote=", max_vote)
+        print("action = ", action_index, "reward=", reward, "max_vote=", max_vote)
     end
     -- if step % opt.eval_freq == 0 and step > learn_start then
 
