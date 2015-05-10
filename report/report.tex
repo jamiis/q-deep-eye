@@ -4,13 +4,14 @@
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{amsmath,amssymb}
 %\documentstyle[nips14submit_09,times,art10]{article} % For LaTeX 2.09
 
+\DeclareMathOperator{\E}{\mathbb{E}}
 
-\title{Bootstrap Aggregation of Q-Networks}
+\title{Bootstrap Aggregation of Deep Q-Networks}
 
 \author{
-\And
 Jamis Johnson, Lance Legal, Angus Ding \\
 Department of Computer Science\\
 Columbia University \\
@@ -33,43 +34,58 @@ New York, NY\\
 
 \begin{document}
 
-
 \maketitle
 
-
 \begin{abstract}
-I know this is dumb but I'm tired right now Lorem Ipsum 
-Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
+Recent advancements by DeepMind in leveraging convolutional neural networks to 
+represent the state space in Q-learning have dramatically improved the performance 
+of algorithmic game playing, outperforming nearly all competing algorithms across 49
+Atari 2600 games. In this paper, we propose a straight forward, distributed method for 
+increasing the efficacy of deep Q-network agents thorugh the well-known ensemble algorithm,
+boostrap aggregation. We have developed software to orchestrate the deployment, training, 
+and testing of this method on a cluster of GPU optimized, Amazon Web Service EC-2 
+virtual machines. We provide results demonstarting the effectiveness of training time
+on performance as well as ensemble size to performance.
 \end{abstract}
-
-\section{Q-Networks}
-Abstract: quick dqn reference. 
-why an ensemble of networks is a good approach (each network, even 
-with the same architecture, explores random paths through games and 
-therefore have different experiences. intuitively, a democratic vote 
-across those experiences should yield superior results to a single dqn). 
-touch on our methods for getting results (aws cluster etc). briefly 
-address other approaches we took.
-We should simply push all of the NIPS formatting down so we can reference it. 
-It'll be very useful while editing the latex.
 
 \section{Overview}
 
-blah blah blah
-blah blah blah
-blah blah blah
-blah blah blah
-blah blah blah
-
 \subsection{Deep Q-networks}
+Q-learning is a long-standing, model-free reinforcement learning algorithm used to find 
+an optimal action-selection policy[1]. Deep Q-networks are a novel approach to 
+Q-learning in which deep convolutional neural networks are used to reduce high-dimensional 
+raw input to a set of possible actions[2]. The convolutional neural network approximates the 
+optimal action-value function
 
-\subsection{Bootstrap Aggregating}
+\[
+Q^*(s,a) = \max_{\pi} \E \left[ r_t + \gamma r_{t+1} \gamma^2 r_{t+2} + \dots | s_t = s, a_t = a, \pi \right]
+\]
+
+which is the maximum sum of discounted rewards at time $t$. It is quite common 
+to approximate $Q^*$ using a linear approximator, but in this case we use a 
+nonlinear convolutional neural network such that, given $\theta$ weights, 
+$Q(s,a;\theta) \approx Q^*(s,a)$. Spatial convolutional neural networks have 
+recently increased that accuracy image recognition tasks drastically so they
+are a natural function approximator.\\
+
+Q-networks have been shown to outperform 43 state-of-the-art agents across a 
+diverse array of 49 Atari 2600 games, often by extreme margins.
+
+
+\subsection{Bagging}
 \subsubsection*{Algorithm}
 \subsubsection*{Bagging Q-networks}
 
 \subsection{Alternate Approaches Considererd}
 Let's not opine too long on these alternate approaches as they are second to bagging
+
 \subsubsection*{Multi-GPU Training Performance Speedup}
+Krhizevsky(spelling)'s "neat trick" to optimizing the traning of convolutional neural networks
+across multiple GPUs[TODO] was initially appealing but fell by the wayside when it became clear 
+that saturating the memory and compute power of a single NVIDIA K520 GPU would not be straight 
+forward. We still feel there is room for work to be done here in optimizing DeepMind's now dated
+deep Q-network Torch code to automatically utilize multiple, single-machine GPUs.
+
 \subsubsection*{Novel Exploratory Parameter}
 
 \section{Implementation}
@@ -129,7 +145,9 @@ Thanks Mom
 \subsubsection*{References}
 
 \small{
-[1] Mnih, Volodymyr, et al. "Human-level control through deep reinforcement 
+[1] Watkins, Christopher JCH, and Peter Dayan. "Q-learning." {it Machine learning} 8.3-4 (1992): 279-292.
+
+[2] Mnih, Volodymyr, et al. "Human-level control through deep reinforcement 
 learning." {it Nature} 518.7540 (2015): 529-533.
 
 [2] Krizhevsky, Alex. "One weird trick for parallelizing convolutional neural networks." {it arXiv preprint arXiv}:1404.5997 (2014).
