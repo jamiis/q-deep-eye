@@ -87,7 +87,17 @@ $\theta_i$ are the parameters to the Q-network and $\theta^-_i$ are the paramete
 in the previous iteration to calculate the target.
 
 \subsubsection*{Network architecture}
-TODO
+A straightforward network architecture was chosen, presumably to prop up the 
+generality of deep Q-networks. The input layer receives a 84 X 84 X 4 image produced
+by a preroccesing step $\phi$ which is in place to handle Atari 2600 artifacts such as 
+flickering, a phenomenon that occurs because certain sprites are placed on odd or even 
+numbered frames. The hidden layers are layer out as follows. First: convolves 32 filters, 
+using an 8 X 8 filter, and a stride of 4; Second: 64 filters, a 4 X 4 filter, and a stride 
+of 2; Third: 64 filters, a 3 X 3 filter, and a stride of 1. Each layer is followed by a 
+rectified nonlinear layer, $max(0,x)$. The last hidden layer is fully connected with 512
+rectified units, and the final output layer is a fully-connected linear layer with an output
+per available action.
+
 
 \subsection{Bagging}
 Bootstrap aggregation is a standard technique for improving the stability
@@ -95,7 +105,7 @@ and performance of statistical classifiers[8].
 It is commonplace to employ this method when modeling using decision trees, but has 
 also been shown to produce good results when applied to artificial neural networks[9,10].
 
-Bagging averages across an ensemble of classifiers $f^{*n}(x)$, where $n \in [1,N]$
+Bagging is a process of averaging across an ensemble of classifiers $f^{*n}(x)$, where $n \in [1,N]$
 and training data consists of $N$ Bootstrap samples, such that
 
 \[
@@ -105,18 +115,39 @@ f_{bag}(x) = \frac{1}{N} \sum_{n=1}^{N} f^{*n}(x)
 An intuitive way to think about bagging is: "the wisdom of crowds."
 
 \subsubsection*{Bagging Q-networks}
+In a supervised learning environment you would train $N$ neural networks, $f_{*n}$, on 
+bootstrapped data sets, $ Z_{n} = \{ (x_{1},y_{1}), \dots (x_{b}, y_{b}) \}_n $. 
+But Q-networks do not explicitly operate within a supervised learning framework. 
+Input data are dependent on the previous frame and the associated action taken.
+Because Q-networks are $\epsilon$-greedy, random actions are injected regularly into 
+the learning process. This allows us to train multiple networks, with the same 
+initial parameters, in parallel, to acheive the same effect as bagging would in a 
+supervised learning environment.
 
 \subsection{Alternate Approaches Considererd}
-Let's not opine too long on these alternate approaches as they are second to bagging
+We initially pursued multiple avenues of optimization and tuning. Below summarizes those
+endeavours.
 
 \subsubsection*{Multi-GPU Training Performance Speedup}
-Krhizevsky(spelling)'s "neat trick" to optimizing the traning of convolutional neural networks
-across multiple GPUs[TODO] was initially appealing but fell by the wayside when it became clear 
-that saturating the memory and compute power of a single NVIDIA K520 GPU would not be straight 
-forward. We still feel there is room for work to be done here in optimizing DeepMind's now dated
-deep Q-network Torch code to automatically utilize multiple, single-machine GPUs.
+Optimizing the deep Q-network code to utilize multiple GPUs on one machine was appealing
+because the code released by DeepMind was written using deprecated Torch libraries which
+had since been updated for multi-GPU processing. We decided to implement Krizhevsky's 
+"weird trick" for optimizaing the training of convolutional neural networks across machine-local 
+GPUs: implementing data parallelism for the convolutional layers and model parallelism for the 
+fully connected layers[11]. But this eventually proved to be unfruitful when we realized 
+that completely saturating the memory and compute power of a single NVIDIA K520 GPU would not be straight 
+forward. There is room however for work to be done in augmenting DeepMind's now dated
+Torch code to be concurrent by default.
 
-\subsubsection*{Novel Exploratory Parameter}
+\subsubsection*{Augmenting the Network Architecture}
+We toyed with the idea of replacing the straight forward network architecture with a more 
+complex network architecture, some of which claim to have surpassed or matched human level
+image recognition[4][6][12]. Another option was parameter tuning, simply adjusting the depth, 
+width, stride, and convolution size of the existing hidden layers to see what returned the best results. 
+This idea was cast aside in favor of using the current initial network parameters and bagging the 
+networks because we felt with the limited time allotted we had a higher probability of completion. 
+With that said, we are extremely interested in applying these cutting edge architecures to 
+deep Q-networks.
 
 \section{Implementation}
 
@@ -196,7 +227,9 @@ learning." {\it Nature} 518.7540 (2015): 529-533.
 
 [10] Ha, Kyoungnam, Sungzoon Cho, and Douglas MacLachlan. "Response models based on bagging neural networks." {\it Journal of Interactive Marketing} 19.1 (2005): 17-30.
 
-[] Krizhevsky, Alex. "One weird trick for parallelizing convolutional neural networks." {\it arXiv preprint arXiv}:1404.5997 (2014).
+[11] Krizhevsky, Alex. "One weird trick for parallelizing convolutional neural networks." {\it arXiv preprint arXiv}:1404.5997 (2014).
+
+[12] Ioffe, Sergey, and Christian Szegedy. "Batch normalization: Accelerating deep network training by reducing internal covariate shift." {it arXiv preprint arXiv}:1502.03167 (2015).
 
 [] Dean, Jeffrey, et al. "Large scale distributed deep networks." {\it Advances in Neural Information Processing Systems}. 2012.
 
