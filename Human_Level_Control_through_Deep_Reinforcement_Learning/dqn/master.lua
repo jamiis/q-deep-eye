@@ -105,11 +105,11 @@ while step < opt.steps do
     local collected_actions = {}
 
     local texttosend = totext(reward, state, terminal)
-    for i, v in ipairs(slaves) do
-        local a = get_action(v, texttosend)
-        collected_actions[i] = a
-    end
-    --collected_actions = collect_actions(slaves, reward, state, terminal)
+    -- for i, v in ipairs(slaves) do
+    --     local a = get_action(v, texttosend)
+    --     collected_actions[i] = a
+    -- end
+    collected_actions = collect_actions(slaves, texttosend)
 
     for i,a in ipairs(collected_actions) do
         --local a  = get_action(v, reward, state, terminal)

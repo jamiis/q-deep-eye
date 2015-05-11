@@ -2,6 +2,7 @@ local socket = require("socket")
 local string = require("string")
 local torch = require("torch")
 local lanes = require("lanes").configure()
+local llthreads = require("llthreads")
 
 -- returns the connection to the slave servers
 -- inputs: IP_list   a list of server ips
@@ -41,13 +42,24 @@ end
 --			state		The preprocessed screen
 --			terminal	terminal
 --returns:	actions  	A list of actions
-function collect_actions(slaves, reward, state, terminal)
+function collect_actions(slaves, texttosend)
 	text = totext(reward,state, terminal)
-	f = lanes.gen(get_action)
 	actions = {}
+	--declaring code 
+	local code = [[
+		connect:send(texttosend.."\n")
+		return connect:receive()+0
+	]]
+	threads = {}
 	for i,v in ipairs(slaves) do
-		actions[i] = f(v,text)
+		local thread = llthreads.new(code, "connect", v, "texttosend:",texttosend)
+		threads[i] = thread
+		assert(thread:start())
 	end
+	for i,v in ipairs(threads) do
+		actions[i] = v:join()
+	end
+
 	return actions
 end
 
