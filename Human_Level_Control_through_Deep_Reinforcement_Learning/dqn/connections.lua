@@ -12,11 +12,14 @@ function initialize_connections(IP_list)
 	local index = 1
 	for i,v in ipairs(IP_list) do
 		c = socket.tcp()
+        c:settimeout(3)
 		success, msg = c:connect(v, 2600)
 		if not success then
 			print("Can not connect to slave "..v..":"..msg.."\n")
-		end
-		connections[i] = c
+        else
+		    connections[index] = c
+            index = index+1
+        end
 	end
 	return connections
 end

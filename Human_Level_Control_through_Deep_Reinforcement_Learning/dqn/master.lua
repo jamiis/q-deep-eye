@@ -108,7 +108,7 @@ while step < opt.steps do
     for i, v in pairs(slaves) do
         local a = get_action(v, texttosend)
         if a == -1 then
-            slaves[i] = nil
+            --slaves[i] = nil
         else
             collected_actions[i] = a
         end
