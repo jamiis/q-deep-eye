@@ -47,8 +47,10 @@ output_freq=15
 IPLIST=""
 for i in `seq 0 $((${#BASH_ARGV[*]}-4))`; do
 	IP=${BASH_ARGV[$i]}
-	IPLIST=$IPLIST" "$IP
+	IPLIST=$IPLIST","$IP
 done
+
+
 
 args="-framework $FRAMEWORK -game_path $game_path -name $filename_handle -env $ENV -env_params $env_params -agent $agent -agent_params $agent_params -steps $steps -eval_freq $eval_freq -eval_steps $eval_steps -prog_freq $prog_freq -save_freq $save_freq -actrep $actrep -gpu $gpu -random_starts $random_starts -pool_frms $pool_frms -seed $seed -threads $num_threads -save_versions $save_versions -ip_list $IPLIST -output_freq $output_freq"
 echo $args

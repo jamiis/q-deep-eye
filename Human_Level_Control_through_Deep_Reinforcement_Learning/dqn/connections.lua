@@ -31,7 +31,10 @@ end
 -- returns: action 		The action returned by the slave
 function get_action(connect, texttosend)
 	connect:send(texttosend.."\n")
-	local a = connect:receive()
+	local a, errmsg = connect:receive()
+    if errmsg == 'timeout' then
+        return -1
+    end
 	return a+0
 end
 

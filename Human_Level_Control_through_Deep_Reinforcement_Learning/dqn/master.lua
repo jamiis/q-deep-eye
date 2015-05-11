@@ -58,7 +58,7 @@ local game_env, game_actions, agent, opt = setup(opt)
 --What we need is connections to the children
 local ip_list = {}
 local index = 1
-for i in string.gmatch(opt.ip_list, "[^ ]+") do
+for i in string.gmatch(opt.ip_list, "[^,]+") do
     ip_list[index] = i
     index = index+1
 end
@@ -105,13 +105,17 @@ while step < opt.steps do
     local collected_actions = {}
 
     local texttosend = totext(reward, state, terminal)
-    for i, v in ipairs(slaves) do
+    for i, v in pairs(slaves) do
         local a = get_action(v, texttosend)
-        collected_actions[i] = a
+        if a == -1 then
+            slaves[i] = nil
+        else
+            collected_actions[i] = a
+        end
     end
     --collected_actions = collect_actions(slaves, reward, state, terminal)
 
-    for i,a in ipairs(collected_actions) do
+    for i,a in pairs(collected_actions) do
         --local a  = get_action(v, reward, state, terminal)
         -- print(step, a)
         --local a = 1
