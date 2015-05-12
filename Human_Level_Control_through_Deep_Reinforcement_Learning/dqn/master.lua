@@ -47,6 +47,7 @@ cmd:option('-threads', 1, 'number of BLAS threads')
 cmd:option('-gpu', -1, 'gpu flag')
 cmd:option('-ip_list', '', 'list of slave ips')
 cmd:option('-output_freq', '', 'output frequency')
+cmd:option('-port', 2600, 'the port for connection')
 
 cmd:text()
 
@@ -62,7 +63,7 @@ for i in string.gmatch(opt.ip_list, "[^,]+") do
     ip_list[index] = i
     index = index+1
 end
-local slaves = initialize_connections(ip_list)
+local slaves = initialize_connections(ip_list, opt.port)
 --local slaves = initialize_connections( ... )
 
 

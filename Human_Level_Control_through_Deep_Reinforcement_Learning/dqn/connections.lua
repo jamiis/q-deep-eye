@@ -7,13 +7,13 @@ local lanes = require("lanes").configure()
 -- inputs: IP_list   a list of server ips
 -- returns: connects a list of connections
 
-function initialize_connections(IP_list)
+function initialize_connections(IP_list, port)
 	local connections = {}
 	local index = 1
 	for i,v in ipairs(IP_list) do
 		c = socket.tcp()
         c:settimeout(3)
-		success, msg = c:connect(v, 2600)
+		success, msg = c:connect(v, port)
 		if not success then
 			print("Can not connect to slave "..v..":"..msg.."\n")
         else

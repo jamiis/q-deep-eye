@@ -45,6 +45,9 @@ cmd:option('-verbose', 2,
 cmd:option('-threads', 1, 'number of BLAS threads')
 cmd:option('-gpu', -1, 'gpu flag')
 cmd:option('-output_freq', '', 'output frequency')
+cmd:option('port', 2600, 'port for connection')
+
+
 
 cmd:text()
 
@@ -75,7 +78,7 @@ local testing_ep = 0
 
 --TODO: Launch a server here. 
 local m = socket.tcp()
-print(m:bind('*', 2600))
+print(m:bind('*', opt.port))
 print(m:listen(32)) --we only need at most 15?
 print "Waiting for incoming connection"
 local client = m:accept()
