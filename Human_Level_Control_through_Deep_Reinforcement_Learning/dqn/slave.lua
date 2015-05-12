@@ -74,7 +74,7 @@ local td_history = {}
 local reward_history = {}
 local step = 0
 time_history[1] = 0
-local testing_ep = 0
+local testing_ep = 0.05
 
 --TODO: Launch a server here. 
 local m = socket.tcp()
