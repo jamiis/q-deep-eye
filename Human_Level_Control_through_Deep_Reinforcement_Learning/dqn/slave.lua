@@ -45,7 +45,7 @@ cmd:option('-verbose', 2,
 cmd:option('-threads', 1, 'number of BLAS threads')
 cmd:option('-gpu', -1, 'gpu flag')
 cmd:option('-output_freq', '', 'output frequency')
-cmd:option('port', 2600, 'port for connection')
+cmd:option('-port', 2600, 'port for connection')
 
 
 
