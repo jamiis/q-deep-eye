@@ -1,0 +1,6858 @@
+-framework alewrap -game_path /home/ubuntu/src/q-deep-eye/Human_Level_Control_through_Deep_Reinforcement_Learning/roms/ -name pretrained -env breakout -env_params useRGB=true -agent NeuralQLearner -agent_params lr=0.00025,ep=1,ep_end=0.1,ep_endt=replay_memory,discount=0.99,hist_len=4,learn_start=50000,replay_memory=100000,update_freq=4,n_replay=1,network="convnet_atari3",preproc="net_downsample_2x_full_y",state_dim=7056,minibatch_size=32,rescale_r=1,ncols=1,bufferSize=512,valid_size=500,target_q=10000,clip_delta=1,min_reward=-1,max_reward=1 -steps 50000 -eval_freq 250000 -eval_steps 125000 -prog_freq 5000 -save_freq 5000 -actrep 4 -gpu -1 -random_starts 30 -pool_frms type="max",size=2 -seed 1 -threads 4 -save_versions 1 -ip_list ,52.7.142.170,52.7.90.211,52.5.156.217,52.7.138.71,52.7.137.93,52.0.59.219,52.7.121.35,52.7.146.253,52.7.145.100,52.7.143.181,52.7.17.213,52.4.171.172,52.7.151.33,52.7.144.45,52.7.150.134,52.7.149.246,52.5.79.168,52.5.168.119 -output_freq 15 -port 2000
+Torch Threads:	4
+Using CPU code only. GPU device id:	-1
+Torch Seed:	1
+
+Playing:	breakout
+Creating Agent Network from convnet_atari3
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> (11) -> output]
+  (1): nn.Reshape(4x84x84)
+  (2): nn.SpatialConvolution
+  (3): nn.Rectifier
+  (4): nn.SpatialConvolution
+  (5): nn.Rectifier
+  (6): nn.SpatialConvolution
+  (7): nn.Rectifier
+  (8): nn.Reshape(3136)
+  (9): nn.Linear(3136 -> 512)
+  (10): nn.Rectifier
+  (11): nn.Linear(512 -> 4)
+}
+Convolutional layers flattened output size:	3136
+Set up Torch using these options:
+game_path	/home/ubuntu/src/q-deep-eye/Human_Level_Control_through_Deep_Reinforcement_Learning/roms/
+seed	1
+name	pretrained
+verbose	2
+network	
+tensorType	torch.FloatTensor
+save_versions	1
+pool_frms	table: 0x40a1fe48
+saveNetworkParams	false
+output_freq	15
+gpu	-1
+eval_freq	250000
+eval_steps	125000
+env_params	table: 0x40e1a190
+ip_list	,52.7.142.170,52.7.90.211,52.5.156.217,52.7.138.71,52.7.137.93,52.0.59.219,52.7.121.35,52.7.146.253,52.7.145.100,52.7.143.181,52.7.17.213,52.4.171.172,52.7.151.33,52.7.144.45,52.7.150.134,52.7.149.246,52.5.79.168,52.5.168.119
+random_starts	30
+agent_params	table: 0x419a88d8
+threads	4
+framework	alewrap
+agent	NeuralQLearner
+steps	50000
+port	2000
+actrep	4
+env	breakout
+save_freq	5000
+prog_freq	5000
+Iteration ..	0
+iteration ..	15
+action = 	2	reward=	0	max_vote=	17
+iteration ..	30
+action = 	2	reward=	0	max_vote=	17
+iteration ..	45
+action = 	2	reward=	0	max_vote=	16
+iteration ..	60
+action = 	2	reward=	1	max_vote=	17
+iteration ..	75
+action = 	2	reward=	1	max_vote=	17
+iteration ..	90
+action = 	2	reward=	1	max_vote=	17
+iteration ..	105
+action = 	2	reward=	2	max_vote=	16
+iteration ..	120
+action = 	3	reward=	2	max_vote=	17
+iteration ..	135
+action = 	2	reward=	2	max_vote=	17
+iteration ..	150
+action = 	2	reward=	3	max_vote=	16
+iteration ..	165
+action = 	2	reward=	3	max_vote=	18
+iteration ..	180
+action = 	3	reward=	4	max_vote=	16
+Game_over: Final score = 	4	nepisodes = 	1
+iteration ..	195
+action = 	2	reward=	0	max_vote=	17
+iteration ..	210
+action = 	2	reward=	0	max_vote=	17
+iteration ..	225
+action = 	2	reward=	0	max_vote=	16
+iteration ..	240
+action = 	2	reward=	0	max_vote=	16
+iteration ..	255
+action = 	2	reward=	1	max_vote=	17
+iteration ..	270
+action = 	2	reward=	1	max_vote=	16
+iteration ..	285
+action = 	2	reward=	1	max_vote=	18
+iteration ..	300
+action = 	3	reward=	2	max_vote=	18
+iteration ..	315
+action = 	2	reward=	2	max_vote=	17
+iteration ..	330
+action = 	4	reward=	3	max_vote=	17
+iteration ..	345
+action = 	2	reward=	3	max_vote=	16
+iteration ..	360
+action = 	4	reward=	3	max_vote=	18
+iteration ..	375
+action = 	4	reward=	4	max_vote=	18
+iteration ..	390
+action = 	2	reward=	4	max_vote=	17
+iteration ..	405
+action = 	3	reward=	5	max_vote=	18
+iteration ..	420
+action = 	2	reward=	5	max_vote=	17
+iteration ..	435
+action = 	4	reward=	9	max_vote=	17
+iteration ..	450
+action = 	2	reward=	9	max_vote=	17
+iteration ..	465
+action = 	2	reward=	10	max_vote=	16
+iteration ..	480
+action = 	2	reward=	10	max_vote=	16
+iteration ..	495
+action = 	2	reward=	10	max_vote=	16
+iteration ..	510
+action = 	2	reward=	11	max_vote=	16
+iteration ..	525
+action = 	3	reward=	11	max_vote=	18
+iteration ..	540
+action = 	2	reward=	11	max_vote=	17
+iteration ..	555
+action = 	2	reward=	11	max_vote=	17
+iteration ..	570
+action = 	2	reward=	12	max_vote=	16
+iteration ..	585
+action = 	2	reward=	12	max_vote=	16
+iteration ..	600
+action = 	2	reward=	12	max_vote=	16
+iteration ..	615
+action = 	2	reward=	12	max_vote=	16
+iteration ..	630
+action = 	2	reward=	13	max_vote=	16
+iteration ..	645
+action = 	4	reward=	13	max_vote=	18
+iteration ..	660
+action = 	2	reward=	13	max_vote=	17
+iteration ..	675
+action = 	2	reward=	13	max_vote=	16
+iteration ..	690
+action = 	2	reward=	14	max_vote=	17
+iteration ..	705
+action = 	3	reward=	14	max_vote=	18
+iteration ..	720
+action = 	2	reward=	14	max_vote=	16
+iteration ..	735
+action = 	3	reward=	18	max_vote=	18
+iteration ..	750
+action = 	2	reward=	18	max_vote=	17
+iteration ..	765
+action = 	4	reward=	19	max_vote=	16
+Game_over: Final score = 	19	nepisodes = 	2
+iteration ..	780
+action = 	2	reward=	0	max_vote=	16
+iteration ..	795
+action = 	1	reward=	0	max_vote=	18
+iteration ..	810
+action = 	2	reward=	0	max_vote=	17
+iteration ..	825
+action = 	2	reward=	1	max_vote=	16
+iteration ..	840
+action = 	2	reward=	1	max_vote=	17
+iteration ..	855
+action = 	2	reward=	1	max_vote=	16
+iteration ..	870
+action = 	2	reward=	5	max_vote=	16
+Game_over: Final score = 	5	nepisodes = 	3
+iteration ..	885
+action = 	3	reward=	0	max_vote=	18
+iteration ..	900
+action = 	4	reward=	0	max_vote=	18
+iteration ..	915
+action = 	2	reward=	0	max_vote=	17
+iteration ..	930
+action = 	2	reward=	1	max_vote=	16
+iteration ..	945
+action = 	2	reward=	1	max_vote=	18
+iteration ..	960
+action = 	2	reward=	1	max_vote=	16
+iteration ..	975
+action = 	2	reward=	1	max_vote=	16
+iteration ..	990
+action = 	2	reward=	5	max_vote=	17
+iteration ..	1005
+action = 	2	reward=	5	max_vote=	17
+iteration ..	1020
+action = 	2	reward=	6	max_vote=	16
+iteration ..	1035
+action = 	2	reward=	6	max_vote=	16
+iteration ..	1050
+action = 	2	reward=	6	max_vote=	17
+iteration ..	1065
+action = 	2	reward=	7	max_vote=	17
+iteration ..	1080
+action = 	2	reward=	7	max_vote=	17
+iteration ..	1095
+action = 	2	reward=	11	max_vote=	16
+iteration ..	1110
+action = 	2	reward=	11	max_vote=	16
+iteration ..	1125
+action = 	2	reward=	12	max_vote=	17
+iteration ..	1140
+action = 	2	reward=	12	max_vote=	17
+iteration ..	1155
+action = 	2	reward=	13	max_vote=	17
+iteration ..	1170
+action = 	2	reward=	13	max_vote=	17
+iteration ..	1185
+action = 	2	reward=	13	max_vote=	18
+iteration ..	1200
+action = 	2	reward=	14	max_vote=	17
+iteration ..	1215
+action = 	4	reward=	14	max_vote=	17
+iteration ..	1230
+action = 	2	reward=	14	max_vote=	17
+iteration ..	1245
+action = 	2	reward=	14	max_vote=	16
+iteration ..	1260
+action = 	2	reward=	15	max_vote=	17
+iteration ..	1275
+action = 	4	reward=	15	max_vote=	16
+iteration ..	1290
+action = 	2	reward=	15	max_vote=	16
+iteration ..	1305
+action = 	2	reward=	15	max_vote=	16
+iteration ..	1320
+action = 	2	reward=	16	max_vote=	16
+iteration ..	1335
+action = 	3	reward=	16	max_vote=	18
+iteration ..	1350
+action = 	2	reward=	16	max_vote=	17
+iteration ..	1365
+action = 	2	reward=	16	max_vote=	17
+iteration ..	1380
+action = 	2	reward=	17	max_vote=	16
+iteration ..	1395
+action = 	2	reward=	17	max_vote=	16
+iteration ..	1410
+action = 	2	reward=	17	max_vote=	17
+iteration ..	1425
+action = 	4	reward=	18	max_vote=	16
+iteration ..	1440
+action = 	2	reward=	18	max_vote=	17
+iteration ..	1455
+action = 	4	reward=	19	max_vote=	17
+iteration ..	1470
+action = 	2	reward=	19	max_vote=	17
+iteration ..	1485
+action = 	2	reward=	23	max_vote=	17
+iteration ..	1500
+action = 	2	reward=	23	max_vote=	18
+iteration ..	1515
+action = 	4	reward=	27	max_vote=	17
+iteration ..	1530
+action = 	2	reward=	28	max_vote=	16
+iteration ..	1545
+action = 	2	reward=	28	max_vote=	16
+iteration ..	1560
+action = 	2	reward=	32	max_vote=	16
+iteration ..	1575
+action = 	2	reward=	36	max_vote=	18
+iteration ..	1590
+action = 	2	reward=	43	max_vote=	17
+iteration ..	1605
+action = 	4	reward=	47	max_vote=	16
+iteration ..	1620
+action = 	2	reward=	47	max_vote=	16
+Game_over: Final score = 	48	nepisodes = 	4
+iteration ..	1635
+action = 	0	reward=	0	max_vote=	18
+iteration ..	1650
+action = 	3	reward=	0	max_vote=	18
+iteration ..	1665
+action = 	4	reward=	0	max_vote=	17
+iteration ..	1680
+action = 	2	reward=	0	max_vote=	16
+iteration ..	1695
+action = 	4	reward=	4	max_vote=	16
+iteration ..	1710
+action = 	2	reward=	4	max_vote=	16
+iteration ..	1725
+action = 	2	reward=	4	max_vote=	17
+iteration ..	1740
+action = 	2	reward=	4	max_vote=	16
+iteration ..	1755
+action = 	2	reward=	5	max_vote=	16
+iteration ..	1770
+action = 	2	reward=	5	max_vote=	17
+iteration ..	1785
+action = 	2	reward=	5	max_vote=	16
+iteration ..	1800
+action = 	4	reward=	9	max_vote=	18
+Game_over: Final score = 	9	nepisodes = 	5
+iteration ..	1815
+action = 	2	reward=	0	max_vote=	16
+iteration ..	1830
+action = 	2	reward=	0	max_vote=	16
+iteration ..	1845
+action = 	2	reward=	0	max_vote=	17
+iteration ..	1860
+action = 	2	reward=	1	max_vote=	17
+iteration ..	1875
+action = 	2	reward=	1	max_vote=	17
+iteration ..	1890
+action = 	2	reward=	2	max_vote=	16
+iteration ..	1905
+action = 	1	reward=	2	max_vote=	17
+iteration ..	1920
+action = 	2	reward=	2	max_vote=	18
+iteration ..	1935
+action = 	2	reward=	3	max_vote=	17
+iteration ..	1950
+action = 	2	reward=	3	max_vote=	17
+iteration ..	1965
+action = 	2	reward=	3	max_vote=	17
+iteration ..	1980
+action = 	2	reward=	4	max_vote=	16
+iteration ..	1995
+action = 	2	reward=	4	max_vote=	17
+iteration ..	2010
+action = 	2	reward=	5	max_vote=	16
+iteration ..	2025
+action = 	2	reward=	5	max_vote=	17
+iteration ..	2040
+action = 	2	reward=	6	max_vote=	16
+iteration ..	2055
+action = 	2	reward=	6	max_vote=	16
+iteration ..	2070
+action = 	2	reward=	7	max_vote=	16
+iteration ..	2085
+action = 	2	reward=	7	max_vote=	17
+iteration ..	2100
+action = 	2	reward=	7	max_vote=	16
+iteration ..	2115
+action = 	2	reward=	8	max_vote=	16
+iteration ..	2130
+action = 	3	reward=	8	max_vote=	18
+Game_over: Final score = 	8	nepisodes = 	6
+iteration ..	2145
+action = 	2	reward=	0	max_vote=	17
+iteration ..	2160
+action = 	2	reward=	0	max_vote=	16
+iteration ..	2175
+action = 	2	reward=	0	max_vote=	16
+iteration ..	2190
+action = 	2	reward=	0	max_vote=	17
+iteration ..	2205
+action = 	2	reward=	1	max_vote=	17
+iteration ..	2220
+action = 	4	reward=	1	max_vote=	18
+iteration ..	2235
+action = 	2	reward=	1	max_vote=	17
+iteration ..	2250
+action = 	2	reward=	2	max_vote=	16
+iteration ..	2265
+action = 	2	reward=	2	max_vote=	17
+iteration ..	2280
+action = 	2	reward=	3	max_vote=	16
+iteration ..	2295
+action = 	2	reward=	3	max_vote=	17
+iteration ..	2310
+action = 	2	reward=	3	max_vote=	17
+iteration ..	2325
+action = 	2	reward=	4	max_vote=	17
+iteration ..	2340
+action = 	2	reward=	4	max_vote=	17
+iteration ..	2355
+action = 	2	reward=	5	max_vote=	16
+iteration ..	2370
+action = 	3	reward=	5	max_vote=	18
+iteration ..	2385
+action = 	2	reward=	6	max_vote=	17
+iteration ..	2400
+action = 	2	reward=	6	max_vote=	17
+iteration ..	2415
+action = 	2	reward=	7	max_vote=	17
+iteration ..	2430
+action = 	2	reward=	7	max_vote=	17
+iteration ..	2445
+action = 	2	reward=	7	max_vote=	17
+iteration ..	2460
+action = 	2	reward=	8	max_vote=	16
+iteration ..	2475
+action = 	4	reward=	8	max_vote=	18
+iteration ..	2490
+action = 	2	reward=	8	max_vote=	16
+iteration ..	2505
+action = 	2	reward=	8	max_vote=	16
+iteration ..	2520
+action = 	2	reward=	9	max_vote=	16
+iteration ..	2535
+action = 	2	reward=	9	max_vote=	17
+iteration ..	2550
+action = 	2	reward=	9	max_vote=	16
+iteration ..	2565
+action = 	2	reward=	9	max_vote=	18
+iteration ..	2580
+action = 	2	reward=	10	max_vote=	16
+iteration ..	2595
+action = 	4	reward=	10	max_vote=	17
+iteration ..	2610
+action = 	1	reward=	10	max_vote=	17
+iteration ..	2625
+action = 	2	reward=	10	max_vote=	18
+iteration ..	2640
+action = 	2	reward=	11	max_vote=	17
+iteration ..	2655
+action = 	3	reward=	11	max_vote=	18
+iteration ..	2670
+action = 	2	reward=	11	max_vote=	16
+iteration ..	2685
+action = 	2	reward=	12	max_vote=	16
+iteration ..	2700
+action = 	2	reward=	12	max_vote=	17
+iteration ..	2715
+action = 	2	reward=	13	max_vote=	17
+iteration ..	2730
+action = 	2	reward=	13	max_vote=	16
+iteration ..	2745
+action = 	2	reward=	14	max_vote=	17
+iteration ..	2760
+action = 	2	reward=	14	max_vote=	16
+iteration ..	2775
+action = 	4	reward=	18	max_vote=	17
+Game_over: Final score = 	18	nepisodes = 	7
+iteration ..	2790
+action = 	3	reward=	0	max_vote=	18
+iteration ..	2805
+action = 	2	reward=	0	max_vote=	16
+iteration ..	2820
+action = 	2	reward=	0	max_vote=	18
+iteration ..	2835
+action = 	2	reward=	0	max_vote=	17
+iteration ..	2850
+action = 	2	reward=	4	max_vote=	17
+iteration ..	2865
+action = 	2	reward=	4	max_vote=	17
+iteration ..	2880
+action = 	4	reward=	4	max_vote=	18
+iteration ..	2895
+action = 	2	reward=	4	max_vote=	16
+iteration ..	2910
+action = 	2	reward=	8	max_vote=	16
+iteration ..	2925
+action = 	2	reward=	8	max_vote=	17
+iteration ..	2940
+action = 	2	reward=	8	max_vote=	17
+iteration ..	2955
+action = 	2	reward=	9	max_vote=	16
+iteration ..	2970
+action = 	2	reward=	9	max_vote=	18
+iteration ..	2985
+action = 	2	reward=	9	max_vote=	17
+iteration ..	3000
+action = 	2	reward=	10	max_vote=	17
+iteration ..	3015
+action = 	2	reward=	10	max_vote=	16
+iteration ..	3030
+action = 	2	reward=	14	max_vote=	17
+iteration ..	3045
+action = 	2	reward=	14	max_vote=	17
+iteration ..	3060
+action = 	4	reward=	15	max_vote=	18
+iteration ..	3075
+action = 	2	reward=	15	max_vote=	16
+iteration ..	3090
+action = 	2	reward=	16	max_vote=	16
+iteration ..	3105
+action = 	2	reward=	16	max_vote=	16
+iteration ..	3120
+action = 	2	reward=	16	max_vote=	17
+iteration ..	3135
+action = 	4	reward=	16	max_vote=	17
+iteration ..	3150
+action = 	2	reward=	20	max_vote=	17
+iteration ..	3165
+action = 	2	reward=	21	max_vote=	17
+iteration ..	3180
+action = 	2	reward=	22	max_vote=	16
+iteration ..	3195
+action = 	4	reward=	23	max_vote=	18
+iteration ..	3210
+action = 	2	reward=	23	max_vote=	17
+iteration ..	3225
+action = 	2	reward=	27	max_vote=	16
+iteration ..	3240
+action = 	3	reward=	31	max_vote=	16
+iteration ..	3255
+action = 	3	reward=	35	max_vote=	18
+iteration ..	3270
+action = 	1	reward=	36	max_vote=	16
+iteration ..	3285
+action = 	2	reward=	36	max_vote=	17
+iteration ..	3300
+action = 	2	reward=	37	max_vote=	16
+iteration ..	3315
+action = 	1	reward=	41	max_vote=	16
+iteration ..	3330
+action = 	2	reward=	45	max_vote=	16
+Game_over: Final score = 	45	nepisodes = 	8
+iteration ..	3345
+action = 	2	reward=	0	max_vote=	16
+iteration ..	3360
+action = 	2	reward=	0	max_vote=	17
+iteration ..	3375
+action = 	2	reward=	0	max_vote=	17
+iteration ..	3390
+action = 	2	reward=	0	max_vote=	18
+iteration ..	3405
+action = 	2	reward=	4	max_vote=	16
+iteration ..	3420
+action = 	2	reward=	4	max_vote=	18
+iteration ..	3435
+action = 	4	reward=	4	max_vote=	17
+Game_over: Final score = 	4	nepisodes = 	9
+iteration ..	3450
+action = 	4	reward=	0	max_vote=	17
+iteration ..	3465
+action = 	3	reward=	0	max_vote=	17
+iteration ..	3480
+action = 	2	reward=	0	max_vote=	17
+iteration ..	3495
+action = 	2	reward=	1	max_vote=	16
+iteration ..	3510
+action = 	2	reward=	1	max_vote=	17
+iteration ..	3525
+action = 	2	reward=	1	max_vote=	17
+iteration ..	3540
+action = 	2	reward=	1	max_vote=	17
+iteration ..	3555
+action = 	3	reward=	5	max_vote=	17
+iteration ..	3570
+action = 	3	reward=	6	max_vote=	18
+iteration ..	3585
+action = 	1	reward=	7	max_vote=	18
+iteration ..	3600
+action = 	1	reward=	8	max_vote=	18
+iteration ..	3615
+action = 	1	reward=	8	max_vote=	16
+Game_over: Final score = 	12	nepisodes = 	10
+iteration ..	3630
+action = 	0	reward=	0	max_vote=	18
+iteration ..	3645
+action = 	2	reward=	0	max_vote=	17
+iteration ..	3660
+action = 	2	reward=	0	max_vote=	17
+iteration ..	3675
+action = 	2	reward=	1	max_vote=	17
+iteration ..	3690
+action = 	2	reward=	1	max_vote=	17
+iteration ..	3705
+action = 	2	reward=	1	max_vote=	17
+iteration ..	3720
+action = 	2	reward=	2	max_vote=	16
+iteration ..	3735
+action = 	2	reward=	2	max_vote=	16
+iteration ..	3750
+action = 	2	reward=	2	max_vote=	17
+iteration ..	3765
+action = 	2	reward=	3	max_vote=	17
+iteration ..	3780
+action = 	2	reward=	3	max_vote=	18
+iteration ..	3795
+action = 	2	reward=	3	max_vote=	17
+iteration ..	3810
+action = 	2	reward=	4	max_vote=	17
+iteration ..	3825
+action = 	2	reward=	4	max_vote=	18
+iteration ..	3840
+action = 	2	reward=	5	max_vote=	16
+iteration ..	3855
+action = 	2	reward=	5	max_vote=	17
+iteration ..	3870
+action = 	2	reward=	6	max_vote=	18
+iteration ..	3885
+action = 	2	reward=	6	max_vote=	17
+iteration ..	3900
+action = 	2	reward=	7	max_vote=	17
+iteration ..	3915
+action = 	2	reward=	7	max_vote=	18
+iteration ..	3930
+action = 	2	reward=	7	max_vote=	16
+iteration ..	3945
+action = 	2	reward=	8	max_vote=	17
+iteration ..	3960
+action = 	3	reward=	8	max_vote=	17
+iteration ..	3975
+action = 	2	reward=	8	max_vote=	17
+iteration ..	3990
+action = 	2	reward=	8	max_vote=	16
+iteration ..	4005
+action = 	2	reward=	9	max_vote=	17
+iteration ..	4020
+action = 	3	reward=	9	max_vote=	18
+iteration ..	4035
+action = 	2	reward=	9	max_vote=	16
+iteration ..	4050
+action = 	2	reward=	10	max_vote=	16
+iteration ..	4065
+action = 	2	reward=	10	max_vote=	17
+iteration ..	4080
+action = 	2	reward=	10	max_vote=	17
+iteration ..	4095
+action = 	2	reward=	10	max_vote=	17
+iteration ..	4110
+action = 	2	reward=	11	max_vote=	16
+iteration ..	4125
+action = 	2	reward=	11	max_vote=	16
+iteration ..	4140
+action = 	2	reward=	11	max_vote=	16
+iteration ..	4155
+action = 	2	reward=	12	max_vote=	17
+iteration ..	4170
+action = 	2	reward=	12	max_vote=	17
+iteration ..	4185
+action = 	2	reward=	13	max_vote=	17
+iteration ..	4200
+action = 	2	reward=	13	max_vote=	17
+iteration ..	4215
+action = 	1	reward=	14	max_vote=	16
+iteration ..	4230
+action = 	2	reward=	14	max_vote=	17
+iteration ..	4245
+action = 	2	reward=	15	max_vote=	16
+iteration ..	4260
+action = 	2	reward=	15	max_vote=	17
+iteration ..	4275
+action = 	2	reward=	16	max_vote=	16
+iteration ..	4290
+action = 	2	reward=	16	max_vote=	17
+iteration ..	4305
+action = 	2	reward=	17	max_vote=	17
+iteration ..	4320
+action = 	2	reward=	17	max_vote=	17
+iteration ..	4335
+action = 	2	reward=	18	max_vote=	17
+iteration ..	4350
+action = 	2	reward=	18	max_vote=	17
+iteration ..	4365
+action = 	1	reward=	19	max_vote=	16
+iteration ..	4380
+action = 	2	reward=	19	max_vote=	17
+iteration ..	4395
+action = 	2	reward=	23	max_vote=	18
+iteration ..	4410
+action = 	4	reward=	23	max_vote=	16
+Game_over: Final score = 	23	nepisodes = 	11
+iteration ..	4425
+action = 	2	reward=	0	max_vote=	16
+iteration ..	4440
+action = 	2	reward=	0	max_vote=	17
+iteration ..	4455
+action = 	2	reward=	0	max_vote=	16
+iteration ..	4470
+action = 	2	reward=	1	max_vote=	17
+iteration ..	4485
+action = 	2	reward=	1	max_vote=	17
+iteration ..	4500
+action = 	2	reward=	1	max_vote=	16
+iteration ..	4515
+action = 	2	reward=	2	max_vote=	16
+iteration ..	4530
+action = 	2	reward=	2	max_vote=	17
+iteration ..	4545
+action = 	2	reward=	2	max_vote=	16
+iteration ..	4560
+action = 	2	reward=	2	max_vote=	16
+iteration ..	4575
+action = 	2	reward=	3	max_vote=	17
+iteration ..	4590
+action = 	2	reward=	3	max_vote=	17
+iteration ..	4605
+action = 	2	reward=	3	max_vote=	16
+iteration ..	4620
+action = 	2	reward=	7	max_vote=	16
+iteration ..	4635
+action = 	4	reward=	7	max_vote=	16
+iteration ..	4650
+action = 	2	reward=	8	max_vote=	17
+iteration ..	4665
+action = 	2	reward=	8	max_vote=	17
+iteration ..	4680
+action = 	4	reward=	9	max_vote=	17
+iteration ..	4695
+action = 	2	reward=	9	max_vote=	17
+iteration ..	4710
+action = 	4	reward=	10	max_vote=	17
+iteration ..	4725
+action = 	4	reward=	10	max_vote=	17
+iteration ..	4740
+action = 	2	reward=	10	max_vote=	16
+iteration ..	4755
+action = 	2	reward=	11	max_vote=	17
+iteration ..	4770
+action = 	2	reward=	11	max_vote=	17
+iteration ..	4785
+action = 	2	reward=	11	max_vote=	16
+iteration ..	4800
+action = 	2	reward=	11	max_vote=	17
+iteration ..	4815
+action = 	2	reward=	12	max_vote=	17
+iteration ..	4830
+action = 	2	reward=	12	max_vote=	17
+iteration ..	4845
+action = 	2	reward=	12	max_vote=	16
+iteration ..	4860
+action = 	2	reward=	12	max_vote=	17
+iteration ..	4875
+action = 	2	reward=	13	max_vote=	16
+iteration ..	4890
+action = 	2	reward=	13	max_vote=	16
+iteration ..	4905
+action = 	2	reward=	13	max_vote=	17
+iteration ..	4920
+action = 	2	reward=	13	max_vote=	17
+iteration ..	4935
+action = 	2	reward=	14	max_vote=	17
+iteration ..	4950
+action = 	2	reward=	14	max_vote=	17
+iteration ..	4965
+action = 	2	reward=	14	max_vote=	17
+Game_over: Final score = 	14	nepisodes = 	12
+iteration ..	4980
+action = 	3	reward=	0	max_vote=	18
+iteration ..	4995
+action = 	3	reward=	0	max_vote=	17
+iteration ..	5010
+action = 	2	reward=	0	max_vote=	17
+iteration ..	5025
+action = 	2	reward=	1	max_vote=	17
+iteration ..	5040
+action = 	2	reward=	1	max_vote=	17
+iteration ..	5055
+action = 	2	reward=	1	max_vote=	16
+iteration ..	5070
+action = 	2	reward=	1	max_vote=	16
+iteration ..	5085
+action = 	2	reward=	5	max_vote=	17
+iteration ..	5100
+action = 	2	reward=	5	max_vote=	17
+iteration ..	5115
+action = 	2	reward=	5	max_vote=	16
+iteration ..	5130
+action = 	2	reward=	6	max_vote=	16
+iteration ..	5145
+action = 	2	reward=	6	max_vote=	17
+iteration ..	5160
+action = 	2	reward=	6	max_vote=	17
+iteration ..	5175
+action = 	2	reward=	10	max_vote=	16
+iteration ..	5190
+action = 	2	reward=	10	max_vote=	17
+iteration ..	5205
+action = 	2	reward=	10	max_vote=	17
+iteration ..	5220
+action = 	3	reward=	14	max_vote=	17
+iteration ..	5235
+action = 	2	reward=	14	max_vote=	17
+iteration ..	5250
+action = 	2	reward=	18	max_vote=	16
+iteration ..	5265
+action = 	2	reward=	18	max_vote=	16
+iteration ..	5280
+action = 	2	reward=	22	max_vote=	18
+iteration ..	5295
+action = 	2	reward=	23	max_vote=	16
+Game_over: Final score = 	23	nepisodes = 	13
+iteration ..	5310
+action = 	2	reward=	0	max_vote=	16
+iteration ..	5325
+action = 	2	reward=	0	max_vote=	17
+iteration ..	5340
+action = 	2	reward=	0	max_vote=	17
+iteration ..	5355
+action = 	2	reward=	4	max_vote=	16
+iteration ..	5370
+action = 	2	reward=	4	max_vote=	16
+iteration ..	5385
+action = 	2	reward=	4	max_vote=	18
+iteration ..	5400
+action = 	2	reward=	4	max_vote=	18
+iteration ..	5415
+action = 	2	reward=	8	max_vote=	16
+iteration ..	5430
+action = 	2	reward=	8	max_vote=	17
+iteration ..	5445
+action = 	2	reward=	8	max_vote=	16
+iteration ..	5460
+action = 	2	reward=	8	max_vote=	16
+iteration ..	5475
+action = 	2	reward=	12	max_vote=	16
+iteration ..	5490
+action = 	2	reward=	12	max_vote=	17
+iteration ..	5505
+action = 	2	reward=	12	max_vote=	16
+iteration ..	5520
+action = 	2	reward=	12	max_vote=	17
+iteration ..	5535
+action = 	2	reward=	13	max_vote=	17
+iteration ..	5550
+action = 	2	reward=	13	max_vote=	16
+iteration ..	5565
+action = 	2	reward=	17	max_vote=	16
+iteration ..	5580
+action = 	2	reward=	17	max_vote=	17
+iteration ..	5595
+action = 	3	reward=	21	max_vote=	17
+iteration ..	5610
+action = 	3	reward=	22	max_vote=	17
+iteration ..	5625
+action = 	2	reward=	29	max_vote=	17
+iteration ..	5640
+action = 	2	reward=	29	max_vote=	16
+iteration ..	5655
+action = 	2	reward=	33	max_vote=	16
+iteration ..	5670
+action = 	4	reward=	40	max_vote=	17
+iteration ..	5685
+action = 	2	reward=	40	max_vote=	16
+iteration ..	5700
+action = 	2	reward=	44	max_vote=	17
+iteration ..	5715
+action = 	2	reward=	45	max_vote=	17
+iteration ..	5730
+action = 	2	reward=	49	max_vote=	16
+iteration ..	5745
+action = 	2	reward=	53	max_vote=	17
+iteration ..	5760
+action = 	2	reward=	53	max_vote=	18
+iteration ..	5775
+action = 	2	reward=	57	max_vote=	17
+iteration ..	5790
+action = 	2	reward=	64	max_vote=	17
+iteration ..	5805
+action = 	2	reward=	71	max_vote=	18
+iteration ..	5820
+action = 	2	reward=	71	max_vote=	16
+iteration ..	5835
+action = 	2	reward=	75	max_vote=	17
+iteration ..	5850
+action = 	3	reward=	82	max_vote=	18
+iteration ..	5865
+action = 	2	reward=	82	max_vote=	17
+iteration ..	5880
+action = 	2	reward=	89	max_vote=	17
+iteration ..	5895
+action = 	2	reward=	96	max_vote=	18
+iteration ..	5910
+action = 	2	reward=	103	max_vote=	17
+iteration ..	5925
+action = 	2	reward=	103	max_vote=	17
+iteration ..	5940
+action = 	3	reward=	107	max_vote=	18
+iteration ..	5955
+action = 	2	reward=	114	max_vote=	16
+iteration ..	5970
+action = 	2	reward=	114	max_vote=	16
+iteration ..	5985
+action = 	2	reward=	115	max_vote=	16
+iteration ..	6000
+action = 	4	reward=	119	max_vote=	17
+Game_over: Final score = 	119	nepisodes = 	14
+iteration ..	6015
+action = 	2	reward=	0	max_vote=	16
+iteration ..	6030
+action = 	2	reward=	0	max_vote=	17
+iteration ..	6045
+action = 	2	reward=	0	max_vote=	17
+iteration ..	6060
+action = 	3	reward=	7	max_vote=	17
+iteration ..	6075
+action = 	2	reward=	11	max_vote=	17
+iteration ..	6090
+action = 	2	reward=	11	max_vote=	16
+iteration ..	6105
+action = 	2	reward=	15	max_vote=	17
+iteration ..	6120
+action = 	3	reward=	22	max_vote=	18
+iteration ..	6135
+action = 	2	reward=	29	max_vote=	17
+iteration ..	6150
+action = 	2	reward=	29	max_vote=	17
+iteration ..	6165
+action = 	3	reward=	36	max_vote=	17
+iteration ..	6180
+action = 	4	reward=	43	max_vote=	17
+iteration ..	6195
+action = 	2	reward=	43	max_vote=	18
+iteration ..	6210
+action = 	2	reward=	57	max_vote=	17
+iteration ..	6225
+action = 	2	reward=	57	max_vote=	17
+Game_over: Final score = 	57	nepisodes = 	15
+iteration ..	6240
+action = 	2	reward=	0	max_vote=	17
+iteration ..	6255
+action = 	4	reward=	0	max_vote=	16
+iteration ..	6270
+action = 	2	reward=	0	max_vote=	16
+iteration ..	6285
+action = 	2	reward=	1	max_vote=	17
+iteration ..	6300
+action = 	2	reward=	1	max_vote=	17
+iteration ..	6315
+action = 	2	reward=	1	max_vote=	17
+iteration ..	6330
+action = 	2	reward=	2	max_vote=	16
+iteration ..	6345
+action = 	2	reward=	2	max_vote=	16
+iteration ..	6360
+action = 	2	reward=	2	max_vote=	16
+iteration ..	6375
+action = 	3	reward=	3	max_vote=	18
+iteration ..	6390
+action = 	2	reward=	3	max_vote=	17
+iteration ..	6405
+action = 	2	reward=	4	max_vote=	16
+Game_over: Final score = 	4	nepisodes = 	16
+iteration ..	6420
+action = 	2	reward=	0	max_vote=	16
+iteration ..	6435
+action = 	2	reward=	0	max_vote=	16
+iteration ..	6450
+action = 	2	reward=	0	max_vote=	17
+iteration ..	6465
+action = 	2	reward=	0	max_vote=	17
+iteration ..	6480
+action = 	2	reward=	1	max_vote=	17
+iteration ..	6495
+action = 	2	reward=	1	max_vote=	17
+iteration ..	6510
+action = 	2	reward=	1	max_vote=	17
+iteration ..	6525
+action = 	2	reward=	1	max_vote=	16
+iteration ..	6540
+action = 	2	reward=	2	max_vote=	16
+iteration ..	6555
+action = 	2	reward=	2	max_vote=	17
+iteration ..	6570
+action = 	2	reward=	2	max_vote=	17
+iteration ..	6585
+action = 	2	reward=	3	max_vote=	17
+iteration ..	6600
+action = 	2	reward=	3	max_vote=	16
+iteration ..	6615
+action = 	2	reward=	3	max_vote=	17
+iteration ..	6630
+action = 	3	reward=	4	max_vote=	18
+Game_over: Final score = 	4	nepisodes = 	17
+iteration ..	6645
+action = 	2	reward=	0	max_vote=	17
+iteration ..	6660
+action = 	4	reward=	0	max_vote=	17
+iteration ..	6675
+action = 	2	reward=	0	max_vote=	17
+iteration ..	6690
+action = 	2	reward=	4	max_vote=	17
+iteration ..	6705
+action = 	4	reward=	4	max_vote=	18
+Game_over: Final score = 	4	nepisodes = 	18
+iteration ..	6720
+action = 	2	reward=	0	max_vote=	17
+iteration ..	6735
+action = 	2	reward=	0	max_vote=	17
+iteration ..	6750
+action = 	2	reward=	0	max_vote=	17
+iteration ..	6765
+action = 	2	reward=	1	max_vote=	17
+iteration ..	6780
+action = 	4	reward=	1	max_vote=	17
+iteration ..	6795
+action = 	2	reward=	2	max_vote=	16
+iteration ..	6810
+action = 	2	reward=	2	max_vote=	17
+iteration ..	6825
+action = 	2	reward=	2	max_vote=	17
+iteration ..	6840
+action = 	2	reward=	2	max_vote=	17
+iteration ..	6855
+action = 	2	reward=	3	max_vote=	17
+iteration ..	6870
+action = 	3	reward=	3	max_vote=	18
+iteration ..	6885
+action = 	2	reward=	3	max_vote=	17
+iteration ..	6900
+action = 	2	reward=	7	max_vote=	16
+iteration ..	6915
+action = 	2	reward=	7	max_vote=	17
+iteration ..	6930
+action = 	3	reward=	8	max_vote=	17
+iteration ..	6945
+action = 	2	reward=	8	max_vote=	17
+iteration ..	6960
+action = 	2	reward=	9	max_vote=	17
+iteration ..	6975
+action = 	2	reward=	9	max_vote=	17
+iteration ..	6990
+action = 	3	reward=	10	max_vote=	18
+Game_over: Final score = 	10	nepisodes = 	19
+iteration ..	7005
+action = 	2	reward=	0	max_vote=	17
+iteration ..	7020
+action = 	4	reward=	0	max_vote=	17
+iteration ..	7035
+action = 	2	reward=	0	max_vote=	16
+iteration ..	7050
+action = 	2	reward=	4	max_vote=	16
+Game_over: Final score = 	4	nepisodes = 	20
+iteration ..	7065
+action = 	2	reward=	0	max_vote=	17
+iteration ..	7080
+action = 	2	reward=	0	max_vote=	17
+iteration ..	7095
+action = 	2	reward=	0	max_vote=	17
+iteration ..	7110
+action = 	2	reward=	1	max_vote=	16
+iteration ..	7125
+action = 	4	reward=	1	max_vote=	16
+iteration ..	7140
+action = 	2	reward=	1	max_vote=	16
+iteration ..	7155
+action = 	2	reward=	2	max_vote=	16
+iteration ..	7170
+action = 	2	reward=	2	max_vote=	17
+iteration ..	7185
+action = 	2	reward=	3	max_vote=	16
+iteration ..	7200
+action = 	3	reward=	3	max_vote=	18
+Game_over: Final score = 	3	nepisodes = 	21
+iteration ..	7215
+action = 	2	reward=	0	max_vote=	17
+iteration ..	7230
+action = 	1	reward=	0	max_vote=	17
+iteration ..	7245
+action = 	2	reward=	0	max_vote=	17
+iteration ..	7260
+action = 	2	reward=	1	max_vote=	18
+iteration ..	7275
+action = 	2	reward=	1	max_vote=	17
+iteration ..	7290
+action = 	2	reward=	1	max_vote=	16
+iteration ..	7305
+action = 	2	reward=	1	max_vote=	16
+iteration ..	7320
+action = 	2	reward=	2	max_vote=	16
+iteration ..	7335
+action = 	2	reward=	2	max_vote=	16
+iteration ..	7350
+action = 	2	reward=	2	max_vote=	16
+Game_over: Final score = 	2	nepisodes = 	22
+iteration ..	7365
+action = 	2	reward=	0	max_vote=	16
+iteration ..	7380
+action = 	2	reward=	0	max_vote=	16
+iteration ..	7395
+action = 	2	reward=	0	max_vote=	17
+iteration ..	7410
+action = 	3	reward=	1	max_vote=	18
+iteration ..	7425
+action = 	2	reward=	1	max_vote=	17
+iteration ..	7440
+action = 	2	reward=	2	max_vote=	17
+iteration ..	7455
+action = 	4	reward=	2	max_vote=	17
+iteration ..	7470
+action = 	3	reward=	2	max_vote=	18
+iteration ..	7485
+action = 	2	reward=	3	max_vote=	17
+iteration ..	7500
+action = 	4	reward=	3	max_vote=	17
+iteration ..	7515
+action = 	2	reward=	4	max_vote=	16
+iteration ..	7530
+action = 	4	reward=	4	max_vote=	16
+iteration ..	7545
+action = 	2	reward=	5	max_vote=	17
+iteration ..	7560
+action = 	2	reward=	5	max_vote=	17
+iteration ..	7575
+action = 	2	reward=	6	max_vote=	16
+iteration ..	7590
+action = 	2	reward=	6	max_vote=	16
+iteration ..	7605
+action = 	3	reward=	7	max_vote=	18
+iteration ..	7620
+action = 	1	reward=	7	max_vote=	17
+iteration ..	7635
+action = 	2	reward=	7	max_vote=	16
+iteration ..	7650
+action = 	2	reward=	8	max_vote=	16
+iteration ..	7665
+action = 	2	reward=	8	max_vote=	17
+iteration ..	7680
+action = 	2	reward=	8	max_vote=	16
+iteration ..	7695
+action = 	2	reward=	8	max_vote=	17
+iteration ..	7710
+action = 	2	reward=	9	max_vote=	16
+iteration ..	7725
+action = 	4	reward=	9	max_vote=	17
+iteration ..	7740
+action = 	2	reward=	9	max_vote=	16
+iteration ..	7755
+action = 	3	reward=	9	max_vote=	18
+iteration ..	7770
+action = 	2	reward=	10	max_vote=	17
+iteration ..	7785
+action = 	2	reward=	10	max_vote=	17
+iteration ..	7800
+action = 	2	reward=	10	max_vote=	17
+iteration ..	7815
+action = 	2	reward=	10	max_vote=	17
+iteration ..	7830
+action = 	3	reward=	11	max_vote=	18
+iteration ..	7845
+action = 	2	reward=	11	max_vote=	16
+iteration ..	7860
+action = 	2	reward=	11	max_vote=	17
+iteration ..	7875
+action = 	3	reward=	12	max_vote=	18
+iteration ..	7890
+action = 	2	reward=	12	max_vote=	18
+iteration ..	7905
+action = 	4	reward=	13	max_vote=	17
+iteration ..	7920
+action = 	2	reward=	13	max_vote=	17
+iteration ..	7935
+action = 	2	reward=	17	max_vote=	18
+iteration ..	7950
+action = 	2	reward=	17	max_vote=	17
+iteration ..	7965
+action = 	2	reward=	18	max_vote=	16
+iteration ..	7980
+action = 	2	reward=	18	max_vote=	17
+iteration ..	7995
+action = 	2	reward=	19	max_vote=	16
+iteration ..	8010
+action = 	2	reward=	19	max_vote=	17
+iteration ..	8025
+action = 	2	reward=	23	max_vote=	17
+iteration ..	8040
+action = 	2	reward=	23	max_vote=	17
+iteration ..	8055
+action = 	2	reward=	24	max_vote=	16
+iteration ..	8070
+action = 	2	reward=	24	max_vote=	17
+iteration ..	8085
+action = 	2	reward=	25	max_vote=	16
+iteration ..	8100
+action = 	2	reward=	25	max_vote=	17
+iteration ..	8115
+action = 	2	reward=	26	max_vote=	16
+iteration ..	8130
+action = 	2	reward=	26	max_vote=	16
+iteration ..	8145
+action = 	4	reward=	27	max_vote=	18
+Game_over: Final score = 	27	nepisodes = 	23
+iteration ..	8160
+action = 	2	reward=	0	max_vote=	17
+iteration ..	8175
+action = 	3	reward=	0	max_vote=	17
+iteration ..	8190
+action = 	2	reward=	0	max_vote=	16
+iteration ..	8205
+action = 	2	reward=	0	max_vote=	17
+iteration ..	8220
+action = 	2	reward=	4	max_vote=	16
+iteration ..	8235
+action = 	2	reward=	4	max_vote=	17
+iteration ..	8250
+action = 	3	reward=	4	max_vote=	17
+iteration ..	8265
+action = 	2	reward=	4	max_vote=	17
+iteration ..	8280
+action = 	3	reward=	8	max_vote=	18
+iteration ..	8295
+action = 	2	reward=	8	max_vote=	16
+iteration ..	8310
+action = 	2	reward=	8	max_vote=	17
+iteration ..	8325
+action = 	3	reward=	9	max_vote=	18
+iteration ..	8340
+action = 	2	reward=	9	max_vote=	17
+iteration ..	8355
+action = 	2	reward=	9	max_vote=	17
+iteration ..	8370
+action = 	2	reward=	13	max_vote=	16
+iteration ..	8385
+action = 	2	reward=	13	max_vote=	16
+iteration ..	8400
+action = 	2	reward=	14	max_vote=	16
+iteration ..	8415
+action = 	3	reward=	14	max_vote=	16
+iteration ..	8430
+action = 	2	reward=	18	max_vote=	16
+iteration ..	8445
+action = 	1	reward=	18	max_vote=	17
+iteration ..	8460
+action = 	2	reward=	18	max_vote=	17
+iteration ..	8475
+action = 	2	reward=	19	max_vote=	16
+iteration ..	8490
+action = 	2	reward=	19	max_vote=	16
+iteration ..	8505
+action = 	2	reward=	19	max_vote=	16
+iteration ..	8520
+action = 	3	reward=	20	max_vote=	16
+iteration ..	8535
+action = 	2	reward=	20	max_vote=	17
+iteration ..	8550
+action = 	1	reward=	20	max_vote=	18
+iteration ..	8565
+action = 	2	reward=	20	max_vote=	17
+iteration ..	8580
+action = 	2	reward=	21	max_vote=	17
+iteration ..	8595
+action = 	2	reward=	21	max_vote=	17
+iteration ..	8610
+action = 	2	reward=	21	max_vote=	17
+iteration ..	8625
+action = 	2	reward=	21	max_vote=	18
+iteration ..	8640
+action = 	3	reward=	25	max_vote=	16
+iteration ..	8655
+action = 	2	reward=	25	max_vote=	17
+iteration ..	8670
+action = 	4	reward=	25	max_vote=	17
+iteration ..	8685
+action = 	2	reward=	25	max_vote=	17
+iteration ..	8700
+action = 	2	reward=	26	max_vote=	16
+iteration ..	8715
+action = 	2	reward=	26	max_vote=	17
+iteration ..	8730
+action = 	4	reward=	26	max_vote=	17
+iteration ..	8745
+action = 	2	reward=	27	max_vote=	17
+iteration ..	8760
+action = 	1	reward=	27	max_vote=	18
+iteration ..	8775
+action = 	2	reward=	31	max_vote=	16
+iteration ..	8790
+action = 	2	reward=	31	max_vote=	18
+iteration ..	8805
+action = 	4	reward=	31	max_vote=	17
+iteration ..	8820
+action = 	1	reward=	35	max_vote=	18
+iteration ..	8835
+action = 	2	reward=	35	max_vote=	16
+iteration ..	8850
+action = 	1	reward=	39	max_vote=	16
+iteration ..	8865
+action = 	2	reward=	39	max_vote=	17
+iteration ..	8880
+action = 	2	reward=	40	max_vote=	17
+iteration ..	8895
+action = 	2	reward=	40	max_vote=	18
+iteration ..	8910
+action = 	1	reward=	44	max_vote=	16
+iteration ..	8925
+action = 	4	reward=	48	max_vote=	16
+iteration ..	8940
+action = 	2	reward=	48	max_vote=	16
+iteration ..	8955
+action = 	3	reward=	52	max_vote=	16
+iteration ..	8970
+action = 	3	reward=	59	max_vote=	17
+iteration ..	8985
+action = 	2	reward=	59	max_vote=	16
+iteration ..	9000
+action = 	2	reward=	63	max_vote=	17
+iteration ..	9015
+action = 	2	reward=	70	max_vote=	18
+iteration ..	9030
+action = 	4	reward=	77	max_vote=	16
+iteration ..	9045
+action = 	2	reward=	77	max_vote=	17
+iteration ..	9060
+action = 	2	reward=	81	max_vote=	17
+iteration ..	9075
+action = 	4	reward=	85	max_vote=	17
+iteration ..	9090
+action = 	2	reward=	89	max_vote=	16
+iteration ..	9105
+action = 	3	reward=	89	max_vote=	16
+iteration ..	9120
+action = 	4	reward=	93	max_vote=	16
+Game_over: Final score = 	93	nepisodes = 	24
+iteration ..	9135
+action = 	3	reward=	0	max_vote=	17
+iteration ..	9150
+action = 	4	reward=	0	max_vote=	16
+iteration ..	9165
+action = 	2	reward=	0	max_vote=	17
+iteration ..	9180
+action = 	2	reward=	7	max_vote=	16
+iteration ..	9195
+action = 	4	reward=	11	max_vote=	17
+iteration ..	9210
+action = 	2	reward=	15	max_vote=	16
+iteration ..	9225
+action = 	2	reward=	15	max_vote=	16
+Game_over: Final score = 	16	nepisodes = 	25
+iteration ..	9240
+action = 	0	reward=	0	max_vote=	18
+iteration ..	9255
+action = 	2	reward=	0	max_vote=	17
+iteration ..	9270
+action = 	2	reward=	0	max_vote=	17
+iteration ..	9285
+action = 	2	reward=	1	max_vote=	17
+iteration ..	9300
+action = 	4	reward=	1	max_vote=	16
+iteration ..	9315
+action = 	2	reward=	1	max_vote=	17
+iteration ..	9330
+action = 	2	reward=	2	max_vote=	16
+iteration ..	9345
+action = 	3	reward=	2	max_vote=	18
+iteration ..	9360
+action = 	2	reward=	2	max_vote=	17
+iteration ..	9375
+action = 	2	reward=	3	max_vote=	17
+iteration ..	9390
+action = 	2	reward=	3	max_vote=	18
+iteration ..	9405
+action = 	2	reward=	3	max_vote=	17
+iteration ..	9420
+action = 	2	reward=	4	max_vote=	17
+iteration ..	9435
+action = 	2	reward=	4	max_vote=	17
+iteration ..	9450
+action = 	2	reward=	5	max_vote=	16
+iteration ..	9465
+action = 	2	reward=	5	max_vote=	16
+iteration ..	9480
+action = 	2	reward=	6	max_vote=	17
+iteration ..	9495
+action = 	2	reward=	6	max_vote=	16
+iteration ..	9510
+action = 	3	reward=	7	max_vote=	17
+iteration ..	9525
+action = 	2	reward=	7	max_vote=	17
+iteration ..	9540
+action = 	2	reward=	7	max_vote=	16
+iteration ..	9555
+action = 	2	reward=	8	max_vote=	17
+iteration ..	9570
+action = 	3	reward=	8	max_vote=	18
+iteration ..	9585
+action = 	2	reward=	8	max_vote=	17
+iteration ..	9600
+action = 	2	reward=	9	max_vote=	16
+iteration ..	9615
+action = 	2	reward=	9	max_vote=	17
+iteration ..	9630
+action = 	2	reward=	9	max_vote=	16
+iteration ..	9645
+action = 	2	reward=	9	max_vote=	17
+iteration ..	9660
+action = 	4	reward=	10	max_vote=	18
+iteration ..	9675
+action = 	2	reward=	10	max_vote=	16
+iteration ..	9690
+action = 	2	reward=	10	max_vote=	16
+iteration ..	9705
+action = 	2	reward=	10	max_vote=	16
+iteration ..	9720
+action = 	2	reward=	11	max_vote=	17
+iteration ..	9735
+action = 	2	reward=	11	max_vote=	16
+iteration ..	9750
+action = 	2	reward=	11	max_vote=	17
+iteration ..	9765
+action = 	2	reward=	12	max_vote=	16
+iteration ..	9780
+action = 	2	reward=	12	max_vote=	17
+iteration ..	9795
+action = 	2	reward=	13	max_vote=	17
+Game_over: Final score = 	13	nepisodes = 	26
+iteration ..	9810
+action = 	0	reward=	0	max_vote=	18
+iteration ..	9825
+action = 	2	reward=	0	max_vote=	17
+iteration ..	9840
+action = 	2	reward=	0	max_vote=	16
+iteration ..	9855
+action = 	2	reward=	0	max_vote=	18
+iteration ..	9870
+action = 	2	reward=	1	max_vote=	17
+iteration ..	9885
+action = 	2	reward=	1	max_vote=	16
+iteration ..	9900
+action = 	2	reward=	1	max_vote=	17
+iteration ..	9915
+action = 	4	reward=	2	max_vote=	17
+iteration ..	9930
+action = 	2	reward=	2	max_vote=	17
+iteration ..	9945
+action = 	2	reward=	2	max_vote=	17
+iteration ..	9960
+action = 	2	reward=	6	max_vote=	16
+iteration ..	9975
+action = 	3	reward=	6	max_vote=	18
+iteration ..	9990
+action = 	2	reward=	7	max_vote=	18
+iteration ..	10005
+action = 	3	reward=	7	max_vote=	16
+iteration ..	10020
+action = 	2	reward=	8	max_vote=	16
+iteration ..	10035
+action = 	2	reward=	8	max_vote=	17
+iteration ..	10050
+action = 	3	reward=	9	max_vote=	17
+iteration ..	10065
+action = 	2	reward=	9	max_vote=	16
+iteration ..	10080
+action = 	2	reward=	9	max_vote=	17
+iteration ..	10095
+action = 	3	reward=	13	max_vote=	18
+iteration ..	10110
+action = 	2	reward=	13	max_vote=	16
+iteration ..	10125
+action = 	2	reward=	14	max_vote=	17
+iteration ..	10140
+action = 	2	reward=	14	max_vote=	16
+iteration ..	10155
+action = 	2	reward=	14	max_vote=	17
+iteration ..	10170
+action = 	1	reward=	14	max_vote=	18
+iteration ..	10185
+action = 	3	reward=	15	max_vote=	16
+iteration ..	10200
+action = 	2	reward=	15	max_vote=	17
+iteration ..	10215
+action = 	2	reward=	15	max_vote=	17
+iteration ..	10230
+action = 	2	reward=	15	max_vote=	17
+iteration ..	10245
+action = 	3	reward=	15	max_vote=	18
+iteration ..	10260
+action = 	2	reward=	16	max_vote=	17
+iteration ..	10275
+action = 	3	reward=	16	max_vote=	18
+iteration ..	10290
+action = 	2	reward=	16	max_vote=	16
+iteration ..	10305
+action = 	2	reward=	16	max_vote=	16
+iteration ..	10320
+action = 	2	reward=	17	max_vote=	16
+iteration ..	10335
+action = 	4	reward=	17	max_vote=	18
+iteration ..	10350
+action = 	2	reward=	17	max_vote=	16
+iteration ..	10365
+action = 	2	reward=	18	max_vote=	16
+iteration ..	10380
+action = 	2	reward=	18	max_vote=	16
+iteration ..	10395
+action = 	4	reward=	22	max_vote=	18
+Game_over: Final score = 	22	nepisodes = 	27
+iteration ..	10410
+action = 	2	reward=	0	max_vote=	16
+iteration ..	10425
+action = 	2	reward=	0	max_vote=	16
+iteration ..	10440
+action = 	2	reward=	0	max_vote=	17
+iteration ..	10455
+action = 	2	reward=	0	max_vote=	16
+iteration ..	10470
+action = 	2	reward=	1	max_vote=	16
+iteration ..	10485
+action = 	2	reward=	1	max_vote=	16
+iteration ..	10500
+action = 	2	reward=	1	max_vote=	17
+iteration ..	10515
+action = 	2	reward=	2	max_vote=	16
+iteration ..	10530
+action = 	2	reward=	2	max_vote=	17
+iteration ..	10545
+action = 	2	reward=	2	max_vote=	16
+iteration ..	10560
+action = 	3	reward=	3	max_vote=	18
+iteration ..	10575
+action = 	2	reward=	3	max_vote=	17
+iteration ..	10590
+action = 	4	reward=	4	max_vote=	17
+iteration ..	10605
+action = 	2	reward=	4	max_vote=	16
+iteration ..	10620
+action = 	3	reward=	5	max_vote=	16
+Game_over: Final score = 	5	nepisodes = 	28
+iteration ..	10635
+action = 	2	reward=	0	max_vote=	16
+iteration ..	10650
+action = 	3	reward=	0	max_vote=	17
+iteration ..	10665
+action = 	2	reward=	0	max_vote=	17
+iteration ..	10680
+action = 	2	reward=	0	max_vote=	17
+iteration ..	10695
+action = 	2	reward=	1	max_vote=	16
+iteration ..	10710
+action = 	2	reward=	1	max_vote=	17
+iteration ..	10725
+action = 	2	reward=	1	max_vote=	17
+iteration ..	10740
+action = 	2	reward=	2	max_vote=	17
+iteration ..	10755
+action = 	2	reward=	2	max_vote=	17
+iteration ..	10770
+action = 	2	reward=	2	max_vote=	16
+iteration ..	10785
+action = 	2	reward=	2	max_vote=	16
+iteration ..	10800
+action = 	2	reward=	3	max_vote=	16
+iteration ..	10815
+action = 	2	reward=	3	max_vote=	17
+iteration ..	10830
+action = 	2	reward=	3	max_vote=	16
+iteration ..	10845
+action = 	2	reward=	4	max_vote=	16
+iteration ..	10860
+action = 	2	reward=	4	max_vote=	17
+iteration ..	10875
+action = 	2	reward=	8	max_vote=	17
+iteration ..	10890
+action = 	2	reward=	12	max_vote=	16
+iteration ..	10905
+action = 	2	reward=	12	max_vote=	17
+iteration ..	10920
+action = 	3	reward=	13	max_vote=	18
+iteration ..	10935
+action = 	2	reward=	17	max_vote=	16
+iteration ..	10950
+action = 	3	reward=	21	max_vote=	18
+iteration ..	10965
+action = 	4	reward=	22	max_vote=	17
+iteration ..	10980
+action = 	2	reward=	26	max_vote=	16
+iteration ..	10995
+action = 	2	reward=	26	max_vote=	16
+iteration ..	11010
+action = 	2	reward=	30	max_vote=	17
+iteration ..	11025
+action = 	1	reward=	34	max_vote=	18
+iteration ..	11040
+action = 	4	reward=	35	max_vote=	16
+iteration ..	11055
+action = 	4	reward=	39	max_vote=	16
+iteration ..	11070
+action = 	2	reward=	39	max_vote=	16
+iteration ..	11085
+action = 	2	reward=	43	max_vote=	17
+iteration ..	11100
+action = 	3	reward=	50	max_vote=	18
+Game_over: Final score = 	50	nepisodes = 	29
+iteration ..	11115
+action = 	2	reward=	0	max_vote=	17
+iteration ..	11130
+action = 	1	reward=	0	max_vote=	16
+iteration ..	11145
+action = 	2	reward=	0	max_vote=	17
+iteration ..	11160
+action = 	3	reward=	1	max_vote=	16
+iteration ..	11175
+action = 	2	reward=	1	max_vote=	16
+iteration ..	11190
+action = 	3	reward=	1	max_vote=	18
+iteration ..	11205
+action = 	2	reward=	1	max_vote=	17
+iteration ..	11220
+action = 	2	reward=	1	max_vote=	17
+iteration ..	11235
+action = 	2	reward=	5	max_vote=	17
+iteration ..	11250
+action = 	2	reward=	5	max_vote=	16
+iteration ..	11265
+action = 	4	reward=	5	max_vote=	16
+iteration ..	11280
+action = 	2	reward=	5	max_vote=	17
+iteration ..	11295
+action = 	4	reward=	9	max_vote=	17
+iteration ..	11310
+action = 	2	reward=	9	max_vote=	16
+iteration ..	11325
+action = 	2	reward=	9	max_vote=	17
+iteration ..	11340
+action = 	4	reward=	9	max_vote=	17
+iteration ..	11355
+action = 	2	reward=	13	max_vote=	17
+iteration ..	11370
+action = 	3	reward=	17	max_vote=	16
+iteration ..	11385
+action = 	4	reward=	21	max_vote=	17
+Game_over: Final score = 	21	nepisodes = 	30
+iteration ..	11400
+action = 	2	reward=	0	max_vote=	16
+iteration ..	11415
+action = 	2	reward=	0	max_vote=	16
+iteration ..	11430
+action = 	2	reward=	0	max_vote=	16
+iteration ..	11445
+action = 	2	reward=	1	max_vote=	16
+iteration ..	11460
+action = 	2	reward=	1	max_vote=	16
+iteration ..	11475
+action = 	3	reward=	2	max_vote=	18
+iteration ..	11490
+action = 	2	reward=	2	max_vote=	16
+iteration ..	11505
+action = 	2	reward=	2	max_vote=	16
+iteration ..	11520
+action = 	2	reward=	3	max_vote=	16
+iteration ..	11535
+action = 	2	reward=	3	max_vote=	16
+iteration ..	11550
+action = 	2	reward=	4	max_vote=	16
+iteration ..	11565
+action = 	2	reward=	4	max_vote=	17
+iteration ..	11580
+action = 	2	reward=	5	max_vote=	18
+iteration ..	11595
+action = 	3	reward=	5	max_vote=	18
+iteration ..	11610
+action = 	4	reward=	6	max_vote=	18
+iteration ..	11625
+action = 	2	reward=	6	max_vote=	17
+iteration ..	11640
+action = 	2	reward=	7	max_vote=	17
+iteration ..	11655
+action = 	2	reward=	7	max_vote=	17
+iteration ..	11670
+action = 	2	reward=	7	max_vote=	16
+iteration ..	11685
+action = 	2	reward=	8	max_vote=	18
+iteration ..	11700
+action = 	2	reward=	8	max_vote=	17
+iteration ..	11715
+action = 	2	reward=	8	max_vote=	16
+iteration ..	11730
+action = 	2	reward=	8	max_vote=	17
+iteration ..	11745
+action = 	2	reward=	9	max_vote=	16
+iteration ..	11760
+action = 	2	reward=	9	max_vote=	16
+iteration ..	11775
+action = 	2	reward=	9	max_vote=	17
+iteration ..	11790
+action = 	2	reward=	9	max_vote=	18
+iteration ..	11805
+action = 	2	reward=	10	max_vote=	17
+iteration ..	11820
+action = 	2	reward=	10	max_vote=	16
+iteration ..	11835
+action = 	2	reward=	10	max_vote=	17
+iteration ..	11850
+action = 	2	reward=	10	max_vote=	16
+iteration ..	11865
+action = 	2	reward=	11	max_vote=	17
+iteration ..	11880
+action = 	3	reward=	11	max_vote=	17
+iteration ..	11895
+action = 	2	reward=	11	max_vote=	17
+iteration ..	11910
+action = 	2	reward=	12	max_vote=	16
+iteration ..	11925
+action = 	2	reward=	12	max_vote=	18
+iteration ..	11940
+action = 	3	reward=	13	max_vote=	18
+iteration ..	11955
+action = 	2	reward=	13	max_vote=	17
+iteration ..	11970
+action = 	2	reward=	14	max_vote=	16
+iteration ..	11985
+action = 	2	reward=	14	max_vote=	17
+iteration ..	12000
+action = 	4	reward=	15	max_vote=	17
+iteration ..	12015
+action = 	2	reward=	15	max_vote=	16
+iteration ..	12030
+action = 	2	reward=	16	max_vote=	17
+iteration ..	12045
+action = 	2	reward=	16	max_vote=	16
+iteration ..	12060
+action = 	1	reward=	17	max_vote=	17
+Game_over: Final score = 	17	nepisodes = 	31
+iteration ..	12075
+action = 	2	reward=	0	max_vote=	17
+iteration ..	12090
+action = 	2	reward=	0	max_vote=	17
+iteration ..	12105
+action = 	2	reward=	0	max_vote=	17
+iteration ..	12120
+action = 	2	reward=	4	max_vote=	16
+iteration ..	12135
+action = 	2	reward=	4	max_vote=	17
+iteration ..	12150
+action = 	2	reward=	4	max_vote=	16
+iteration ..	12165
+action = 	4	reward=	5	max_vote=	18
+Game_over: Final score = 	5	nepisodes = 	32
+iteration ..	12180
+action = 	2	reward=	0	max_vote=	16
+iteration ..	12195
+action = 	2	reward=	0	max_vote=	17
+iteration ..	12210
+action = 	2	reward=	0	max_vote=	17
+iteration ..	12225
+action = 	2	reward=	0	max_vote=	17
+iteration ..	12240
+action = 	2	reward=	1	max_vote=	16
+iteration ..	12255
+action = 	2	reward=	1	max_vote=	16
+iteration ..	12270
+action = 	2	reward=	1	max_vote=	17
+iteration ..	12285
+action = 	2	reward=	2	max_vote=	17
+iteration ..	12300
+action = 	1	reward=	2	max_vote=	17
+iteration ..	12315
+action = 	2	reward=	2	max_vote=	16
+iteration ..	12330
+action = 	3	reward=	3	max_vote=	18
+iteration ..	12345
+action = 	2	reward=	3	max_vote=	17
+iteration ..	12360
+action = 	2	reward=	4	max_vote=	16
+iteration ..	12375
+action = 	2	reward=	4	max_vote=	17
+iteration ..	12390
+action = 	2	reward=	5	max_vote=	16
+iteration ..	12405
+action = 	2	reward=	5	max_vote=	17
+iteration ..	12420
+action = 	2	reward=	9	max_vote=	16
+iteration ..	12435
+action = 	2	reward=	9	max_vote=	16
+iteration ..	12450
+action = 	2	reward=	13	max_vote=	16
+iteration ..	12465
+action = 	2	reward=	13	max_vote=	16
+iteration ..	12480
+action = 	2	reward=	20	max_vote=	18
+Game_over: Final score = 	20	nepisodes = 	33
+iteration ..	12495
+action = 	4	reward=	0	max_vote=	18
+iteration ..	12510
+action = 	2	reward=	0	max_vote=	16
+iteration ..	12525
+action = 	2	reward=	0	max_vote=	16
+iteration ..	12540
+action = 	3	reward=	4	max_vote=	16
+iteration ..	12555
+action = 	4	reward=	5	max_vote=	18
+Game_over: Final score = 	5	nepisodes = 	34
+iteration ..	12570
+action = 	2	reward=	0	max_vote=	17
+iteration ..	12585
+action = 	2	reward=	0	max_vote=	17
+iteration ..	12600
+action = 	2	reward=	0	max_vote=	17
+iteration ..	12615
+action = 	2	reward=	1	max_vote=	16
+iteration ..	12630
+action = 	4	reward=	1	max_vote=	17
+iteration ..	12645
+action = 	2	reward=	1	max_vote=	17
+iteration ..	12660
+action = 	2	reward=	2	max_vote=	16
+iteration ..	12675
+action = 	4	reward=	2	max_vote=	17
+iteration ..	12690
+action = 	1	reward=	2	max_vote=	17
+iteration ..	12705
+action = 	2	reward=	2	max_vote=	17
+iteration ..	12720
+action = 	2	reward=	3	max_vote=	16
+iteration ..	12735
+action = 	2	reward=	3	max_vote=	16
+iteration ..	12750
+action = 	2	reward=	3	max_vote=	17
+iteration ..	12765
+action = 	4	reward=	4	max_vote=	17
+iteration ..	12780
+action = 	2	reward=	4	max_vote=	17
+Game_over: Final score = 	4	nepisodes = 	35
+iteration ..	12795
+action = 	2	reward=	0	max_vote=	17
+iteration ..	12810
+action = 	2	reward=	0	max_vote=	16
+iteration ..	12825
+action = 	2	reward=	0	max_vote=	17
+iteration ..	12840
+action = 	2	reward=	1	max_vote=	17
+iteration ..	12855
+action = 	2	reward=	1	max_vote=	16
+iteration ..	12870
+action = 	2	reward=	1	max_vote=	17
+iteration ..	12885
+action = 	2	reward=	2	max_vote=	18
+iteration ..	12900
+action = 	4	reward=	2	max_vote=	18
+iteration ..	12915
+action = 	2	reward=	2	max_vote=	17
+iteration ..	12930
+action = 	2	reward=	3	max_vote=	16
+iteration ..	12945
+action = 	1	reward=	3	max_vote=	18
+iteration ..	12960
+action = 	3	reward=	4	max_vote=	17
+Game_over: Final score = 	4	nepisodes = 	36
+iteration ..	12975
+action = 	0	reward=	0	max_vote=	18
+iteration ..	12990
+action = 	2	reward=	0	max_vote=	16
+iteration ..	13005
+action = 	2	reward=	0	max_vote=	16
+iteration ..	13020
+action = 	2	reward=	0	max_vote=	18
+iteration ..	13035
+action = 	2	reward=	1	max_vote=	17
+iteration ..	13050
+action = 	2	reward=	1	max_vote=	16
+iteration ..	13065
+action = 	2	reward=	1	max_vote=	17
+iteration ..	13080
+action = 	2	reward=	1	max_vote=	17
+iteration ..	13095
+action = 	2	reward=	2	max_vote=	16
+iteration ..	13110
+action = 	2	reward=	2	max_vote=	17
+iteration ..	13125
+action = 	2	reward=	2	max_vote=	17
+iteration ..	13140
+action = 	2	reward=	3	max_vote=	17
+iteration ..	13155
+action = 	2	reward=	3	max_vote=	16
+iteration ..	13170
+action = 	3	reward=	4	max_vote=	17
+iteration ..	13185
+action = 	2	reward=	4	max_vote=	16
+iteration ..	13200
+action = 	2	reward=	5	max_vote=	17
+iteration ..	13215
+action = 	2	reward=	5	max_vote=	17
+iteration ..	13230
+action = 	2	reward=	6	max_vote=	16
+iteration ..	13245
+action = 	2	reward=	6	max_vote=	17
+iteration ..	13260
+action = 	2	reward=	7	max_vote=	17
+iteration ..	13275
+action = 	2	reward=	7	max_vote=	16
+iteration ..	13290
+action = 	2	reward=	7	max_vote=	17
+iteration ..	13305
+action = 	2	reward=	8	max_vote=	17
+iteration ..	13320
+action = 	2	reward=	8	max_vote=	16
+iteration ..	13335
+action = 	2	reward=	8	max_vote=	16
+Game_over: Final score = 	8	nepisodes = 	37
+iteration ..	13350
+action = 	3	reward=	0	max_vote=	18
+iteration ..	13365
+action = 	3	reward=	0	max_vote=	18
+iteration ..	13380
+action = 	2	reward=	0	max_vote=	17
+iteration ..	13395
+action = 	2	reward=	1	max_vote=	16
+iteration ..	13410
+action = 	2	reward=	1	max_vote=	16
+iteration ..	13425
+action = 	2	reward=	1	max_vote=	17
+iteration ..	13440
+action = 	3	reward=	1	max_vote=	18
+iteration ..	13455
+action = 	4	reward=	2	max_vote=	18
+iteration ..	13470
+action = 	2	reward=	2	max_vote=	17
+iteration ..	13485
+action = 	2	reward=	3	max_vote=	16
+iteration ..	13500
+action = 	3	reward=	3	max_vote=	16
+Game_over: Final score = 	3	nepisodes = 	38
+iteration ..	13515
+action = 	2	reward=	0	max_vote=	17
+iteration ..	13530
+action = 	1	reward=	0	max_vote=	17
+iteration ..	13545
+action = 	2	reward=	0	max_vote=	17
+iteration ..	13560
+action = 	4	reward=	1	max_vote=	18
+iteration ..	13575
+action = 	2	reward=	1	max_vote=	16
+iteration ..	13590
+action = 	2	reward=	1	max_vote=	16
+iteration ..	13605
+action = 	2	reward=	1	max_vote=	17
+iteration ..	13620
+action = 	2	reward=	1	max_vote=	17
+iteration ..	13635
+action = 	2	reward=	2	max_vote=	17
+iteration ..	13650
+action = 	4	reward=	2	max_vote=	18
+Game_over: Final score = 	2	nepisodes = 	39
+iteration ..	13665
+action = 	2	reward=	0	max_vote=	18
+iteration ..	13680
+action = 	2	reward=	0	max_vote=	16
+iteration ..	13695
+action = 	2	reward=	0	max_vote=	17
+iteration ..	13710
+action = 	2	reward=	1	max_vote=	17
+iteration ..	13725
+action = 	3	reward=	1	max_vote=	18
+iteration ..	13740
+action = 	2	reward=	1	max_vote=	17
+iteration ..	13755
+action = 	2	reward=	1	max_vote=	17
+iteration ..	13770
+action = 	2	reward=	2	max_vote=	17
+iteration ..	13785
+action = 	4	reward=	2	max_vote=	18
+iteration ..	13800
+action = 	2	reward=	2	max_vote=	18
+iteration ..	13815
+action = 	2	reward=	3	max_vote=	16
+iteration ..	13830
+action = 	2	reward=	3	max_vote=	16
+iteration ..	13845
+action = 	2	reward=	4	max_vote=	16
+iteration ..	13860
+action = 	2	reward=	4	max_vote=	17
+iteration ..	13875
+action = 	2	reward=	5	max_vote=	18
+iteration ..	13890
+action = 	2	reward=	5	max_vote=	18
+iteration ..	13905
+action = 	2	reward=	6	max_vote=	16
+iteration ..	13920
+action = 	3	reward=	6	max_vote=	18
+iteration ..	13935
+action = 	4	reward=	7	max_vote=	17
+iteration ..	13950
+action = 	2	reward=	7	max_vote=	17
+iteration ..	13965
+action = 	2	reward=	7	max_vote=	17
+iteration ..	13980
+action = 	2	reward=	11	max_vote=	17
+iteration ..	13995
+action = 	2	reward=	11	max_vote=	16
+iteration ..	14010
+action = 	2	reward=	11	max_vote=	16
+iteration ..	14025
+action = 	2	reward=	11	max_vote=	16
+iteration ..	14040
+action = 	2	reward=	12	max_vote=	16
+iteration ..	14055
+action = 	2	reward=	12	max_vote=	16
+iteration ..	14070
+action = 	2	reward=	12	max_vote=	17
+iteration ..	14085
+action = 	2	reward=	12	max_vote=	17
+iteration ..	14100
+action = 	2	reward=	13	max_vote=	17
+iteration ..	14115
+action = 	2	reward=	13	max_vote=	17
+iteration ..	14130
+action = 	2	reward=	13	max_vote=	16
+iteration ..	14145
+action = 	2	reward=	13	max_vote=	17
+iteration ..	14160
+action = 	2	reward=	14	max_vote=	16
+iteration ..	14175
+action = 	2	reward=	14	max_vote=	17
+iteration ..	14190
+action = 	2	reward=	14	max_vote=	17
+iteration ..	14205
+action = 	2	reward=	15	max_vote=	17
+iteration ..	14220
+action = 	2	reward=	15	max_vote=	17
+iteration ..	14235
+action = 	2	reward=	16	max_vote=	16
+iteration ..	14250
+action = 	2	reward=	16	max_vote=	18
+iteration ..	14265
+action = 	2	reward=	16	max_vote=	16
+iteration ..	14280
+action = 	4	reward=	20	max_vote=	18
+iteration ..	14295
+action = 	2	reward=	20	max_vote=	16
+iteration ..	14310
+action = 	2	reward=	21	max_vote=	16
+iteration ..	14325
+action = 	2	reward=	21	max_vote=	17
+iteration ..	14340
+action = 	4	reward=	22	max_vote=	17
+iteration ..	14355
+action = 	2	reward=	22	max_vote=	17
+iteration ..	14370
+action = 	2	reward=	26	max_vote=	16
+iteration ..	14385
+action = 	2	reward=	26	max_vote=	16
+iteration ..	14400
+action = 	4	reward=	30	max_vote=	16
+iteration ..	14415
+action = 	2	reward=	31	max_vote=	16
+iteration ..	14430
+action = 	2	reward=	31	max_vote=	16
+iteration ..	14445
+action = 	4	reward=	35	max_vote=	16
+iteration ..	14460
+action = 	2	reward=	36	max_vote=	16
+iteration ..	14475
+action = 	1	reward=	40	max_vote=	16
+iteration ..	14490
+action = 	2	reward=	40	max_vote=	16
+iteration ..	14505
+action = 	2	reward=	44	max_vote=	17
+iteration ..	14520
+action = 	4	reward=	48	max_vote=	16
+iteration ..	14535
+action = 	3	reward=	52	max_vote=	18
+iteration ..	14550
+action = 	4	reward=	56	max_vote=	17
+iteration ..	14565
+action = 	2	reward=	56	max_vote=	16
+iteration ..	14580
+action = 	4	reward=	60	max_vote=	17
+iteration ..	14595
+action = 	2	reward=	64	max_vote=	16
+Game_over: Final score = 	64	nepisodes = 	40
+iteration ..	14610
+action = 	2	reward=	0	max_vote=	16
+iteration ..	14625
+action = 	3	reward=	0	max_vote=	17
+iteration ..	14640
+action = 	2	reward=	0	max_vote=	17
+iteration ..	14655
+action = 	2	reward=	1	max_vote=	17
+iteration ..	14670
+action = 	4	reward=	1	max_vote=	17
+iteration ..	14685
+action = 	2	reward=	1	max_vote=	17
+iteration ..	14700
+action = 	2	reward=	2	max_vote=	17
+iteration ..	14715
+action = 	2	reward=	2	max_vote=	16
+iteration ..	14730
+action = 	2	reward=	2	max_vote=	17
+iteration ..	14745
+action = 	3	reward=	3	max_vote=	17
+iteration ..	14760
+action = 	4	reward=	3	max_vote=	18
+iteration ..	14775
+action = 	2	reward=	3	max_vote=	17
+iteration ..	14790
+action = 	3	reward=	4	max_vote=	17
+iteration ..	14805
+action = 	2	reward=	4	max_vote=	18
+iteration ..	14820
+action = 	2	reward=	5	max_vote=	17
+iteration ..	14835
+action = 	2	reward=	6	max_vote=	17
+iteration ..	14850
+action = 	4	reward=	6	max_vote=	18
+iteration ..	14865
+action = 	2	reward=	7	max_vote=	16
+iteration ..	14880
+action = 	2	reward=	7	max_vote=	16
+iteration ..	14895
+action = 	2	reward=	7	max_vote=	16
+iteration ..	14910
+action = 	2	reward=	8	max_vote=	16
+iteration ..	14925
+action = 	2	reward=	8	max_vote=	17
+iteration ..	14940
+action = 	3	reward=	8	max_vote=	17
+iteration ..	14955
+action = 	2	reward=	8	max_vote=	16
+iteration ..	14970
+action = 	2	reward=	9	max_vote=	16
+iteration ..	14985
+action = 	2	reward=	9	max_vote=	16
+iteration ..	15000
+action = 	4	reward=	9	max_vote=	16
+iteration ..	15015
+action = 	2	reward=	9	max_vote=	17
+iteration ..	15030
+action = 	2	reward=	10	max_vote=	17
+iteration ..	15045
+action = 	2	reward=	10	max_vote=	17
+iteration ..	15060
+action = 	3	reward=	10	max_vote=	18
+iteration ..	15075
+action = 	2	reward=	10	max_vote=	17
+iteration ..	15090
+action = 	2	reward=	11	max_vote=	17
+iteration ..	15105
+action = 	2	reward=	11	max_vote=	17
+iteration ..	15120
+action = 	2	reward=	11	max_vote=	17
+iteration ..	15135
+action = 	2	reward=	12	max_vote=	17
+iteration ..	15150
+action = 	2	reward=	12	max_vote=	17
+iteration ..	15165
+action = 	2	reward=	13	max_vote=	17
+iteration ..	15180
+action = 	2	reward=	13	max_vote=	16
+iteration ..	15195
+action = 	4	reward=	14	max_vote=	17
+Game_over: Final score = 	14	nepisodes = 	41
+iteration ..	15210
+action = 	2	reward=	0	max_vote=	18
+iteration ..	15225
+action = 	2	reward=	0	max_vote=	17
+iteration ..	15240
+action = 	2	reward=	0	max_vote=	17
+iteration ..	15255
+action = 	2	reward=	4	max_vote=	16
+iteration ..	15270
+action = 	4	reward=	4	max_vote=	18
+iteration ..	15285
+action = 	2	reward=	4	max_vote=	17
+iteration ..	15300
+action = 	2	reward=	4	max_vote=	17
+iteration ..	15315
+action = 	2	reward=	5	max_vote=	17
+iteration ..	15330
+action = 	2	reward=	5	max_vote=	17
+iteration ..	15345
+action = 	2	reward=	5	max_vote=	17
+iteration ..	15360
+action = 	3	reward=	6	max_vote=	17
+iteration ..	15375
+action = 	2	reward=	6	max_vote=	16
+iteration ..	15390
+action = 	2	reward=	6	max_vote=	17
+iteration ..	15405
+action = 	2	reward=	7	max_vote=	16
+Game_over: Final score = 	7	nepisodes = 	42
+iteration ..	15420
+action = 	2	reward=	0	max_vote=	16
+iteration ..	15435
+action = 	2	reward=	0	max_vote=	17
+iteration ..	15450
+action = 	1	reward=	0	max_vote=	18
+iteration ..	15465
+action = 	2	reward=	4	max_vote=	16
+iteration ..	15480
+action = 	2	reward=	4	max_vote=	17
+iteration ..	15495
+action = 	2	reward=	4	max_vote=	17
+iteration ..	15510
+action = 	2	reward=	4	max_vote=	16
+iteration ..	15525
+action = 	2	reward=	8	max_vote=	16
+iteration ..	15540
+action = 	4	reward=	9	max_vote=	17
+iteration ..	15555
+action = 	2	reward=	10	max_vote=	16
+iteration ..	15570
+action = 	2	reward=	10	max_vote=	17
+iteration ..	15585
+action = 	2	reward=	11	max_vote=	16
+iteration ..	15600
+action = 	3	reward=	15	max_vote=	16
+iteration ..	15615
+action = 	4	reward=	19	max_vote=	17
+Game_over: Final score = 	19	nepisodes = 	43
+iteration ..	15630
+action = 	2	reward=	0	max_vote=	17
+iteration ..	15645
+action = 	2	reward=	0	max_vote=	16
+iteration ..	15660
+action = 	2	reward=	0	max_vote=	17
+iteration ..	15675
+action = 	2	reward=	1	max_vote=	16
+iteration ..	15690
+action = 	2	reward=	1	max_vote=	16
+iteration ..	15705
+action = 	2	reward=	1	max_vote=	16
+iteration ..	15720
+action = 	2	reward=	1	max_vote=	16
+iteration ..	15735
+action = 	2	reward=	5	max_vote=	18
+iteration ..	15750
+action = 	2	reward=	5	max_vote=	16
+Game_over: Final score = 	5	nepisodes = 	44
+iteration ..	15765
+action = 	2	reward=	0	max_vote=	16
+iteration ..	15780
+action = 	2	reward=	0	max_vote=	16
+iteration ..	15795
+action = 	2	reward=	0	max_vote=	17
+iteration ..	15810
+action = 	3	reward=	1	max_vote=	16
+iteration ..	15825
+action = 	4	reward=	1	max_vote=	17
+iteration ..	15840
+action = 	2	reward=	1	max_vote=	16
+iteration ..	15855
+action = 	2	reward=	1	max_vote=	16
+iteration ..	15870
+action = 	2	reward=	5	max_vote=	16
+iteration ..	15885
+action = 	2	reward=	5	max_vote=	17
+iteration ..	15900
+action = 	2	reward=	5	max_vote=	18
+iteration ..	15915
+action = 	2	reward=	5	max_vote=	17
+iteration ..	15930
+action = 	2	reward=	6	max_vote=	16
+iteration ..	15945
+action = 	2	reward=	6	max_vote=	17
+iteration ..	15960
+action = 	2	reward=	6	max_vote=	17
+iteration ..	15975
+action = 	2	reward=	7	max_vote=	16
+iteration ..	15990
+action = 	2	reward=	7	max_vote=	17
+iteration ..	16005
+action = 	2	reward=	8	max_vote=	16
+iteration ..	16020
+action = 	1	reward=	8	max_vote=	17
+iteration ..	16035
+action = 	4	reward=	12	max_vote=	18
+iteration ..	16050
+action = 	4	reward=	12	max_vote=	16
+iteration ..	16065
+action = 	2	reward=	12	max_vote=	17
+iteration ..	16080
+action = 	3	reward=	19	max_vote=	16
+iteration ..	16095
+action = 	4	reward=	23	max_vote=	17
+Game_over: Final score = 	23	nepisodes = 	45
+iteration ..	16110
+action = 	2	reward=	0	max_vote=	17
+iteration ..	16125
+action = 	4	reward=	0	max_vote=	17
+iteration ..	16140
+action = 	2	reward=	0	max_vote=	17
+iteration ..	16155
+action = 	2	reward=	1	max_vote=	16
+iteration ..	16170
+action = 	2	reward=	1	max_vote=	16
+iteration ..	16185
+action = 	2	reward=	1	max_vote=	17
+iteration ..	16200
+action = 	2	reward=	2	max_vote=	16
+iteration ..	16215
+action = 	2	reward=	2	max_vote=	17
+iteration ..	16230
+action = 	2	reward=	2	max_vote=	17
+iteration ..	16245
+action = 	4	reward=	3	max_vote=	18
+iteration ..	16260
+action = 	2	reward=	3	max_vote=	16
+iteration ..	16275
+action = 	4	reward=	3	max_vote=	17
+iteration ..	16290
+action = 	2	reward=	4	max_vote=	16
+iteration ..	16305
+action = 	2	reward=	4	max_vote=	16
+iteration ..	16320
+action = 	3	reward=	5	max_vote=	18
+iteration ..	16335
+action = 	2	reward=	6	max_vote=	16
+iteration ..	16350
+action = 	2	reward=	6	max_vote=	18
+iteration ..	16365
+action = 	4	reward=	7	max_vote=	17
+iteration ..	16380
+action = 	1	reward=	7	max_vote=	18
+iteration ..	16395
+action = 	2	reward=	7	max_vote=	17
+iteration ..	16410
+action = 	2	reward=	8	max_vote=	17
+iteration ..	16425
+action = 	2	reward=	8	max_vote=	17
+iteration ..	16440
+action = 	3	reward=	8	max_vote=	16
+Game_over: Final score = 	8	nepisodes = 	46
+iteration ..	16455
+action = 	2	reward=	0	max_vote=	17
+iteration ..	16470
+action = 	3	reward=	0	max_vote=	18
+iteration ..	16485
+action = 	2	reward=	0	max_vote=	17
+iteration ..	16500
+action = 	2	reward=	0	max_vote=	17
+iteration ..	16515
+action = 	2	reward=	1	max_vote=	16
+iteration ..	16530
+action = 	2	reward=	1	max_vote=	17
+iteration ..	16545
+action = 	2	reward=	1	max_vote=	17
+iteration ..	16560
+action = 	2	reward=	1	max_vote=	17
+iteration ..	16575
+action = 	2	reward=	5	max_vote=	16
+iteration ..	16590
+action = 	2	reward=	5	max_vote=	16
+iteration ..	16605
+action = 	2	reward=	5	max_vote=	17
+iteration ..	16620
+action = 	2	reward=	6	max_vote=	17
+iteration ..	16635
+action = 	2	reward=	6	max_vote=	16
+iteration ..	16650
+action = 	4	reward=	7	max_vote=	18
+iteration ..	16665
+action = 	2	reward=	7	max_vote=	17
+Game_over: Final score = 	7	nepisodes = 	47
+iteration ..	16680
+action = 	2	reward=	0	max_vote=	16
+iteration ..	16695
+action = 	2	reward=	0	max_vote=	17
+iteration ..	16710
+action = 	2	reward=	0	max_vote=	16
+iteration ..	16725
+action = 	2	reward=	1	max_vote=	18
+iteration ..	16740
+action = 	2	reward=	1	max_vote=	17
+iteration ..	16755
+action = 	2	reward=	1	max_vote=	16
+iteration ..	16770
+action = 	2	reward=	2	max_vote=	16
+iteration ..	16785
+action = 	2	reward=	2	max_vote=	16
+Game_over: Final score = 	2	nepisodes = 	48
+iteration ..	16800
+action = 	2	reward=	0	max_vote=	18
+iteration ..	16815
+action = 	2	reward=	0	max_vote=	17
+iteration ..	16830
+action = 	2	reward=	0	max_vote=	17
+iteration ..	16845
+action = 	2	reward=	1	max_vote=	17
+iteration ..	16860
+action = 	4	reward=	1	max_vote=	16
+iteration ..	16875
+action = 	2	reward=	1	max_vote=	16
+iteration ..	16890
+action = 	2	reward=	2	max_vote=	16
+iteration ..	16905
+action = 	2	reward=	2	max_vote=	16
+iteration ..	16920
+action = 	2	reward=	2	max_vote=	16
+iteration ..	16935
+action = 	2	reward=	3	max_vote=	17
+iteration ..	16950
+action = 	2	reward=	3	max_vote=	17
+iteration ..	16965
+action = 	2	reward=	3	max_vote=	16
+iteration ..	16980
+action = 	2	reward=	3	max_vote=	16
+iteration ..	16995
+action = 	2	reward=	7	max_vote=	18
+iteration ..	17010
+action = 	2	reward=	7	max_vote=	17
+iteration ..	17025
+action = 	4	reward=	8	max_vote=	17
+Game_over: Final score = 	8	nepisodes = 	49
+iteration ..	17040
+action = 	4	reward=	0	max_vote=	18
+iteration ..	17055
+action = 	4	reward=	0	max_vote=	18
+iteration ..	17070
+action = 	2	reward=	0	max_vote=	17
+iteration ..	17085
+action = 	4	reward=	1	max_vote=	17
+iteration ..	17100
+action = 	2	reward=	1	max_vote=	17
+iteration ..	17115
+action = 	4	reward=	1	max_vote=	17
+iteration ..	17130
+action = 	2	reward=	1	max_vote=	17
+iteration ..	17145
+action = 	2	reward=	2	max_vote=	18
+iteration ..	17160
+action = 	2	reward=	2	max_vote=	17
+iteration ..	17175
+action = 	2	reward=	6	max_vote=	17
+iteration ..	17190
+action = 	3	reward=	6	max_vote=	18
+iteration ..	17205
+action = 	2	reward=	6	max_vote=	16
+iteration ..	17220
+action = 	2	reward=	7	max_vote=	17
+iteration ..	17235
+action = 	2	reward=	7	max_vote=	16
+iteration ..	17250
+action = 	2	reward=	11	max_vote=	16
+iteration ..	17265
+action = 	2	reward=	11	max_vote=	17
+iteration ..	17280
+action = 	3	reward=	12	max_vote=	17
+iteration ..	17295
+action = 	2	reward=	12	max_vote=	17
+iteration ..	17310
+action = 	2	reward=	13	max_vote=	16
+iteration ..	17325
+action = 	2	reward=	13	max_vote=	16
+iteration ..	17340
+action = 	2	reward=	13	max_vote=	17
+iteration ..	17355
+action = 	2	reward=	17	max_vote=	17
+iteration ..	17370
+action = 	2	reward=	17	max_vote=	17
+iteration ..	17385
+action = 	2	reward=	17	max_vote=	17
+iteration ..	17400
+action = 	2	reward=	17	max_vote=	17
+iteration ..	17415
+action = 	2	reward=	18	max_vote=	17
+iteration ..	17430
+action = 	2	reward=	18	max_vote=	17
+iteration ..	17445
+action = 	1	reward=	18	max_vote=	17
+iteration ..	17460
+action = 	2	reward=	18	max_vote=	16
+iteration ..	17475
+action = 	2	reward=	19	max_vote=	16
+iteration ..	17490
+action = 	1	reward=	19	max_vote=	16
+iteration ..	17505
+action = 	2	reward=	19	max_vote=	16
+iteration ..	17520
+action = 	2	reward=	19	max_vote=	17
+iteration ..	17535
+action = 	4	reward=	23	max_vote=	18
+iteration ..	17550
+action = 	2	reward=	23	max_vote=	16
+iteration ..	17565
+action = 	3	reward=	30	max_vote=	18
+iteration ..	17580
+action = 	4	reward=	31	max_vote=	17
+iteration ..	17595
+action = 	2	reward=	35	max_vote=	18
+iteration ..	17610
+action = 	4	reward=	35	max_vote=	18
+iteration ..	17625
+action = 	4	reward=	42	max_vote=	17
+Game_over: Final score = 	42	nepisodes = 	50
+iteration ..	17640
+action = 	2	reward=	0	max_vote=	17
+iteration ..	17655
+action = 	2	reward=	0	max_vote=	16
+iteration ..	17670
+action = 	2	reward=	0	max_vote=	17
+iteration ..	17685
+action = 	2	reward=	1	max_vote=	16
+iteration ..	17700
+action = 	1	reward=	1	max_vote=	18
+iteration ..	17715
+action = 	2	reward=	1	max_vote=	17
+iteration ..	17730
+action = 	2	reward=	2	max_vote=	16
+iteration ..	17745
+action = 	2	reward=	2	max_vote=	17
+iteration ..	17760
+action = 	2	reward=	2	max_vote=	17
+iteration ..	17775
+action = 	2	reward=	3	max_vote=	16
+iteration ..	17790
+action = 	4	reward=	3	max_vote=	16
+iteration ..	17805
+action = 	2	reward=	4	max_vote=	17
+iteration ..	17820
+action = 	4	reward=	4	max_vote=	17
+iteration ..	17835
+action = 	4	reward=	5	max_vote=	18
+iteration ..	17850
+action = 	2	reward=	5	max_vote=	17
+iteration ..	17865
+action = 	1	reward=	6	max_vote=	18
+iteration ..	17880
+action = 	2	reward=	6	max_vote=	17
+iteration ..	17895
+action = 	2	reward=	7	max_vote=	16
+iteration ..	17910
+action = 	2	reward=	7	max_vote=	16
+iteration ..	17925
+action = 	2	reward=	7	max_vote=	17
+iteration ..	17940
+action = 	2	reward=	8	max_vote=	17
+iteration ..	17955
+action = 	2	reward=	8	max_vote=	16
+iteration ..	17970
+action = 	2	reward=	8	max_vote=	17
+iteration ..	17985
+action = 	2	reward=	8	max_vote=	17
+iteration ..	18000
+action = 	2	reward=	9	max_vote=	17
+iteration ..	18015
+action = 	2	reward=	9	max_vote=	18
+iteration ..	18030
+action = 	2	reward=	9	max_vote=	17
+iteration ..	18045
+action = 	2	reward=	9	max_vote=	17
+iteration ..	18060
+action = 	2	reward=	10	max_vote=	16
+iteration ..	18075
+action = 	2	reward=	10	max_vote=	17
+iteration ..	18090
+action = 	2	reward=	10	max_vote=	17
+iteration ..	18105
+action = 	2	reward=	10	max_vote=	16
+iteration ..	18120
+action = 	2	reward=	11	max_vote=	17
+iteration ..	18135
+action = 	3	reward=	11	max_vote=	17
+iteration ..	18150
+action = 	2	reward=	11	max_vote=	17
+iteration ..	18165
+action = 	2	reward=	12	max_vote=	16
+iteration ..	18180
+action = 	2	reward=	12	max_vote=	16
+iteration ..	18195
+action = 	2	reward=	13	max_vote=	16
+iteration ..	18210
+action = 	2	reward=	13	max_vote=	16
+iteration ..	18225
+action = 	2	reward=	14	max_vote=	16
+iteration ..	18240
+action = 	1	reward=	14	max_vote=	16
+iteration ..	18255
+action = 	2	reward=	15	max_vote=	17
+iteration ..	18270
+action = 	2	reward=	15	max_vote=	17
+iteration ..	18285
+action = 	1	reward=	16	max_vote=	18
+iteration ..	18300
+action = 	4	reward=	16	max_vote=	18
+iteration ..	18315
+action = 	3	reward=	17	max_vote=	18
+Game_over: Final score = 	17	nepisodes = 	51
+iteration ..	18330
+action = 	2	reward=	0	max_vote=	16
+iteration ..	18345
+action = 	3	reward=	0	max_vote=	18
+iteration ..	18360
+action = 	2	reward=	0	max_vote=	17
+iteration ..	18375
+action = 	2	reward=	1	max_vote=	16
+iteration ..	18390
+action = 	2	reward=	1	max_vote=	17
+iteration ..	18405
+action = 	2	reward=	1	max_vote=	16
+iteration ..	18420
+action = 	2	reward=	2	max_vote=	17
+iteration ..	18435
+action = 	2	reward=	2	max_vote=	16
+iteration ..	18450
+action = 	2	reward=	2	max_vote=	17
+iteration ..	18465
+action = 	1	reward=	3	max_vote=	16
+iteration ..	18480
+action = 	1	reward=	3	max_vote=	18
+iteration ..	18495
+action = 	2	reward=	3	max_vote=	17
+iteration ..	18510
+action = 	2	reward=	4	max_vote=	16
+iteration ..	18525
+action = 	2	reward=	4	max_vote=	16
+iteration ..	18540
+action = 	2	reward=	8	max_vote=	16
+iteration ..	18555
+action = 	2	reward=	8	max_vote=	17
+iteration ..	18570
+action = 	2	reward=	9	max_vote=	16
+iteration ..	18585
+action = 	2	reward=	9	max_vote=	16
+iteration ..	18600
+action = 	4	reward=	13	max_vote=	18
+iteration ..	18615
+action = 	2	reward=	13	max_vote=	16
+iteration ..	18630
+action = 	2	reward=	13	max_vote=	17
+iteration ..	18645
+action = 	2	reward=	14	max_vote=	17
+iteration ..	18660
+action = 	2	reward=	14	max_vote=	17
+iteration ..	18675
+action = 	3	reward=	14	max_vote=	17
+Game_over: Final score = 	14	nepisodes = 	52
+iteration ..	18690
+action = 	2	reward=	0	max_vote=	17
+iteration ..	18705
+action = 	4	reward=	0	max_vote=	17
+iteration ..	18720
+action = 	2	reward=	0	max_vote=	16
+iteration ..	18735
+action = 	4	reward=	1	max_vote=	18
+iteration ..	18750
+action = 	2	reward=	1	max_vote=	17
+Game_over: Final score = 	1	nepisodes = 	53
+iteration ..	18765
+action = 	2	reward=	0	max_vote=	16
+iteration ..	18780
+action = 	4	reward=	0	max_vote=	16
+iteration ..	18795
+action = 	2	reward=	0	max_vote=	17
+iteration ..	18810
+action = 	2	reward=	1	max_vote=	16
+iteration ..	18825
+action = 	2	reward=	1	max_vote=	16
+iteration ..	18840
+action = 	2	reward=	1	max_vote=	16
+iteration ..	18855
+action = 	2	reward=	1	max_vote=	17
+iteration ..	18870
+action = 	2	reward=	2	max_vote=	16
+iteration ..	18885
+action = 	2	reward=	2	max_vote=	16
+iteration ..	18900
+action = 	2	reward=	2	max_vote=	16
+iteration ..	18915
+action = 	1	reward=	2	max_vote=	18
+iteration ..	18930
+action = 	2	reward=	3	max_vote=	16
+iteration ..	18945
+action = 	3	reward=	3	max_vote=	16
+iteration ..	18960
+action = 	2	reward=	3	max_vote=	17
+iteration ..	18975
+action = 	2	reward=	3	max_vote=	16
+iteration ..	18990
+action = 	2	reward=	7	max_vote=	16
+iteration ..	19005
+action = 	2	reward=	7	max_vote=	17
+iteration ..	19020
+action = 	3	reward=	11	max_vote=	17
+iteration ..	19035
+action = 	2	reward=	18	max_vote=	17
+iteration ..	19050
+action = 	2	reward=	18	max_vote=	16
+iteration ..	19065
+action = 	2	reward=	19	max_vote=	16
+iteration ..	19080
+action = 	2	reward=	20	max_vote=	16
+iteration ..	19095
+action = 	2	reward=	21	max_vote=	16
+iteration ..	19110
+action = 	2	reward=	22	max_vote=	16
+iteration ..	19125
+action = 	2	reward=	23	max_vote=	16
+iteration ..	19140
+action = 	3	reward=	24	max_vote=	17
+iteration ..	19155
+action = 	4	reward=	25	max_vote=	17
+iteration ..	19170
+action = 	2	reward=	25	max_vote=	17
+Game_over: Final score = 	29	nepisodes = 	54
+iteration ..	19185
+action = 	0	reward=	0	max_vote=	18
+iteration ..	19200
+action = 	3	reward=	0	max_vote=	17
+iteration ..	19215
+action = 	2	reward=	0	max_vote=	17
+iteration ..	19230
+action = 	2	reward=	0	max_vote=	16
+iteration ..	19245
+action = 	2	reward=	4	max_vote=	16
+iteration ..	19260
+action = 	2	reward=	4	max_vote=	16
+iteration ..	19275
+action = 	4	reward=	8	max_vote=	17
+iteration ..	19290
+action = 	2	reward=	8	max_vote=	17
+iteration ..	19305
+action = 	2	reward=	8	max_vote=	16
+iteration ..	19320
+action = 	4	reward=	12	max_vote=	16
+iteration ..	19335
+action = 	2	reward=	12	max_vote=	16
+iteration ..	19350
+action = 	2	reward=	12	max_vote=	16
+iteration ..	19365
+action = 	3	reward=	16	max_vote=	18
+iteration ..	19380
+action = 	2	reward=	17	max_vote=	16
+iteration ..	19395
+action = 	2	reward=	17	max_vote=	17
+iteration ..	19410
+action = 	2	reward=	24	max_vote=	17
+iteration ..	19425
+action = 	2	reward=	28	max_vote=	16
+iteration ..	19440
+action = 	3	reward=	29	max_vote=	18
+iteration ..	19455
+action = 	4	reward=	33	max_vote=	16
+iteration ..	19470
+action = 	2	reward=	33	max_vote=	16
+iteration ..	19485
+action = 	2	reward=	37	max_vote=	17
+iteration ..	19500
+action = 	4	reward=	44	max_vote=	17
+iteration ..	19515
+action = 	2	reward=	48	max_vote=	17
+iteration ..	19530
+action = 	2	reward=	48	max_vote=	17
+iteration ..	19545
+action = 	1	reward=	52	max_vote=	16
+iteration ..	19560
+action = 	2	reward=	56	max_vote=	17
+iteration ..	19575
+action = 	2	reward=	60	max_vote=	16
+iteration ..	19590
+action = 	2	reward=	60	max_vote=	17
+iteration ..	19605
+action = 	2	reward=	64	max_vote=	16
+iteration ..	19620
+action = 	3	reward=	68	max_vote=	16
+Game_over: Final score = 	68	nepisodes = 	55
+iteration ..	19635
+action = 	2	reward=	0	max_vote=	16
+iteration ..	19650
+action = 	4	reward=	0	max_vote=	17
+iteration ..	19665
+action = 	2	reward=	0	max_vote=	17
+iteration ..	19680
+action = 	2	reward=	1	max_vote=	17
+iteration ..	19695
+action = 	2	reward=	1	max_vote=	17
+iteration ..	19710
+action = 	2	reward=	1	max_vote=	17
+iteration ..	19725
+action = 	2	reward=	1	max_vote=	16
+iteration ..	19740
+action = 	2	reward=	2	max_vote=	17
+iteration ..	19755
+action = 	2	reward=	2	max_vote=	17
+iteration ..	19770
+action = 	2	reward=	3	max_vote=	16
+iteration ..	19785
+action = 	2	reward=	3	max_vote=	17
+iteration ..	19800
+action = 	2	reward=	4	max_vote=	16
+Game_over: Final score = 	4	nepisodes = 	56
+iteration ..	19815
+action = 	0	reward=	0	max_vote=	18
+iteration ..	19830
+action = 	2	reward=	0	max_vote=	17
+iteration ..	19845
+action = 	2	reward=	0	max_vote=	17
+iteration ..	19860
+action = 	2	reward=	0	max_vote=	17
+iteration ..	19875
+action = 	2	reward=	1	max_vote=	17
+iteration ..	19890
+action = 	2	reward=	1	max_vote=	17
+iteration ..	19905
+action = 	2	reward=	1	max_vote=	16
+iteration ..	19920
+action = 	2	reward=	1	max_vote=	16
+iteration ..	19935
+action = 	3	reward=	2	max_vote=	18
+iteration ..	19950
+action = 	2	reward=	2	max_vote=	17
+iteration ..	19965
+action = 	2	reward=	2	max_vote=	16
+iteration ..	19980
+action = 	2	reward=	2	max_vote=	17
+iteration ..	19995
+action = 	2	reward=	3	max_vote=	16
+iteration ..	20010
+action = 	2	reward=	3	max_vote=	16
+iteration ..	20025
+action = 	2	reward=	3	max_vote=	17
+iteration ..	20040
+action = 	4	reward=	4	max_vote=	18
+iteration ..	20055
+action = 	2	reward=	4	max_vote=	17
+iteration ..	20070
+action = 	2	reward=	5	max_vote=	17
+Game_over: Final score = 	5	nepisodes = 	57
+iteration ..	20085
+action = 	2	reward=	0	max_vote=	16
+iteration ..	20100
+action = 	3	reward=	0	max_vote=	18
+iteration ..	20115
+action = 	4	reward=	0	max_vote=	17
+iteration ..	20130
+action = 	2	reward=	0	max_vote=	17
+iteration ..	20145
+action = 	2	reward=	1	max_vote=	17
+iteration ..	20160
+action = 	2	reward=	1	max_vote=	18
+iteration ..	20175
+action = 	2	reward=	1	max_vote=	17
+iteration ..	20190
+action = 	2	reward=	2	max_vote=	16
+iteration ..	20205
+action = 	3	reward=	2	max_vote=	18
+iteration ..	20220
+action = 	2	reward=	2	max_vote=	17
+iteration ..	20235
+action = 	2	reward=	3	max_vote=	16
+iteration ..	20250
+action = 	2	reward=	3	max_vote=	16
+iteration ..	20265
+action = 	1	reward=	4	max_vote=	18
+iteration ..	20280
+action = 	2	reward=	4	max_vote=	17
+iteration ..	20295
+action = 	2	reward=	5	max_vote=	16
+iteration ..	20310
+action = 	2	reward=	5	max_vote=	18
+iteration ..	20325
+action = 	3	reward=	6	max_vote=	18
+iteration ..	20340
+action = 	2	reward=	6	max_vote=	17
+iteration ..	20355
+action = 	2	reward=	10	max_vote=	17
+iteration ..	20370
+action = 	3	reward=	10	max_vote=	16
+Game_over: Final score = 	10	nepisodes = 	58
+iteration ..	20385
+action = 	2	reward=	0	max_vote=	17
+iteration ..	20400
+action = 	2	reward=	0	max_vote=	16
+iteration ..	20415
+action = 	2	reward=	0	max_vote=	16
+iteration ..	20430
+action = 	3	reward=	1	max_vote=	16
+Game_over: Final score = 	1	nepisodes = 	59
+iteration ..	20445
+action = 	2	reward=	0	max_vote=	17
+iteration ..	20460
+action = 	2	reward=	0	max_vote=	17
+iteration ..	20475
+action = 	2	reward=	0	max_vote=	16
+iteration ..	20490
+action = 	2	reward=	0	max_vote=	17
+iteration ..	20505
+action = 	2	reward=	1	max_vote=	16
+iteration ..	20520
+action = 	4	reward=	1	max_vote=	18
+iteration ..	20535
+action = 	2	reward=	1	max_vote=	16
+iteration ..	20550
+action = 	2	reward=	1	max_vote=	16
+iteration ..	20565
+action = 	2	reward=	2	max_vote=	17
+iteration ..	20580
+action = 	2	reward=	2	max_vote=	16
+iteration ..	20595
+action = 	2	reward=	2	max_vote=	18
+iteration ..	20610
+action = 	2	reward=	2	max_vote=	17
+iteration ..	20625
+action = 	2	reward=	3	max_vote=	16
+iteration ..	20640
+action = 	3	reward=	3	max_vote=	18
+iteration ..	20655
+action = 	3	reward=	3	max_vote=	18
+iteration ..	20670
+action = 	2	reward=	4	max_vote=	17
+iteration ..	20685
+action = 	2	reward=	4	max_vote=	16
+iteration ..	20700
+action = 	2	reward=	5	max_vote=	16
+iteration ..	20715
+action = 	2	reward=	6	max_vote=	16
+iteration ..	20730
+action = 	2	reward=	6	max_vote=	16
+iteration ..	20745
+action = 	2	reward=	6	max_vote=	16
+iteration ..	20760
+action = 	3	reward=	7	max_vote=	18
+iteration ..	20775
+action = 	2	reward=	7	max_vote=	16
+iteration ..	20790
+action = 	2	reward=	7	max_vote=	16
+iteration ..	20805
+action = 	2	reward=	8	max_vote=	17
+iteration ..	20820
+action = 	3	reward=	8	max_vote=	17
+iteration ..	20835
+action = 	2	reward=	8	max_vote=	16
+iteration ..	20850
+action = 	2	reward=	8	max_vote=	16
+iteration ..	20865
+action = 	4	reward=	9	max_vote=	18
+iteration ..	20880
+action = 	2	reward=	9	max_vote=	16
+iteration ..	20895
+action = 	2	reward=	9	max_vote=	17
+iteration ..	20910
+action = 	2	reward=	9	max_vote=	17
+iteration ..	20925
+action = 	2	reward=	10	max_vote=	17
+iteration ..	20940
+action = 	2	reward=	10	max_vote=	16
+iteration ..	20955
+action = 	2	reward=	10	max_vote=	17
+iteration ..	20970
+action = 	1	reward=	10	max_vote=	18
+iteration ..	20985
+action = 	3	reward=	11	max_vote=	16
+iteration ..	21000
+action = 	1	reward=	11	max_vote=	17
+iteration ..	21015
+action = 	2	reward=	11	max_vote=	17
+iteration ..	21030
+action = 	1	reward=	12	max_vote=	16
+iteration ..	21045
+action = 	2	reward=	12	max_vote=	17
+iteration ..	21060
+action = 	2	reward=	13	max_vote=	17
+iteration ..	21075
+action = 	2	reward=	13	max_vote=	17
+iteration ..	21090
+action = 	3	reward=	14	max_vote=	17
+iteration ..	21105
+action = 	2	reward=	14	max_vote=	18
+iteration ..	21120
+action = 	2	reward=	15	max_vote=	16
+iteration ..	21135
+action = 	2	reward=	15	max_vote=	16
+iteration ..	21150
+action = 	4	reward=	19	max_vote=	17
+iteration ..	21165
+action = 	2	reward=	19	max_vote=	17
+iteration ..	21180
+action = 	2	reward=	23	max_vote=	16
+iteration ..	21195
+action = 	2	reward=	23	max_vote=	17
+iteration ..	21210
+action = 	4	reward=	27	max_vote=	17
+iteration ..	21225
+action = 	2	reward=	27	max_vote=	16
+iteration ..	21240
+action = 	2	reward=	31	max_vote=	16
+iteration ..	21255
+action = 	2	reward=	35	max_vote=	17
+iteration ..	21270
+action = 	4	reward=	39	max_vote=	16
+Game_over: Final score = 	39	nepisodes = 	60
+iteration ..	21285
+action = 	2	reward=	0	max_vote=	17
+iteration ..	21300
+action = 	2	reward=	0	max_vote=	16
+iteration ..	21315
+action = 	2	reward=	0	max_vote=	17
+iteration ..	21330
+action = 	2	reward=	1	max_vote=	16
+iteration ..	21345
+action = 	2	reward=	1	max_vote=	17
+iteration ..	21360
+action = 	2	reward=	1	max_vote=	16
+iteration ..	21375
+action = 	2	reward=	2	max_vote=	16
+iteration ..	21390
+action = 	2	reward=	2	max_vote=	17
+iteration ..	21405
+action = 	2	reward=	3	max_vote=	16
+iteration ..	21420
+action = 	1	reward=	3	max_vote=	18
+iteration ..	21435
+action = 	4	reward=	4	max_vote=	18
+iteration ..	21450
+action = 	2	reward=	4	max_vote=	17
+iteration ..	21465
+action = 	4	reward=	5	max_vote=	17
+iteration ..	21480
+action = 	4	reward=	5	max_vote=	17
+Game_over: Final score = 	5	nepisodes = 	61
+iteration ..	21495
+action = 	2	reward=	0	max_vote=	16
+iteration ..	21510
+action = 	2	reward=	0	max_vote=	16
+iteration ..	21525
+action = 	2	reward=	0	max_vote=	17
+iteration ..	21540
+action = 	3	reward=	1	max_vote=	18
+iteration ..	21555
+action = 	2	reward=	1	max_vote=	17
+iteration ..	21570
+action = 	3	reward=	5	max_vote=	16
+iteration ..	21585
+action = 	4	reward=	5	max_vote=	16
+Game_over: Final score = 	5	nepisodes = 	62
+iteration ..	21600
+action = 	2	reward=	0	max_vote=	16
+iteration ..	21615
+action = 	2	reward=	0	max_vote=	16
+iteration ..	21630
+action = 	2	reward=	0	max_vote=	17
+iteration ..	21645
+action = 	2	reward=	1	max_vote=	16
+iteration ..	21660
+action = 	2	reward=	1	max_vote=	17
+iteration ..	21675
+action = 	2	reward=	1	max_vote=	18
+iteration ..	21690
+action = 	2	reward=	2	max_vote=	16
+iteration ..	21705
+action = 	2	reward=	2	max_vote=	17
+iteration ..	21720
+action = 	3	reward=	3	max_vote=	18
+iteration ..	21735
+action = 	2	reward=	3	max_vote=	16
+iteration ..	21750
+action = 	2	reward=	3	max_vote=	16
+iteration ..	21765
+action = 	2	reward=	4	max_vote=	16
+iteration ..	21780
+action = 	1	reward=	4	max_vote=	16
+iteration ..	21795
+action = 	2	reward=	5	max_vote=	17
+iteration ..	21810
+action = 	2	reward=	6	max_vote=	16
+iteration ..	21825
+action = 	2	reward=	6	max_vote=	16
+iteration ..	21840
+action = 	2	reward=	6	max_vote=	17
+iteration ..	21855
+action = 	3	reward=	7	max_vote=	17
+iteration ..	21870
+action = 	2	reward=	7	max_vote=	17
+iteration ..	21885
+action = 	4	reward=	8	max_vote=	17
+iteration ..	21900
+action = 	2	reward=	8	max_vote=	17
+iteration ..	21915
+action = 	2	reward=	8	max_vote=	16
+iteration ..	21930
+action = 	2	reward=	8	max_vote=	16
+iteration ..	21945
+action = 	2	reward=	9	max_vote=	17
+iteration ..	21960
+action = 	2	reward=	9	max_vote=	17
+iteration ..	21975
+action = 	1	reward=	9	max_vote=	18
+iteration ..	21990
+action = 	2	reward=	9	max_vote=	16
+iteration ..	22005
+action = 	2	reward=	10	max_vote=	17
+iteration ..	22020
+action = 	2	reward=	10	max_vote=	16
+iteration ..	22035
+action = 	2	reward=	10	max_vote=	17
+iteration ..	22050
+action = 	2	reward=	10	max_vote=	16
+iteration ..	22065
+action = 	2	reward=	11	max_vote=	18
+iteration ..	22080
+action = 	1	reward=	11	max_vote=	16
+iteration ..	22095
+action = 	2	reward=	11	max_vote=	17
+iteration ..	22110
+action = 	2	reward=	12	max_vote=	16
+iteration ..	22125
+action = 	2	reward=	12	max_vote=	17
+iteration ..	22140
+action = 	2	reward=	13	max_vote=	16
+iteration ..	22155
+action = 	2	reward=	13	max_vote=	17
+iteration ..	22170
+action = 	4	reward=	14	max_vote=	17
+iteration ..	22185
+action = 	2	reward=	14	max_vote=	16
+iteration ..	22200
+action = 	2	reward=	15	max_vote=	17
+iteration ..	22215
+action = 	2	reward=	15	max_vote=	17
+iteration ..	22230
+action = 	2	reward=	16	max_vote=	18
+iteration ..	22245
+action = 	2	reward=	16	max_vote=	17
+iteration ..	22260
+action = 	2	reward=	17	max_vote=	17
+iteration ..	22275
+action = 	2	reward=	17	max_vote=	17
+iteration ..	22290
+action = 	2	reward=	21	max_vote=	16
+iteration ..	22305
+action = 	2	reward=	21	max_vote=	17
+iteration ..	22320
+action = 	2	reward=	22	max_vote=	16
+iteration ..	22335
+action = 	2	reward=	22	max_vote=	16
+iteration ..	22350
+action = 	2	reward=	23	max_vote=	16
+iteration ..	22365
+action = 	2	reward=	23	max_vote=	17
+iteration ..	22380
+action = 	2	reward=	27	max_vote=	17
+iteration ..	22395
+action = 	2	reward=	27	max_vote=	16
+iteration ..	22410
+action = 	3	reward=	31	max_vote=	17
+Game_over: Final score = 	31	nepisodes = 	63
+iteration ..	22425
+action = 	2	reward=	0	max_vote=	16
+iteration ..	22440
+action = 	2	reward=	0	max_vote=	16
+iteration ..	22455
+action = 	2	reward=	0	max_vote=	17
+iteration ..	22470
+action = 	2	reward=	0	max_vote=	17
+iteration ..	22485
+action = 	2	reward=	1	max_vote=	16
+iteration ..	22500
+action = 	2	reward=	1	max_vote=	16
+iteration ..	22515
+action = 	2	reward=	1	max_vote=	16
+iteration ..	22530
+action = 	2	reward=	1	max_vote=	16
+iteration ..	22545
+action = 	2	reward=	5	max_vote=	16
+iteration ..	22560
+action = 	2	reward=	5	max_vote=	16
+iteration ..	22575
+action = 	2	reward=	5	max_vote=	16
+iteration ..	22590
+action = 	2	reward=	5	max_vote=	16
+iteration ..	22605
+action = 	3	reward=	6	max_vote=	17
+iteration ..	22620
+action = 	2	reward=	6	max_vote=	16
+iteration ..	22635
+action = 	2	reward=	6	max_vote=	16
+iteration ..	22650
+action = 	4	reward=	7	max_vote=	16
+iteration ..	22665
+action = 	1	reward=	7	max_vote=	17
+iteration ..	22680
+action = 	2	reward=	11	max_vote=	17
+iteration ..	22695
+action = 	2	reward=	11	max_vote=	17
+iteration ..	22710
+action = 	2	reward=	11	max_vote=	17
+iteration ..	22725
+action = 	3	reward=	12	max_vote=	16
+iteration ..	22740
+action = 	2	reward=	12	max_vote=	16
+iteration ..	22755
+action = 	1	reward=	13	max_vote=	17
+iteration ..	22770
+action = 	2	reward=	13	max_vote=	17
+iteration ..	22785
+action = 	2	reward=	13	max_vote=	17
+iteration ..	22800
+action = 	2	reward=	14	max_vote=	17
+iteration ..	22815
+action = 	2	reward=	14	max_vote=	16
+iteration ..	22830
+action = 	2	reward=	14	max_vote=	17
+iteration ..	22845
+action = 	3	reward=	14	max_vote=	17
+iteration ..	22860
+action = 	2	reward=	15	max_vote=	17
+iteration ..	22875
+action = 	2	reward=	15	max_vote=	17
+iteration ..	22890
+action = 	2	reward=	15	max_vote=	17
+iteration ..	22905
+action = 	2	reward=	15	max_vote=	17
+iteration ..	22920
+action = 	2	reward=	16	max_vote=	17
+iteration ..	22935
+action = 	2	reward=	16	max_vote=	16
+iteration ..	22950
+action = 	2	reward=	16	max_vote=	17
+iteration ..	22965
+action = 	2	reward=	16	max_vote=	17
+iteration ..	22980
+action = 	2	reward=	20	max_vote=	16
+iteration ..	22995
+action = 	2	reward=	20	max_vote=	16
+iteration ..	23010
+action = 	2	reward=	20	max_vote=	18
+iteration ..	23025
+action = 	4	reward=	24	max_vote=	17
+iteration ..	23040
+action = 	4	reward=	28	max_vote=	17
+iteration ..	23055
+action = 	2	reward=	28	max_vote=	17
+iteration ..	23070
+action = 	4	reward=	32	max_vote=	17
+Game_over: Final score = 	32	nepisodes = 	64
+iteration ..	23085
+action = 	2	reward=	0	max_vote=	16
+iteration ..	23100
+action = 	4	reward=	0	max_vote=	16
+iteration ..	23115
+action = 	2	reward=	0	max_vote=	16
+iteration ..	23130
+action = 	1	reward=	4	max_vote=	16
+iteration ..	23145
+action = 	2	reward=	4	max_vote=	17
+iteration ..	23160
+action = 	2	reward=	4	max_vote=	16
+iteration ..	23175
+action = 	2	reward=	4	max_vote=	16
+iteration ..	23190
+action = 	2	reward=	4	max_vote=	17
+iteration ..	23205
+action = 	2	reward=	5	max_vote=	17
+iteration ..	23220
+action = 	2	reward=	5	max_vote=	16
+iteration ..	23235
+action = 	2	reward=	5	max_vote=	16
+iteration ..	23250
+action = 	2	reward=	5	max_vote=	17
+iteration ..	23265
+action = 	2	reward=	9	max_vote=	16
+iteration ..	23280
+action = 	2	reward=	9	max_vote=	17
+iteration ..	23295
+action = 	2	reward=	9	max_vote=	16
+iteration ..	23310
+action = 	3	reward=	16	max_vote=	16
+iteration ..	23325
+action = 	4	reward=	16	max_vote=	16
+Game_over: Final score = 	23	nepisodes = 	65
+iteration ..	23340
+action = 	0	reward=	0	max_vote=	18
+iteration ..	23355
+action = 	2	reward=	0	max_vote=	17
+iteration ..	23370
+action = 	2	reward=	0	max_vote=	17
+iteration ..	23385
+action = 	2	reward=	1	max_vote=	17
+iteration ..	23400
+action = 	4	reward=	1	max_vote=	16
+iteration ..	23415
+action = 	2	reward=	1	max_vote=	17
+iteration ..	23430
+action = 	2	reward=	2	max_vote=	16
+iteration ..	23445
+action = 	2	reward=	2	max_vote=	16
+iteration ..	23460
+action = 	2	reward=	2	max_vote=	17
+iteration ..	23475
+action = 	2	reward=	3	max_vote=	17
+iteration ..	23490
+action = 	2	reward=	3	max_vote=	17
+iteration ..	23505
+action = 	2	reward=	3	max_vote=	17
+iteration ..	23520
+action = 	4	reward=	4	max_vote=	18
+iteration ..	23535
+action = 	2	reward=	4	max_vote=	17
+iteration ..	23550
+action = 	2	reward=	5	max_vote=	16
+Game_over: Final score = 	5	nepisodes = 	66
+iteration ..	23565
+action = 	2	reward=	0	max_vote=	16
+iteration ..	23580
+action = 	2	reward=	0	max_vote=	17
+iteration ..	23595
+action = 	2	reward=	0	max_vote=	17
+iteration ..	23610
+action = 	2	reward=	1	max_vote=	17
+iteration ..	23625
+action = 	2	reward=	1	max_vote=	16
+iteration ..	23640
+action = 	2	reward=	1	max_vote=	17
+iteration ..	23655
+action = 	3	reward=	2	max_vote=	18
+iteration ..	23670
+action = 	2	reward=	2	max_vote=	17
+iteration ..	23685
+action = 	2	reward=	3	max_vote=	18
+iteration ..	23700
+action = 	2	reward=	3	max_vote=	17
+iteration ..	23715
+action = 	2	reward=	4	max_vote=	16
+iteration ..	23730
+action = 	3	reward=	4	max_vote=	17
+iteration ..	23745
+action = 	2	reward=	5	max_vote=	16
+iteration ..	23760
+action = 	2	reward=	5	max_vote=	16
+iteration ..	23775
+action = 	2	reward=	6	max_vote=	16
+iteration ..	23790
+action = 	2	reward=	6	max_vote=	16
+iteration ..	23805
+action = 	2	reward=	7	max_vote=	16
+iteration ..	23820
+action = 	3	reward=	7	max_vote=	17
+iteration ..	23835
+action = 	2	reward=	7	max_vote=	17
+iteration ..	23850
+action = 	2	reward=	8	max_vote=	16
+iteration ..	23865
+action = 	2	reward=	8	max_vote=	16
+iteration ..	23880
+action = 	2	reward=	8	max_vote=	16
+iteration ..	23895
+action = 	2	reward=	8	max_vote=	17
+iteration ..	23910
+action = 	2	reward=	9	max_vote=	17
+iteration ..	23925
+action = 	2	reward=	9	max_vote=	16
+iteration ..	23940
+action = 	2	reward=	9	max_vote=	16
+iteration ..	23955
+action = 	2	reward=	9	max_vote=	17
+iteration ..	23970
+action = 	2	reward=	10	max_vote=	17
+iteration ..	23985
+action = 	4	reward=	10	max_vote=	18
+iteration ..	24000
+action = 	2	reward=	10	max_vote=	16
+iteration ..	24015
+action = 	2	reward=	10	max_vote=	16
+iteration ..	24030
+action = 	2	reward=	11	max_vote=	17
+iteration ..	24045
+action = 	3	reward=	11	max_vote=	17
+iteration ..	24060
+action = 	3	reward=	11	max_vote=	18
+iteration ..	24075
+action = 	2	reward=	12	max_vote=	17
+iteration ..	24090
+action = 	2	reward=	12	max_vote=	17
+iteration ..	24105
+action = 	2	reward=	13	max_vote=	16
+iteration ..	24120
+action = 	2	reward=	13	max_vote=	17
+iteration ..	24135
+action = 	2	reward=	14	max_vote=	16
+iteration ..	24150
+action = 	2	reward=	14	max_vote=	17
+iteration ..	24165
+action = 	4	reward=	15	max_vote=	18
+iteration ..	24180
+action = 	2	reward=	15	max_vote=	17
+iteration ..	24195
+action = 	2	reward=	19	max_vote=	17
+iteration ..	24210
+action = 	2	reward=	19	max_vote=	16
+iteration ..	24225
+action = 	2	reward=	20	max_vote=	16
+iteration ..	24240
+action = 	2	reward=	20	max_vote=	17
+iteration ..	24255
+action = 	4	reward=	21	max_vote=	17
+iteration ..	24270
+action = 	4	reward=	21	max_vote=	17
+iteration ..	24285
+action = 	2	reward=	22	max_vote=	16
+iteration ..	24300
+action = 	2	reward=	22	max_vote=	17
+iteration ..	24315
+action = 	2	reward=	23	max_vote=	16
+iteration ..	24330
+action = 	4	reward=	23	max_vote=	16
+Game_over: Final score = 	23	nepisodes = 	67
+iteration ..	24345
+action = 	2	reward=	0	max_vote=	16
+iteration ..	24360
+action = 	2	reward=	0	max_vote=	17
+iteration ..	24375
+action = 	2	reward=	0	max_vote=	16
+iteration ..	24390
+action = 	2	reward=	4	max_vote=	16
+iteration ..	24405
+action = 	2	reward=	4	max_vote=	17
+iteration ..	24420
+action = 	3	reward=	4	max_vote=	16
+iteration ..	24435
+action = 	2	reward=	8	max_vote=	16
+iteration ..	24450
+action = 	2	reward=	8	max_vote=	17
+iteration ..	24465
+action = 	2	reward=	8	max_vote=	17
+iteration ..	24480
+action = 	4	reward=	12	max_vote=	16
+iteration ..	24495
+action = 	2	reward=	12	max_vote=	17
+iteration ..	24510
+action = 	2	reward=	12	max_vote=	16
+iteration ..	24525
+action = 	2	reward=	16	max_vote=	16
+iteration ..	24540
+action = 	2	reward=	16	max_vote=	18
+iteration ..	24555
+action = 	3	reward=	17	max_vote=	16
+iteration ..	24570
+action = 	2	reward=	17	max_vote=	16
+iteration ..	24585
+action = 	2	reward=	17	max_vote=	17
+iteration ..	24600
+action = 	3	reward=	18	max_vote=	18
+iteration ..	24615
+action = 	2	reward=	18	max_vote=	17
+iteration ..	24630
+action = 	2	reward=	22	max_vote=	16
+iteration ..	24645
+action = 	2	reward=	22	max_vote=	17
+iteration ..	24660
+action = 	2	reward=	22	max_vote=	16
+iteration ..	24675
+action = 	2	reward=	23	max_vote=	16
+iteration ..	24690
+action = 	2	reward=	23	max_vote=	18
+iteration ..	24705
+action = 	2	reward=	23	max_vote=	17
+iteration ..	24720
+action = 	4	reward=	23	max_vote=	17
+iteration ..	24735
+action = 	2	reward=	24	max_vote=	17
+iteration ..	24750
+action = 	3	reward=	24	max_vote=	18
+iteration ..	24765
+action = 	2	reward=	24	max_vote=	17
+iteration ..	24780
+action = 	4	reward=	24	max_vote=	17
+iteration ..	24795
+action = 	3	reward=	25	max_vote=	16
+iteration ..	24810
+action = 	1	reward=	25	max_vote=	16
+iteration ..	24825
+action = 	2	reward=	25	max_vote=	16
+iteration ..	24840
+action = 	2	reward=	25	max_vote=	16
+iteration ..	24855
+action = 	2	reward=	29	max_vote=	16
+iteration ..	24870
+action = 	2	reward=	29	max_vote=	17
+iteration ..	24885
+action = 	2	reward=	29	max_vote=	17
+iteration ..	24900
+action = 	2	reward=	33	max_vote=	17
+iteration ..	24915
+action = 	2	reward=	33	max_vote=	16
+iteration ..	24930
+action = 	2	reward=	37	max_vote=	17
+iteration ..	24945
+action = 	2	reward=	41	max_vote=	17
+iteration ..	24960
+action = 	2	reward=	48	max_vote=	17
+iteration ..	24975
+action = 	2	reward=	48	max_vote=	16
+iteration ..	24990
+action = 	2	reward=	55	max_vote=	16
+iteration ..	25005
+action = 	2	reward=	59	max_vote=	16
+iteration ..	25020
+action = 	2	reward=	63	max_vote=	17
+iteration ..	25035
+action = 	2	reward=	63	max_vote=	16
+iteration ..	25050
+action = 	2	reward=	64	max_vote=	16
+iteration ..	25065
+action = 	2	reward=	68	max_vote=	16
+iteration ..	25080
+action = 	2	reward=	72	max_vote=	17
+iteration ..	25095
+action = 	2	reward=	76	max_vote=	16
+iteration ..	25110
+action = 	2	reward=	76	max_vote=	17
+iteration ..	25125
+action = 	2	reward=	77	max_vote=	17
+iteration ..	25140
+action = 	3	reward=	81	max_vote=	18
+Game_over: Final score = 	81	nepisodes = 	68
+iteration ..	25155
+action = 	2	reward=	0	max_vote=	16
+iteration ..	25170
+action = 	2	reward=	0	max_vote=	17
+iteration ..	25185
+action = 	2	reward=	0	max_vote=	17
+iteration ..	25200
+action = 	2	reward=	4	max_vote=	16
+iteration ..	25215
+action = 	2	reward=	8	max_vote=	16
+iteration ..	25230
+action = 	4	reward=	12	max_vote=	17
+iteration ..	25245
+action = 	2	reward=	12	max_vote=	16
+iteration ..	25260
+action = 	2	reward=	19	max_vote=	18
+iteration ..	25275
+action = 	2	reward=	19	max_vote=	17
+iteration ..	25290
+action = 	2	reward=	54	max_vote=	17
+iteration ..	25305
+action = 	4	reward=	82	max_vote=	17
+iteration ..	25320
+action = 	3	reward=	82	max_vote=	16
+Game_over: Final score = 	82	nepisodes = 	69
+iteration ..	25335
+action = 	3	reward=	0	max_vote=	16
+iteration ..	25350
+action = 	3	reward=	0	max_vote=	16
+Game_over: Final score = 	0	nepisodes = 	70
+iteration ..	25365
+action = 	2	reward=	0	max_vote=	17
+iteration ..	25380
+action = 	2	reward=	0	max_vote=	17
+iteration ..	25395
+action = 	4	reward=	0	max_vote=	18
+iteration ..	25410
+action = 	2	reward=	1	max_vote=	16
+iteration ..	25425
+action = 	2	reward=	1	max_vote=	17
+iteration ..	25440
+action = 	2	reward=	1	max_vote=	17
+iteration ..	25455
+action = 	2	reward=	2	max_vote=	16
+iteration ..	25470
+action = 	2	reward=	2	max_vote=	17
+iteration ..	25485
+action = 	2	reward=	2	max_vote=	16
+iteration ..	25500
+action = 	2	reward=	3	max_vote=	18
+iteration ..	25515
+action = 	2	reward=	3	max_vote=	16
+iteration ..	25530
+action = 	2	reward=	4	max_vote=	17
+iteration ..	25545
+action = 	3	reward=	4	max_vote=	17
+iteration ..	25560
+action = 	2	reward=	5	max_vote=	17
+iteration ..	25575
+action = 	2	reward=	5	max_vote=	16
+iteration ..	25590
+action = 	2	reward=	6	max_vote=	16
+iteration ..	25605
+action = 	2	reward=	6	max_vote=	17
+iteration ..	25620
+action = 	2	reward=	7	max_vote=	16
+iteration ..	25635
+action = 	2	reward=	7	max_vote=	17
+iteration ..	25650
+action = 	2	reward=	7	max_vote=	17
+iteration ..	25665
+action = 	2	reward=	8	max_vote=	17
+iteration ..	25680
+action = 	2	reward=	8	max_vote=	17
+iteration ..	25695
+action = 	2	reward=	8	max_vote=	18
+iteration ..	25710
+action = 	2	reward=	8	max_vote=	17
+iteration ..	25725
+action = 	2	reward=	9	max_vote=	16
+iteration ..	25740
+action = 	4	reward=	9	max_vote=	17
+iteration ..	25755
+action = 	2	reward=	9	max_vote=	16
+Game_over: Final score = 	9	nepisodes = 	71
+iteration ..	25770
+action = 	1	reward=	0	max_vote=	18
+iteration ..	25785
+action = 	2	reward=	0	max_vote=	16
+iteration ..	25800
+action = 	2	reward=	0	max_vote=	17
+iteration ..	25815
+action = 	2	reward=	1	max_vote=	17
+iteration ..	25830
+action = 	2	reward=	1	max_vote=	17
+iteration ..	25845
+action = 	2	reward=	1	max_vote=	16
+iteration ..	25860
+action = 	3	reward=	2	max_vote=	18
+iteration ..	25875
+action = 	4	reward=	2	max_vote=	17
+Game_over: Final score = 	2	nepisodes = 	72
+iteration ..	25890
+action = 	2	reward=	0	max_vote=	17
+iteration ..	25905
+action = 	2	reward=	0	max_vote=	16
+iteration ..	25920
+action = 	2	reward=	0	max_vote=	17
+iteration ..	25935
+action = 	2	reward=	0	max_vote=	17
+iteration ..	25950
+action = 	2	reward=	1	max_vote=	17
+iteration ..	25965
+action = 	2	reward=	1	max_vote=	17
+iteration ..	25980
+action = 	2	reward=	1	max_vote=	17
+iteration ..	25995
+action = 	2	reward=	2	max_vote=	18
+iteration ..	26010
+action = 	2	reward=	2	max_vote=	17
+iteration ..	26025
+action = 	2	reward=	2	max_vote=	17
+iteration ..	26040
+action = 	2	reward=	2	max_vote=	16
+iteration ..	26055
+action = 	2	reward=	3	max_vote=	17
+iteration ..	26070
+action = 	3	reward=	3	max_vote=	18
+iteration ..	26085
+action = 	1	reward=	3	max_vote=	18
+iteration ..	26100
+action = 	2	reward=	4	max_vote=	16
+iteration ..	26115
+action = 	2	reward=	4	max_vote=	17
+iteration ..	26130
+action = 	2	reward=	5	max_vote=	18
+iteration ..	26145
+action = 	3	reward=	5	max_vote=	16
+iteration ..	26160
+action = 	4	reward=	6	max_vote=	18
+iteration ..	26175
+action = 	2	reward=	6	max_vote=	17
+iteration ..	26190
+action = 	3	reward=	10	max_vote=	18
+iteration ..	26205
+action = 	2	reward=	10	max_vote=	17
+iteration ..	26220
+action = 	2	reward=	10	max_vote=	17
+iteration ..	26235
+action = 	2	reward=	11	max_vote=	17
+iteration ..	26250
+action = 	4	reward=	11	max_vote=	17
+Game_over: Final score = 	11	nepisodes = 	73
+iteration ..	26265
+action = 	2	reward=	0	max_vote=	16
+iteration ..	26280
+action = 	2	reward=	0	max_vote=	17
+iteration ..	26295
+action = 	2	reward=	0	max_vote=	16
+iteration ..	26310
+action = 	2	reward=	1	max_vote=	17
+iteration ..	26325
+action = 	2	reward=	1	max_vote=	16
+iteration ..	26340
+action = 	2	reward=	1	max_vote=	17
+iteration ..	26355
+action = 	2	reward=	2	max_vote=	16
+iteration ..	26370
+action = 	2	reward=	2	max_vote=	17
+iteration ..	26385
+action = 	2	reward=	2	max_vote=	16
+iteration ..	26400
+action = 	2	reward=	3	max_vote=	17
+iteration ..	26415
+action = 	2	reward=	3	max_vote=	17
+iteration ..	26430
+action = 	2	reward=	3	max_vote=	17
+iteration ..	26445
+action = 	2	reward=	4	max_vote=	16
+iteration ..	26460
+action = 	2	reward=	4	max_vote=	17
+iteration ..	26475
+action = 	2	reward=	8	max_vote=	16
+iteration ..	26490
+action = 	2	reward=	8	max_vote=	16
+iteration ..	26505
+action = 	2	reward=	9	max_vote=	16
+iteration ..	26520
+action = 	2	reward=	9	max_vote=	17
+iteration ..	26535
+action = 	2	reward=	10	max_vote=	16
+iteration ..	26550
+action = 	2	reward=	10	max_vote=	17
+iteration ..	26565
+action = 	4	reward=	10	max_vote=	18
+iteration ..	26580
+action = 	2	reward=	11	max_vote=	16
+iteration ..	26595
+action = 	2	reward=	11	max_vote=	16
+iteration ..	26610
+action = 	2	reward=	11	max_vote=	16
+iteration ..	26625
+action = 	4	reward=	11	max_vote=	17
+iteration ..	26640
+action = 	4	reward=	12	max_vote=	18
+iteration ..	26655
+action = 	2	reward=	12	max_vote=	17
+iteration ..	26670
+action = 	2	reward=	12	max_vote=	17
+iteration ..	26685
+action = 	2	reward=	12	max_vote=	17
+iteration ..	26700
+action = 	2	reward=	13	max_vote=	17
+iteration ..	26715
+action = 	2	reward=	13	max_vote=	17
+iteration ..	26730
+action = 	4	reward=	13	max_vote=	18
+iteration ..	26745
+action = 	2	reward=	13	max_vote=	17
+iteration ..	26760
+action = 	2	reward=	17	max_vote=	16
+iteration ..	26775
+action = 	4	reward=	17	max_vote=	17
+iteration ..	26790
+action = 	2	reward=	17	max_vote=	17
+iteration ..	26805
+action = 	2	reward=	21	max_vote=	16
+iteration ..	26820
+action = 	4	reward=	21	max_vote=	17
+iteration ..	26835
+action = 	4	reward=	22	max_vote=	18
+iteration ..	26850
+action = 	2	reward=	22	max_vote=	17
+iteration ..	26865
+action = 	2	reward=	23	max_vote=	16
+iteration ..	26880
+action = 	2	reward=	23	max_vote=	16
+iteration ..	26895
+action = 	2	reward=	24	max_vote=	17
+iteration ..	26910
+action = 	2	reward=	24	max_vote=	16
+iteration ..	26925
+action = 	2	reward=	28	max_vote=	17
+iteration ..	26940
+action = 	4	reward=	28	max_vote=	18
+Game_over: Final score = 	28	nepisodes = 	74
+iteration ..	26955
+action = 	2	reward=	0	max_vote=	17
+iteration ..	26970
+action = 	1	reward=	0	max_vote=	17
+iteration ..	26985
+action = 	2	reward=	0	max_vote=	17
+iteration ..	27000
+action = 	2	reward=	0	max_vote=	17
+iteration ..	27015
+action = 	2	reward=	4	max_vote=	17
+iteration ..	27030
+action = 	3	reward=	4	max_vote=	18
+iteration ..	27045
+action = 	2	reward=	4	max_vote=	16
+iteration ..	27060
+action = 	4	reward=	8	max_vote=	18
+Game_over: Final score = 	8	nepisodes = 	75
+iteration ..	27075
+action = 	2	reward=	0	max_vote=	17
+iteration ..	27090
+action = 	2	reward=	0	max_vote=	16
+iteration ..	27105
+action = 	2	reward=	0	max_vote=	17
+iteration ..	27120
+action = 	2	reward=	1	max_vote=	16
+iteration ..	27135
+action = 	2	reward=	1	max_vote=	17
+iteration ..	27150
+action = 	2	reward=	1	max_vote=	17
+iteration ..	27165
+action = 	2	reward=	2	max_vote=	16
+iteration ..	27180
+action = 	2	reward=	2	max_vote=	17
+iteration ..	27195
+action = 	2	reward=	3	max_vote=	16
+iteration ..	27210
+action = 	3	reward=	3	max_vote=	17
+iteration ..	27225
+action = 	2	reward=	3	max_vote=	17
+iteration ..	27240
+action = 	1	reward=	4	max_vote=	17
+iteration ..	27255
+action = 	2	reward=	4	max_vote=	17
+iteration ..	27270
+action = 	3	reward=	5	max_vote=	16
+Game_over: Final score = 	5	nepisodes = 	76
+iteration ..	27285
+action = 	2	reward=	0	max_vote=	17
+iteration ..	27300
+action = 	4	reward=	0	max_vote=	18
+iteration ..	27315
+action = 	2	reward=	0	max_vote=	17
+iteration ..	27330
+action = 	2	reward=	1	max_vote=	16
+iteration ..	27345
+action = 	2	reward=	1	max_vote=	16
+iteration ..	27360
+action = 	2	reward=	1	max_vote=	16
+iteration ..	27375
+action = 	2	reward=	2	max_vote=	16
+iteration ..	27390
+action = 	2	reward=	2	max_vote=	16
+iteration ..	27405
+action = 	2	reward=	2	max_vote=	16
+iteration ..	27420
+action = 	2	reward=	2	max_vote=	17
+iteration ..	27435
+action = 	2	reward=	3	max_vote=	17
+iteration ..	27450
+action = 	2	reward=	3	max_vote=	17
+iteration ..	27465
+action = 	2	reward=	3	max_vote=	18
+iteration ..	27480
+action = 	2	reward=	4	max_vote=	16
+Game_over: Final score = 	4	nepisodes = 	77
+iteration ..	27495
+action = 	2	reward=	0	max_vote=	16
+iteration ..	27510
+action = 	2	reward=	0	max_vote=	18
+iteration ..	27525
+action = 	2	reward=	0	max_vote=	17
+iteration ..	27540
+action = 	2	reward=	4	max_vote=	17
+iteration ..	27555
+action = 	3	reward=	4	max_vote=	18
+iteration ..	27570
+action = 	2	reward=	4	max_vote=	17
+iteration ..	27585
+action = 	2	reward=	5	max_vote=	17
+iteration ..	27600
+action = 	2	reward=	5	max_vote=	16
+iteration ..	27615
+action = 	2	reward=	5	max_vote=	16
+iteration ..	27630
+action = 	2	reward=	6	max_vote=	16
+iteration ..	27645
+action = 	2	reward=	6	max_vote=	16
+iteration ..	27660
+action = 	2	reward=	6	max_vote=	17
+iteration ..	27675
+action = 	2	reward=	7	max_vote=	16
+iteration ..	27690
+action = 	2	reward=	7	max_vote=	17
+iteration ..	27705
+action = 	2	reward=	8	max_vote=	16
+iteration ..	27720
+action = 	2	reward=	8	max_vote=	17
+iteration ..	27735
+action = 	2	reward=	9	max_vote=	16
+iteration ..	27750
+action = 	2	reward=	9	max_vote=	17
+iteration ..	27765
+action = 	2	reward=	10	max_vote=	16
+iteration ..	27780
+action = 	4	reward=	10	max_vote=	16
+iteration ..	27795
+action = 	2	reward=	10	max_vote=	17
+iteration ..	27810
+action = 	2	reward=	11	max_vote=	16
+iteration ..	27825
+action = 	2	reward=	11	max_vote=	17
+iteration ..	27840
+action = 	2	reward=	11	max_vote=	17
+iteration ..	27855
+action = 	2	reward=	11	max_vote=	16
+iteration ..	27870
+action = 	2	reward=	12	max_vote=	16
+iteration ..	27885
+action = 	4	reward=	12	max_vote=	17
+iteration ..	27900
+action = 	2	reward=	12	max_vote=	16
+iteration ..	27915
+action = 	2	reward=	12	max_vote=	16
+iteration ..	27930
+action = 	2	reward=	13	max_vote=	16
+iteration ..	27945
+action = 	3	reward=	13	max_vote=	18
+iteration ..	27960
+action = 	2	reward=	13	max_vote=	16
+iteration ..	27975
+action = 	2	reward=	13	max_vote=	16
+iteration ..	27990
+action = 	4	reward=	14	max_vote=	18
+iteration ..	28005
+action = 	4	reward=	14	max_vote=	17
+Game_over: Final score = 	14	nepisodes = 	78
+iteration ..	28020
+action = 	2	reward=	0	max_vote=	18
+iteration ..	28035
+action = 	3	reward=	0	max_vote=	18
+iteration ..	28050
+action = 	2	reward=	0	max_vote=	17
+iteration ..	28065
+action = 	2	reward=	1	max_vote=	16
+iteration ..	28080
+action = 	2	reward=	1	max_vote=	18
+iteration ..	28095
+action = 	2	reward=	1	max_vote=	17
+iteration ..	28110
+action = 	2	reward=	1	max_vote=	18
+iteration ..	28125
+action = 	2	reward=	2	max_vote=	17
+iteration ..	28140
+action = 	2	reward=	2	max_vote=	16
+iteration ..	28155
+action = 	2	reward=	2	max_vote=	17
+iteration ..	28170
+action = 	2	reward=	2	max_vote=	17
+iteration ..	28185
+action = 	2	reward=	6	max_vote=	16
+iteration ..	28200
+action = 	2	reward=	6	max_vote=	17
+iteration ..	28215
+action = 	2	reward=	6	max_vote=	17
+iteration ..	28230
+action = 	2	reward=	7	max_vote=	16
+iteration ..	28245
+action = 	2	reward=	7	max_vote=	16
+iteration ..	28260
+action = 	2	reward=	11	max_vote=	16
+iteration ..	28275
+action = 	2	reward=	11	max_vote=	18
+Game_over: Final score = 	11	nepisodes = 	79
+iteration ..	28290
+action = 	2	reward=	0	max_vote=	17
+iteration ..	28305
+action = 	1	reward=	0	max_vote=	17
+iteration ..	28320
+action = 	2	reward=	0	max_vote=	17
+iteration ..	28335
+action = 	2	reward=	1	max_vote=	16
+iteration ..	28350
+action = 	2	reward=	1	max_vote=	18
+iteration ..	28365
+action = 	2	reward=	1	max_vote=	17
+iteration ..	28380
+action = 	2	reward=	2	max_vote=	16
+iteration ..	28395
+action = 	3	reward=	2	max_vote=	16
+iteration ..	28410
+action = 	2	reward=	2	max_vote=	17
+iteration ..	28425
+action = 	2	reward=	2	max_vote=	16
+iteration ..	28440
+action = 	2	reward=	3	max_vote=	17
+iteration ..	28455
+action = 	3	reward=	3	max_vote=	17
+iteration ..	28470
+action = 	2	reward=	3	max_vote=	17
+iteration ..	28485
+action = 	2	reward=	7	max_vote=	16
+iteration ..	28500
+action = 	2	reward=	7	max_vote=	16
+iteration ..	28515
+action = 	2	reward=	11	max_vote=	16
+iteration ..	28530
+action = 	2	reward=	11	max_vote=	18
+Game_over: Final score = 	18	nepisodes = 	80
+iteration ..	28545
+action = 	2	reward=	0	max_vote=	18
+iteration ..	28560
+action = 	2	reward=	0	max_vote=	17
+iteration ..	28575
+action = 	2	reward=	0	max_vote=	16
+iteration ..	28590
+action = 	2	reward=	0	max_vote=	17
+iteration ..	28605
+action = 	2	reward=	1	max_vote=	16
+iteration ..	28620
+action = 	2	reward=	1	max_vote=	17
+iteration ..	28635
+action = 	2	reward=	1	max_vote=	16
+iteration ..	28650
+action = 	2	reward=	1	max_vote=	16
+iteration ..	28665
+action = 	2	reward=	2	max_vote=	16
+iteration ..	28680
+action = 	2	reward=	2	max_vote=	16
+iteration ..	28695
+action = 	2	reward=	2	max_vote=	17
+iteration ..	28710
+action = 	2	reward=	2	max_vote=	17
+iteration ..	28725
+action = 	2	reward=	3	max_vote=	16
+iteration ..	28740
+action = 	3	reward=	3	max_vote=	17
+iteration ..	28755
+action = 	2	reward=	3	max_vote=	17
+iteration ..	28770
+action = 	1	reward=	4	max_vote=	16
+iteration ..	28785
+action = 	4	reward=	5	max_vote=	17
+iteration ..	28800
+action = 	3	reward=	5	max_vote=	18
+iteration ..	28815
+action = 	2	reward=	6	max_vote=	17
+iteration ..	28830
+action = 	2	reward=	6	max_vote=	17
+iteration ..	28845
+action = 	3	reward=	7	max_vote=	17
+iteration ..	28860
+action = 	4	reward=	7	max_vote=	18
+iteration ..	28875
+action = 	2	reward=	7	max_vote=	17
+iteration ..	28890
+action = 	2	reward=	8	max_vote=	17
+iteration ..	28905
+action = 	2	reward=	8	max_vote=	17
+iteration ..	28920
+action = 	2	reward=	8	max_vote=	17
+iteration ..	28935
+action = 	2	reward=	8	max_vote=	17
+iteration ..	28950
+action = 	2	reward=	9	max_vote=	17
+iteration ..	28965
+action = 	1	reward=	9	max_vote=	18
+iteration ..	28980
+action = 	2	reward=	9	max_vote=	17
+iteration ..	28995
+action = 	2	reward=	9	max_vote=	17
+iteration ..	29010
+action = 	2	reward=	10	max_vote=	17
+iteration ..	29025
+action = 	2	reward=	10	max_vote=	16
+iteration ..	29040
+action = 	2	reward=	10	max_vote=	17
+iteration ..	29055
+action = 	2	reward=	10	max_vote=	17
+iteration ..	29070
+action = 	2	reward=	11	max_vote=	16
+iteration ..	29085
+action = 	2	reward=	11	max_vote=	17
+iteration ..	29100
+action = 	2	reward=	11	max_vote=	17
+iteration ..	29115
+action = 	2	reward=	12	max_vote=	16
+iteration ..	29130
+action = 	3	reward=	12	max_vote=	16
+iteration ..	29145
+action = 	2	reward=	16	max_vote=	18
+iteration ..	29160
+action = 	2	reward=	16	max_vote=	17
+iteration ..	29175
+action = 	4	reward=	17	max_vote=	17
+iteration ..	29190
+action = 	2	reward=	17	max_vote=	17
+iteration ..	29205
+action = 	2	reward=	18	max_vote=	16
+iteration ..	29220
+action = 	2	reward=	18	max_vote=	17
+iteration ..	29235
+action = 	2	reward=	19	max_vote=	16
+iteration ..	29250
+action = 	2	reward=	19	max_vote=	16
+iteration ..	29265
+action = 	2	reward=	20	max_vote=	17
+iteration ..	29280
+action = 	2	reward=	20	max_vote=	16
+iteration ..	29295
+action = 	2	reward=	21	max_vote=	18
+iteration ..	29310
+action = 	2	reward=	21	max_vote=	17
+iteration ..	29325
+action = 	3	reward=	22	max_vote=	18
+iteration ..	29340
+action = 	2	reward=	22	max_vote=	17
+iteration ..	29355
+action = 	3	reward=	23	max_vote=	17
+iteration ..	29370
+action = 	3	reward=	23	max_vote=	18
+iteration ..	29385
+action = 	2	reward=	24	max_vote=	17
+iteration ..	29400
+action = 	2	reward=	24	max_vote=	16
+iteration ..	29415
+action = 	4	reward=	28	max_vote=	17
+iteration ..	29430
+action = 	3	reward=	29	max_vote=	17
+iteration ..	29445
+action = 	2	reward=	33	max_vote=	16
+iteration ..	29460
+action = 	2	reward=	33	max_vote=	17
+iteration ..	29475
+action = 	2	reward=	34	max_vote=	17
+iteration ..	29490
+action = 	2	reward=	35	max_vote=	17
+iteration ..	29505
+action = 	2	reward=	39	max_vote=	18
+iteration ..	29520
+action = 	4	reward=	43	max_vote=	17
+Game_over: Final score = 	43	nepisodes = 	81
+iteration ..	29535
+action = 	2	reward=	0	max_vote=	17
+iteration ..	29550
+action = 	2	reward=	0	max_vote=	17
+iteration ..	29565
+action = 	4	reward=	0	max_vote=	18
+iteration ..	29580
+action = 	2	reward=	7	max_vote=	18
+Game_over: Final score = 	7	nepisodes = 	82
+iteration ..	29595
+action = 	2	reward=	0	max_vote=	17
+iteration ..	29610
+action = 	4	reward=	0	max_vote=	17
+iteration ..	29625
+action = 	2	reward=	0	max_vote=	17
+iteration ..	29640
+action = 	2	reward=	1	max_vote=	16
+iteration ..	29655
+action = 	2	reward=	1	max_vote=	17
+iteration ..	29670
+action = 	2	reward=	1	max_vote=	16
+iteration ..	29685
+action = 	2	reward=	5	max_vote=	16
+iteration ..	29700
+action = 	2	reward=	5	max_vote=	17
+Game_over: Final score = 	5	nepisodes = 	83
+iteration ..	29715
+action = 	4	reward=	0	max_vote=	18
+iteration ..	29730
+action = 	2	reward=	0	max_vote=	16
+iteration ..	29745
+action = 	2	reward=	0	max_vote=	16
+iteration ..	29760
+action = 	2	reward=	1	max_vote=	17
+iteration ..	29775
+action = 	2	reward=	1	max_vote=	17
+Game_over: Final score = 	1	nepisodes = 	84
+iteration ..	29790
+action = 	2	reward=	0	max_vote=	17
+iteration ..	29805
+action = 	2	reward=	0	max_vote=	16
+iteration ..	29820
+action = 	2	reward=	0	max_vote=	16
+iteration ..	29835
+action = 	3	reward=	4	max_vote=	16
+Game_over: Final score = 	4	nepisodes = 	85
+iteration ..	29850
+action = 	0	reward=	0	max_vote=	18
+iteration ..	29865
+action = 	4	reward=	0	max_vote=	17
+iteration ..	29880
+action = 	2	reward=	0	max_vote=	16
+iteration ..	29895
+action = 	2	reward=	0	max_vote=	17
+iteration ..	29910
+action = 	4	reward=	1	max_vote=	16
+iteration ..	29925
+action = 	2	reward=	1	max_vote=	17
+iteration ..	29940
+action = 	2	reward=	1	max_vote=	16
+iteration ..	29955
+action = 	2	reward=	2	max_vote=	17
+iteration ..	29970
+action = 	2	reward=	2	max_vote=	17
+iteration ..	29985
+action = 	4	reward=	2	max_vote=	18
+iteration ..	30000
+action = 	2	reward=	2	max_vote=	16
+iteration ..	30015
+action = 	2	reward=	3	max_vote=	17
+iteration ..	30030
+action = 	3	reward=	3	max_vote=	17
+iteration ..	30045
+action = 	2	reward=	3	max_vote=	17
+iteration ..	30060
+action = 	1	reward=	4	max_vote=	16
+iteration ..	30075
+action = 	1	reward=	4	max_vote=	16
+iteration ..	30090
+action = 	3	reward=	5	max_vote=	18
+iteration ..	30105
+action = 	2	reward=	5	max_vote=	17
+iteration ..	30120
+action = 	3	reward=	6	max_vote=	17
+iteration ..	30135
+action = 	2	reward=	6	max_vote=	16
+iteration ..	30150
+action = 	3	reward=	7	max_vote=	18
+iteration ..	30165
+action = 	2	reward=	7	max_vote=	17
+iteration ..	30180
+action = 	2	reward=	8	max_vote=	16
+iteration ..	30195
+action = 	2	reward=	8	max_vote=	17
+iteration ..	30210
+action = 	1	reward=	8	max_vote=	17
+iteration ..	30225
+action = 	2	reward=	8	max_vote=	16
+iteration ..	30240
+action = 	2	reward=	9	max_vote=	16
+iteration ..	30255
+action = 	2	reward=	9	max_vote=	17
+iteration ..	30270
+action = 	4	reward=	9	max_vote=	18
+Game_over: Final score = 	9	nepisodes = 	86
+iteration ..	30285
+action = 	2	reward=	0	max_vote=	17
+iteration ..	30300
+action = 	4	reward=	0	max_vote=	16
+iteration ..	30315
+action = 	2	reward=	0	max_vote=	18
+iteration ..	30330
+action = 	1	reward=	1	max_vote=	16
+iteration ..	30345
+action = 	2	reward=	1	max_vote=	16
+iteration ..	30360
+action = 	2	reward=	1	max_vote=	17
+iteration ..	30375
+action = 	4	reward=	1	max_vote=	17
+iteration ..	30390
+action = 	3	reward=	2	max_vote=	17
+iteration ..	30405
+action = 	2	reward=	2	max_vote=	17
+iteration ..	30420
+action = 	2	reward=	2	max_vote=	17
+iteration ..	30435
+action = 	2	reward=	3	max_vote=	16
+iteration ..	30450
+action = 	3	reward=	3	max_vote=	16
+iteration ..	30465
+action = 	2	reward=	3	max_vote=	16
+iteration ..	30480
+action = 	3	reward=	4	max_vote=	17
+Game_over: Final score = 	4	nepisodes = 	87
+iteration ..	30495
+action = 	2	reward=	0	max_vote=	18
+iteration ..	30510
+action = 	2	reward=	0	max_vote=	16
+iteration ..	30525
+action = 	2	reward=	0	max_vote=	17
+iteration ..	30540
+action = 	2	reward=	0	max_vote=	17
+iteration ..	30555
+action = 	2	reward=	1	max_vote=	17
+iteration ..	30570
+action = 	4	reward=	1	max_vote=	18
+iteration ..	30585
+action = 	2	reward=	1	max_vote=	17
+iteration ..	30600
+action = 	2	reward=	2	max_vote=	16
+iteration ..	30615
+action = 	2	reward=	2	max_vote=	16
+iteration ..	30630
+action = 	2	reward=	2	max_vote=	17
+iteration ..	30645
+action = 	2	reward=	6	max_vote=	18
+iteration ..	30660
+action = 	2	reward=	6	max_vote=	16
+iteration ..	30675
+action = 	4	reward=	7	max_vote=	18
+iteration ..	30690
+action = 	2	reward=	7	max_vote=	17
+iteration ..	30705
+action = 	2	reward=	11	max_vote=	16
+iteration ..	30720
+action = 	2	reward=	11	max_vote=	16
+iteration ..	30735
+action = 	2	reward=	12	max_vote=	16
+iteration ..	30750
+action = 	2	reward=	12	max_vote=	17
+Game_over: Final score = 	12	nepisodes = 	88
+iteration ..	30765
+action = 	2	reward=	0	max_vote=	16
+iteration ..	30780
+action = 	3	reward=	0	max_vote=	17
+iteration ..	30795
+action = 	2	reward=	0	max_vote=	17
+iteration ..	30810
+action = 	2	reward=	1	max_vote=	16
+iteration ..	30825
+action = 	2	reward=	1	max_vote=	17
+iteration ..	30840
+action = 	2	reward=	1	max_vote=	16
+iteration ..	30855
+action = 	2	reward=	2	max_vote=	16
+iteration ..	30870
+action = 	2	reward=	2	max_vote=	17
+iteration ..	30885
+action = 	2	reward=	2	max_vote=	16
+iteration ..	30900
+action = 	2	reward=	3	max_vote=	17
+iteration ..	30915
+action = 	2	reward=	3	max_vote=	16
+iteration ..	30930
+action = 	2	reward=	3	max_vote=	16
+iteration ..	30945
+action = 	4	reward=	7	max_vote=	18
+iteration ..	30960
+action = 	2	reward=	7	max_vote=	17
+iteration ..	30975
+action = 	4	reward=	8	max_vote=	17
+iteration ..	30990
+action = 	2	reward=	8	max_vote=	17
+iteration ..	31005
+action = 	2	reward=	12	max_vote=	17
+iteration ..	31020
+action = 	3	reward=	12	max_vote=	17
+iteration ..	31035
+action = 	2	reward=	13	max_vote=	17
+iteration ..	31050
+action = 	2	reward=	13	max_vote=	17
+iteration ..	31065
+action = 	2	reward=	13	max_vote=	17
+iteration ..	31080
+action = 	2	reward=	14	max_vote=	17
+iteration ..	31095
+action = 	2	reward=	14	max_vote=	17
+iteration ..	31110
+action = 	4	reward=	14	max_vote=	17
+iteration ..	31125
+action = 	2	reward=	14	max_vote=	16
+iteration ..	31140
+action = 	2	reward=	15	max_vote=	16
+iteration ..	31155
+action = 	4	reward=	15	max_vote=	17
+iteration ..	31170
+action = 	2	reward=	15	max_vote=	16
+iteration ..	31185
+action = 	2	reward=	15	max_vote=	17
+iteration ..	31200
+action = 	2	reward=	16	max_vote=	17
+iteration ..	31215
+action = 	2	reward=	16	max_vote=	16
+iteration ..	31230
+action = 	2	reward=	16	max_vote=	17
+iteration ..	31245
+action = 	2	reward=	16	max_vote=	17
+iteration ..	31260
+action = 	4	reward=	20	max_vote=	18
+iteration ..	31275
+action = 	2	reward=	20	max_vote=	17
+iteration ..	31290
+action = 	2	reward=	20	max_vote=	17
+iteration ..	31305
+action = 	4	reward=	21	max_vote=	17
+iteration ..	31320
+action = 	2	reward=	21	max_vote=	16
+iteration ..	31335
+action = 	2	reward=	25	max_vote=	16
+iteration ..	31350
+action = 	2	reward=	25	max_vote=	16
+iteration ..	31365
+action = 	2	reward=	25	max_vote=	16
+iteration ..	31380
+action = 	1	reward=	29	max_vote=	18
+iteration ..	31395
+action = 	3	reward=	33	max_vote=	18
+iteration ..	31410
+action = 	1	reward=	34	max_vote=	17
+iteration ..	31425
+action = 	2	reward=	38	max_vote=	18
+iteration ..	31440
+action = 	2	reward=	38	max_vote=	17
+iteration ..	31455
+action = 	2	reward=	45	max_vote=	16
+iteration ..	31470
+action = 	2	reward=	46	max_vote=	17
+iteration ..	31485
+action = 	1	reward=	47	max_vote=	17
+iteration ..	31500
+action = 	2	reward=	54	max_vote=	16
+iteration ..	31515
+action = 	4	reward=	54	max_vote=	17
+Game_over: Final score = 	58	nepisodes = 	89
+iteration ..	31530
+action = 	0	reward=	0	max_vote=	18
+iteration ..	31545
+action = 	2	reward=	0	max_vote=	17
+iteration ..	31560
+action = 	2	reward=	0	max_vote=	17
+iteration ..	31575
+action = 	2	reward=	1	max_vote=	17
+iteration ..	31590
+action = 	2	reward=	1	max_vote=	17
+iteration ..	31605
+action = 	2	reward=	1	max_vote=	17
+iteration ..	31620
+action = 	2	reward=	1	max_vote=	17
+iteration ..	31635
+action = 	2	reward=	5	max_vote=	17
+iteration ..	31650
+action = 	2	reward=	5	max_vote=	18
+iteration ..	31665
+action = 	2	reward=	5	max_vote=	16
+iteration ..	31680
+action = 	2	reward=	5	max_vote=	16
+iteration ..	31695
+action = 	2	reward=	6	max_vote=	17
+iteration ..	31710
+action = 	2	reward=	6	max_vote=	16
+iteration ..	31725
+action = 	4	reward=	6	max_vote=	17
+iteration ..	31740
+action = 	2	reward=	7	max_vote=	18
+iteration ..	31755
+action = 	2	reward=	7	max_vote=	16
+iteration ..	31770
+action = 	2	reward=	11	max_vote=	17
+iteration ..	31785
+action = 	2	reward=	11	max_vote=	18
+iteration ..	31800
+action = 	2	reward=	11	max_vote=	17
+iteration ..	31815
+action = 	2	reward=	18	max_vote=	17
+iteration ..	31830
+action = 	3	reward=	19	max_vote=	17
+iteration ..	31845
+action = 	2	reward=	23	max_vote=	16
+iteration ..	31860
+action = 	2	reward=	23	max_vote=	17
+iteration ..	31875
+action = 	2	reward=	30	max_vote=	16
+iteration ..	31890
+action = 	2	reward=	31	max_vote=	18
+iteration ..	31905
+action = 	3	reward=	35	max_vote=	18
+iteration ..	31920
+action = 	2	reward=	39	max_vote=	16
+Game_over: Final score = 	39	nepisodes = 	90
+iteration ..	31935
+action = 	3	reward=	0	max_vote=	16
+iteration ..	31950
+action = 	2	reward=	0	max_vote=	16
+iteration ..	31965
+action = 	2	reward=	0	max_vote=	16
+iteration ..	31980
+action = 	2	reward=	1	max_vote=	16
+iteration ..	31995
+action = 	2	reward=	1	max_vote=	16
+iteration ..	32010
+action = 	2	reward=	1	max_vote=	17
+iteration ..	32025
+action = 	2	reward=	2	max_vote=	17
+iteration ..	32040
+action = 	3	reward=	2	max_vote=	18
+iteration ..	32055
+action = 	2	reward=	2	max_vote=	17
+iteration ..	32070
+action = 	4	reward=	3	max_vote=	18
+iteration ..	32085
+action = 	2	reward=	3	max_vote=	17
+iteration ..	32100
+action = 	2	reward=	3	max_vote=	17
+iteration ..	32115
+action = 	4	reward=	4	max_vote=	18
+iteration ..	32130
+action = 	2	reward=	4	max_vote=	17
+iteration ..	32145
+action = 	2	reward=	5	max_vote=	17
+iteration ..	32160
+action = 	2	reward=	5	max_vote=	16
+iteration ..	32175
+action = 	3	reward=	6	max_vote=	18
+iteration ..	32190
+action = 	2	reward=	6	max_vote=	16
+iteration ..	32205
+action = 	4	reward=	7	max_vote=	17
+iteration ..	32220
+action = 	2	reward=	7	max_vote=	17
+iteration ..	32235
+action = 	3	reward=	8	max_vote=	16
+iteration ..	32250
+action = 	2	reward=	8	max_vote=	17
+iteration ..	32265
+action = 	2	reward=	8	max_vote=	16
+iteration ..	32280
+action = 	2	reward=	8	max_vote=	17
+iteration ..	32295
+action = 	2	reward=	9	max_vote=	17
+iteration ..	32310
+action = 	2	reward=	9	max_vote=	17
+iteration ..	32325
+action = 	3	reward=	9	max_vote=	16
+iteration ..	32340
+action = 	2	reward=	9	max_vote=	17
+iteration ..	32355
+action = 	2	reward=	10	max_vote=	16
+iteration ..	32370
+action = 	2	reward=	10	max_vote=	17
+iteration ..	32385
+action = 	2	reward=	10	max_vote=	17
+iteration ..	32400
+action = 	2	reward=	10	max_vote=	17
+iteration ..	32415
+action = 	2	reward=	11	max_vote=	17
+iteration ..	32430
+action = 	1	reward=	11	max_vote=	18
+iteration ..	32445
+action = 	2	reward=	11	max_vote=	17
+iteration ..	32460
+action = 	2	reward=	12	max_vote=	16
+iteration ..	32475
+action = 	2	reward=	12	max_vote=	16
+iteration ..	32490
+action = 	2	reward=	13	max_vote=	16
+iteration ..	32505
+action = 	2	reward=	13	max_vote=	17
+iteration ..	32520
+action = 	4	reward=	14	max_vote=	17
+iteration ..	32535
+action = 	2	reward=	14	max_vote=	16
+iteration ..	32550
+action = 	2	reward=	15	max_vote=	16
+Game_over: Final score = 	15	nepisodes = 	91
+iteration ..	32565
+action = 	2	reward=	0	max_vote=	17
+iteration ..	32580
+action = 	3	reward=	0	max_vote=	18
+iteration ..	32595
+action = 	2	reward=	0	max_vote=	17
+iteration ..	32610
+action = 	2	reward=	0	max_vote=	16
+iteration ..	32625
+action = 	2	reward=	1	max_vote=	17
+iteration ..	32640
+action = 	2	reward=	1	max_vote=	16
+iteration ..	32655
+action = 	2	reward=	1	max_vote=	17
+iteration ..	32670
+action = 	2	reward=	1	max_vote=	17
+iteration ..	32685
+action = 	2	reward=	5	max_vote=	16
+iteration ..	32700
+action = 	2	reward=	5	max_vote=	18
+iteration ..	32715
+action = 	2	reward=	5	max_vote=	16
+iteration ..	32730
+action = 	2	reward=	5	max_vote=	16
+iteration ..	32745
+action = 	2	reward=	9	max_vote=	16
+iteration ..	32760
+action = 	2	reward=	9	max_vote=	17
+iteration ..	32775
+action = 	2	reward=	13	max_vote=	16
+iteration ..	32790
+action = 	2	reward=	13	max_vote=	17
+iteration ..	32805
+action = 	2	reward=	14	max_vote=	17
+iteration ..	32820
+action = 	2	reward=	15	max_vote=	17
+iteration ..	32835
+action = 	2	reward=	16	max_vote=	17
+iteration ..	32850
+action = 	2	reward=	20	max_vote=	17
+Game_over: Final score = 	20	nepisodes = 	92
+iteration ..	32865
+action = 	2	reward=	0	max_vote=	18
+iteration ..	32880
+action = 	2	reward=	0	max_vote=	16
+iteration ..	32895
+action = 	2	reward=	0	max_vote=	16
+iteration ..	32910
+action = 	2	reward=	4	max_vote=	17
+iteration ..	32925
+action = 	1	reward=	4	max_vote=	18
+iteration ..	32940
+action = 	2	reward=	4	max_vote=	17
+iteration ..	32955
+action = 	2	reward=	4	max_vote=	17
+iteration ..	32970
+action = 	2	reward=	5	max_vote=	17
+iteration ..	32985
+action = 	2	reward=	5	max_vote=	17
+iteration ..	33000
+action = 	2	reward=	5	max_vote=	17
+iteration ..	33015
+action = 	2	reward=	5	max_vote=	16
+iteration ..	33030
+action = 	2	reward=	6	max_vote=	17
+iteration ..	33045
+action = 	2	reward=	6	max_vote=	18
+Game_over: Final score = 	6	nepisodes = 	93
+iteration ..	33060
+action = 	2	reward=	0	max_vote=	18
+iteration ..	33075
+action = 	2	reward=	0	max_vote=	17
+iteration ..	33090
+action = 	2	reward=	0	max_vote=	17
+iteration ..	33105
+action = 	2	reward=	0	max_vote=	17
+iteration ..	33120
+action = 	2	reward=	4	max_vote=	16
+iteration ..	33135
+action = 	3	reward=	8	max_vote=	17
+iteration ..	33150
+action = 	2	reward=	15	max_vote=	16
+iteration ..	33165
+action = 	2	reward=	15	max_vote=	16
+iteration ..	33180
+action = 	2	reward=	22	max_vote=	17
+iteration ..	33195
+action = 	4	reward=	26	max_vote=	18
+iteration ..	33210
+action = 	2	reward=	30	max_vote=	17
+iteration ..	33225
+action = 	2	reward=	31	max_vote=	18
+iteration ..	33240
+action = 	2	reward=	31	max_vote=	17
+iteration ..	33255
+action = 	2	reward=	35	max_vote=	16
+iteration ..	33270
+action = 	4	reward=	42	max_vote=	16
+iteration ..	33285
+action = 	2	reward=	43	max_vote=	16
+iteration ..	33300
+action = 	2	reward=	44	max_vote=	16
+iteration ..	33315
+action = 	2	reward=	44	max_vote=	17
+iteration ..	33330
+action = 	1	reward=	48	max_vote=	18
+iteration ..	33345
+action = 	3	reward=	52	max_vote=	18
+Game_over: Final score = 	52	nepisodes = 	94
+iteration ..	33360
+action = 	2	reward=	0	max_vote=	16
+iteration ..	33375
+action = 	3	reward=	0	max_vote=	17
+iteration ..	33390
+action = 	2	reward=	0	max_vote=	16
+iteration ..	33405
+action = 	2	reward=	1	max_vote=	16
+iteration ..	33420
+action = 	2	reward=	1	max_vote=	16
+iteration ..	33435
+action = 	3	reward=	1	max_vote=	18
+iteration ..	33450
+action = 	2	reward=	1	max_vote=	17
+iteration ..	33465
+action = 	2	reward=	2	max_vote=	16
+iteration ..	33480
+action = 	2	reward=	2	max_vote=	17
+iteration ..	33495
+action = 	2	reward=	2	max_vote=	16
+iteration ..	33510
+action = 	2	reward=	2	max_vote=	17
+iteration ..	33525
+action = 	2	reward=	2	max_vote=	16
+iteration ..	33540
+action = 	2	reward=	6	max_vote=	16
+iteration ..	33555
+action = 	4	reward=	7	max_vote=	18
+iteration ..	33570
+action = 	3	reward=	11	max_vote=	18
+iteration ..	33585
+action = 	2	reward=	12	max_vote=	16
+Game_over: Final score = 	12	nepisodes = 	95
+iteration ..	33600
+action = 	2	reward=	0	max_vote=	17
+iteration ..	33615
+action = 	2	reward=	0	max_vote=	17
+iteration ..	33630
+action = 	2	reward=	0	max_vote=	17
+iteration ..	33645
+action = 	2	reward=	0	max_vote=	17
+iteration ..	33660
+action = 	3	reward=	1	max_vote=	17
+iteration ..	33675
+action = 	1	reward=	1	max_vote=	16
+iteration ..	33690
+action = 	2	reward=	1	max_vote=	17
+iteration ..	33705
+action = 	2	reward=	2	max_vote=	16
+iteration ..	33720
+action = 	2	reward=	2	max_vote=	17
+iteration ..	33735
+action = 	2	reward=	2	max_vote=	16
+iteration ..	33750
+action = 	2	reward=	2	max_vote=	17
+iteration ..	33765
+action = 	2	reward=	3	max_vote=	16
+iteration ..	33780
+action = 	4	reward=	3	max_vote=	17
+iteration ..	33795
+action = 	2	reward=	3	max_vote=	17
+iteration ..	33810
+action = 	2	reward=	4	max_vote=	16
+iteration ..	33825
+action = 	2	reward=	4	max_vote=	16
+iteration ..	33840
+action = 	2	reward=	5	max_vote=	16
+iteration ..	33855
+action = 	2	reward=	5	max_vote=	17
+iteration ..	33870
+action = 	2	reward=	6	max_vote=	16
+Game_over: Final score = 	6	nepisodes = 	96
+iteration ..	33885
+action = 	2	reward=	0	max_vote=	18
+iteration ..	33900
+action = 	2	reward=	0	max_vote=	16
+iteration ..	33915
+action = 	2	reward=	0	max_vote=	17
+iteration ..	33930
+action = 	2	reward=	1	max_vote=	17
+iteration ..	33945
+action = 	2	reward=	1	max_vote=	17
+iteration ..	33960
+action = 	2	reward=	1	max_vote=	17
+iteration ..	33975
+action = 	2	reward=	2	max_vote=	17
+iteration ..	33990
+action = 	2	reward=	2	max_vote=	17
+iteration ..	34005
+action = 	4	reward=	2	max_vote=	17
+iteration ..	34020
+action = 	2	reward=	2	max_vote=	17
+iteration ..	34035
+action = 	2	reward=	3	max_vote=	17
+iteration ..	34050
+action = 	2	reward=	3	max_vote=	16
+iteration ..	34065
+action = 	4	reward=	3	max_vote=	18
+iteration ..	34080
+action = 	2	reward=	4	max_vote=	16
+iteration ..	34095
+action = 	2	reward=	4	max_vote=	17
+iteration ..	34110
+action = 	2	reward=	5	max_vote=	16
+iteration ..	34125
+action = 	2	reward=	5	max_vote=	17
+iteration ..	34140
+action = 	2	reward=	6	max_vote=	17
+iteration ..	34155
+action = 	2	reward=	6	max_vote=	17
+iteration ..	34170
+action = 	2	reward=	7	max_vote=	17
+iteration ..	34185
+action = 	2	reward=	7	max_vote=	16
+iteration ..	34200
+action = 	2	reward=	7	max_vote=	17
+iteration ..	34215
+action = 	2	reward=	8	max_vote=	17
+iteration ..	34230
+action = 	2	reward=	8	max_vote=	17
+iteration ..	34245
+action = 	4	reward=	8	max_vote=	17
+iteration ..	34260
+action = 	2	reward=	8	max_vote=	17
+iteration ..	34275
+action = 	2	reward=	9	max_vote=	17
+iteration ..	34290
+action = 	2	reward=	9	max_vote=	17
+iteration ..	34305
+action = 	4	reward=	9	max_vote=	17
+iteration ..	34320
+action = 	2	reward=	9	max_vote=	17
+iteration ..	34335
+action = 	2	reward=	10	max_vote=	16
+iteration ..	34350
+action = 	2	reward=	10	max_vote=	16
+iteration ..	34365
+action = 	2	reward=	10	max_vote=	17
+iteration ..	34380
+action = 	2	reward=	10	max_vote=	16
+iteration ..	34395
+action = 	2	reward=	11	max_vote=	17
+iteration ..	34410
+action = 	2	reward=	11	max_vote=	16
+iteration ..	34425
+action = 	2	reward=	11	max_vote=	17
+iteration ..	34440
+action = 	2	reward=	12	max_vote=	16
+iteration ..	34455
+action = 	2	reward=	12	max_vote=	17
+iteration ..	34470
+action = 	2	reward=	13	max_vote=	17
+iteration ..	34485
+action = 	2	reward=	13	max_vote=	16
+iteration ..	34500
+action = 	4	reward=	14	max_vote=	18
+Game_over: Final score = 	14	nepisodes = 	97
+iteration ..	34515
+action = 	2	reward=	0	max_vote=	17
+iteration ..	34530
+action = 	2	reward=	0	max_vote=	17
+iteration ..	34545
+action = 	2	reward=	0	max_vote=	17
+iteration ..	34560
+action = 	2	reward=	0	max_vote=	17
+iteration ..	34575
+action = 	2	reward=	1	max_vote=	17
+iteration ..	34590
+action = 	2	reward=	1	max_vote=	16
+iteration ..	34605
+action = 	2	reward=	1	max_vote=	18
+iteration ..	34620
+action = 	2	reward=	2	max_vote=	17
+iteration ..	34635
+action = 	2	reward=	2	max_vote=	16
+iteration ..	34650
+action = 	2	reward=	2	max_vote=	17
+iteration ..	34665
+action = 	3	reward=	3	max_vote=	17
+iteration ..	34680
+action = 	4	reward=	3	max_vote=	17
+iteration ..	34695
+action = 	2	reward=	3	max_vote=	17
+iteration ..	34710
+action = 	3	reward=	4	max_vote=	18
+iteration ..	34725
+action = 	2	reward=	4	max_vote=	16
+iteration ..	34740
+action = 	3	reward=	8	max_vote=	16
+iteration ..	34755
+action = 	4	reward=	8	max_vote=	18
+iteration ..	34770
+action = 	4	reward=	8	max_vote=	17
+iteration ..	34785
+action = 	2	reward=	9	max_vote=	16
+iteration ..	34800
+action = 	2	reward=	9	max_vote=	16
+iteration ..	34815
+action = 	3	reward=	13	max_vote=	18
+iteration ..	34830
+action = 	2	reward=	13	max_vote=	17
+iteration ..	34845
+action = 	2	reward=	13	max_vote=	17
+iteration ..	34860
+action = 	2	reward=	14	max_vote=	16
+iteration ..	34875
+action = 	2	reward=	14	max_vote=	16
+iteration ..	34890
+action = 	2	reward=	14	max_vote=	17
+iteration ..	34905
+action = 	2	reward=	14	max_vote=	17
+iteration ..	34920
+action = 	2	reward=	15	max_vote=	16
+iteration ..	34935
+action = 	2	reward=	15	max_vote=	16
+iteration ..	34950
+action = 	2	reward=	15	max_vote=	17
+iteration ..	34965
+action = 	2	reward=	16	max_vote=	16
+iteration ..	34980
+action = 	2	reward=	16	max_vote=	17
+iteration ..	34995
+action = 	2	reward=	16	max_vote=	17
+iteration ..	35010
+action = 	2	reward=	16	max_vote=	17
+iteration ..	35025
+action = 	2	reward=	20	max_vote=	16
+iteration ..	35040
+action = 	2	reward=	20	max_vote=	16
+iteration ..	35055
+action = 	2	reward=	20	max_vote=	16
+iteration ..	35070
+action = 	2	reward=	20	max_vote=	17
+iteration ..	35085
+action = 	1	reward=	21	max_vote=	18
+iteration ..	35100
+action = 	3	reward=	21	max_vote=	16
+iteration ..	35115
+action = 	2	reward=	25	max_vote=	17
+Game_over: Final score = 	25	nepisodes = 	98
+iteration ..	35130
+action = 	2	reward=	0	max_vote=	17
+iteration ..	35145
+action = 	3	reward=	0	max_vote=	17
+iteration ..	35160
+action = 	2	reward=	0	max_vote=	17
+iteration ..	35175
+action = 	2	reward=	0	max_vote=	17
+iteration ..	35190
+action = 	2	reward=	4	max_vote=	16
+iteration ..	35205
+action = 	2	reward=	4	max_vote=	16
+iteration ..	35220
+action = 	2	reward=	4	max_vote=	17
+iteration ..	35235
+action = 	3	reward=	8	max_vote=	17
+iteration ..	35250
+action = 	2	reward=	8	max_vote=	16
+iteration ..	35265
+action = 	2	reward=	12	max_vote=	18
+Game_over: Final score = 	12	nepisodes = 	99
+iteration ..	35280
+action = 	2	reward=	0	max_vote=	16
+iteration ..	35295
+action = 	2	reward=	0	max_vote=	17
+iteration ..	35310
+action = 	2	reward=	0	max_vote=	16
+iteration ..	35325
+action = 	4	reward=	1	max_vote=	17
+iteration ..	35340
+action = 	2	reward=	1	max_vote=	17
+iteration ..	35355
+action = 	2	reward=	1	max_vote=	17
+iteration ..	35370
+action = 	2	reward=	2	max_vote=	17
+iteration ..	35385
+action = 	2	reward=	2	max_vote=	17
+iteration ..	35400
+action = 	2	reward=	2	max_vote=	17
+iteration ..	35415
+action = 	4	reward=	2	max_vote=	17
+iteration ..	35430
+action = 	2	reward=	6	max_vote=	16
+iteration ..	35445
+action = 	2	reward=	6	max_vote=	17
+iteration ..	35460
+action = 	4	reward=	7	max_vote=	18
+Game_over: Final score = 	7	nepisodes = 	100
+iteration ..	35475
+action = 	0	reward=	0	max_vote=	18
+iteration ..	35490
+action = 	2	reward=	0	max_vote=	17
+iteration ..	35505
+action = 	2	reward=	0	max_vote=	17
+iteration ..	35520
+action = 	2	reward=	1	max_vote=	18
+iteration ..	35535
+action = 	4	reward=	1	max_vote=	16
+iteration ..	35550
+action = 	2	reward=	1	max_vote=	17
+iteration ..	35565
+action = 	2	reward=	1	max_vote=	16
+iteration ..	35580
+action = 	2	reward=	2	max_vote=	17
+iteration ..	35595
+action = 	2	reward=	2	max_vote=	16
+iteration ..	35610
+action = 	2	reward=	2	max_vote=	16
+iteration ..	35625
+action = 	2	reward=	3	max_vote=	16
+iteration ..	35640
+action = 	2	reward=	3	max_vote=	17
+iteration ..	35655
+action = 	2	reward=	3	max_vote=	16
+iteration ..	35670
+action = 	2	reward=	4	max_vote=	16
+iteration ..	35685
+action = 	2	reward=	4	max_vote=	17
+iteration ..	35700
+action = 	2	reward=	5	max_vote=	16
+iteration ..	35715
+action = 	2	reward=	5	max_vote=	16
+iteration ..	35730
+action = 	2	reward=	6	max_vote=	16
+iteration ..	35745
+action = 	2	reward=	6	max_vote=	17
+iteration ..	35760
+action = 	2	reward=	7	max_vote=	18
+iteration ..	35775
+action = 	2	reward=	7	max_vote=	16
+iteration ..	35790
+action = 	2	reward=	7	max_vote=	17
+iteration ..	35805
+action = 	2	reward=	8	max_vote=	16
+iteration ..	35820
+action = 	2	reward=	8	max_vote=	17
+iteration ..	35835
+action = 	2	reward=	8	max_vote=	16
+iteration ..	35850
+action = 	2	reward=	8	max_vote=	17
+iteration ..	35865
+action = 	2	reward=	9	max_vote=	17
+iteration ..	35880
+action = 	2	reward=	9	max_vote=	17
+Game_over: Final score = 	9	nepisodes = 	101
+iteration ..	35895
+action = 	0	reward=	0	max_vote=	18
+iteration ..	35910
+action = 	2	reward=	0	max_vote=	17
+iteration ..	35925
+action = 	2	reward=	0	max_vote=	17
+iteration ..	35940
+action = 	2	reward=	1	max_vote=	16
+iteration ..	35955
+action = 	2	reward=	1	max_vote=	16
+iteration ..	35970
+action = 	2	reward=	1	max_vote=	16
+iteration ..	35985
+action = 	2	reward=	1	max_vote=	16
+iteration ..	36000
+action = 	2	reward=	2	max_vote=	16
+iteration ..	36015
+action = 	2	reward=	2	max_vote=	16
+Game_over: Final score = 	2	nepisodes = 	102
+iteration ..	36030
+action = 	2	reward=	0	max_vote=	16
+iteration ..	36045
+action = 	2	reward=	0	max_vote=	17
+iteration ..	36060
+action = 	2	reward=	0	max_vote=	16
+iteration ..	36075
+action = 	2	reward=	0	max_vote=	17
+iteration ..	36090
+action = 	2	reward=	1	max_vote=	17
+iteration ..	36105
+action = 	2	reward=	1	max_vote=	16
+iteration ..	36120
+action = 	2	reward=	1	max_vote=	17
+iteration ..	36135
+action = 	2	reward=	2	max_vote=	16
+iteration ..	36150
+action = 	2	reward=	2	max_vote=	16
+iteration ..	36165
+action = 	4	reward=	2	max_vote=	18
+iteration ..	36180
+action = 	3	reward=	3	max_vote=	17
+iteration ..	36195
+action = 	2	reward=	3	max_vote=	17
+iteration ..	36210
+action = 	4	reward=	3	max_vote=	16
+iteration ..	36225
+action = 	2	reward=	4	max_vote=	18
+iteration ..	36240
+action = 	2	reward=	4	max_vote=	16
+iteration ..	36255
+action = 	3	reward=	5	max_vote=	16
+iteration ..	36270
+action = 	2	reward=	5	max_vote=	16
+iteration ..	36285
+action = 	2	reward=	5	max_vote=	16
+iteration ..	36300
+action = 	3	reward=	9	max_vote=	18
+iteration ..	36315
+action = 	2	reward=	9	max_vote=	17
+iteration ..	36330
+action = 	3	reward=	10	max_vote=	17
+iteration ..	36345
+action = 	3	reward=	10	max_vote=	18
+iteration ..	36360
+action = 	3	reward=	10	max_vote=	18
+iteration ..	36375
+action = 	2	reward=	11	max_vote=	16
+iteration ..	36390
+action = 	1	reward=	11	max_vote=	17
+iteration ..	36405
+action = 	2	reward=	11	max_vote=	16
+iteration ..	36420
+action = 	2	reward=	12	max_vote=	16
+iteration ..	36435
+action = 	2	reward=	12	max_vote=	16
+iteration ..	36450
+action = 	2	reward=	12	max_vote=	17
+iteration ..	36465
+action = 	2	reward=	12	max_vote=	17
+iteration ..	36480
+action = 	2	reward=	13	max_vote=	16
+iteration ..	36495
+action = 	1	reward=	13	max_vote=	18
+iteration ..	36510
+action = 	2	reward=	13	max_vote=	16
+iteration ..	36525
+action = 	2	reward=	13	max_vote=	18
+iteration ..	36540
+action = 	2	reward=	14	max_vote=	17
+iteration ..	36555
+action = 	2	reward=	14	max_vote=	16
+iteration ..	36570
+action = 	2	reward=	14	max_vote=	16
+iteration ..	36585
+action = 	2	reward=	15	max_vote=	18
+iteration ..	36600
+action = 	2	reward=	15	max_vote=	16
+iteration ..	36615
+action = 	3	reward=	19	max_vote=	16
+Game_over: Final score = 	19	nepisodes = 	103
+iteration ..	36630
+action = 	2	reward=	0	max_vote=	18
+iteration ..	36645
+action = 	2	reward=	0	max_vote=	16
+iteration ..	36660
+action = 	2	reward=	0	max_vote=	17
+iteration ..	36675
+action = 	2	reward=	4	max_vote=	17
+iteration ..	36690
+action = 	2	reward=	4	max_vote=	16
+iteration ..	36705
+action = 	2	reward=	4	max_vote=	17
+iteration ..	36720
+action = 	4	reward=	8	max_vote=	17
+iteration ..	36735
+action = 	3	reward=	8	max_vote=	18
+iteration ..	36750
+action = 	2	reward=	8	max_vote=	17
+iteration ..	36765
+action = 	2	reward=	8	max_vote=	16
+iteration ..	36780
+action = 	2	reward=	12	max_vote=	18
+iteration ..	36795
+action = 	3	reward=	13	max_vote=	18
+iteration ..	36810
+action = 	2	reward=	13	max_vote=	16
+iteration ..	36825
+action = 	2	reward=	17	max_vote=	16
+iteration ..	36840
+action = 	2	reward=	18	max_vote=	16
+iteration ..	36855
+action = 	2	reward=	22	max_vote=	16
+iteration ..	36870
+action = 	2	reward=	26	max_vote=	16
+iteration ..	36885
+action = 	2	reward=	26	max_vote=	17
+iteration ..	36900
+action = 	4	reward=	33	max_vote=	17
+iteration ..	36915
+action = 	2	reward=	37	max_vote=	16
+iteration ..	36930
+action = 	4	reward=	38	max_vote=	18
+iteration ..	36945
+action = 	2	reward=	38	max_vote=	17
+iteration ..	36960
+action = 	2	reward=	39	max_vote=	16
+iteration ..	36975
+action = 	2	reward=	43	max_vote=	18
+iteration ..	36990
+action = 	2	reward=	50	max_vote=	18
+iteration ..	37005
+action = 	2	reward=	50	max_vote=	16
+iteration ..	37020
+action = 	2	reward=	51	max_vote=	16
+Game_over: Final score = 	52	nepisodes = 	104
+iteration ..	37035
+action = 	2	reward=	0	max_vote=	17
+iteration ..	37050
+action = 	2	reward=	0	max_vote=	17
+iteration ..	37065
+action = 	2	reward=	0	max_vote=	17
+iteration ..	37080
+action = 	2	reward=	0	max_vote=	17
+iteration ..	37095
+action = 	2	reward=	1	max_vote=	17
+iteration ..	37110
+action = 	2	reward=	1	max_vote=	17
+iteration ..	37125
+action = 	1	reward=	1	max_vote=	18
+iteration ..	37140
+action = 	2	reward=	1	max_vote=	17
+iteration ..	37155
+action = 	2	reward=	1	max_vote=	16
+iteration ..	37170
+action = 	2	reward=	5	max_vote=	18
+iteration ..	37185
+action = 	2	reward=	5	max_vote=	17
+iteration ..	37200
+action = 	2	reward=	5	max_vote=	17
+iteration ..	37215
+action = 	4	reward=	12	max_vote=	17
+iteration ..	37230
+action = 	2	reward=	12	max_vote=	16
+iteration ..	37245
+action = 	2	reward=	16	max_vote=	17
+Game_over: Final score = 	16	nepisodes = 	105
+iteration ..	37260
+action = 	2	reward=	0	max_vote=	17
+iteration ..	37275
+action = 	2	reward=	0	max_vote=	16
+iteration ..	37290
+action = 	2	reward=	0	max_vote=	17
+iteration ..	37305
+action = 	2	reward=	1	max_vote=	16
+iteration ..	37320
+action = 	2	reward=	1	max_vote=	16
+iteration ..	37335
+action = 	3	reward=	2	max_vote=	17
+iteration ..	37350
+action = 	2	reward=	2	max_vote=	16
+iteration ..	37365
+action = 	2	reward=	2	max_vote=	17
+iteration ..	37380
+action = 	2	reward=	3	max_vote=	16
+iteration ..	37395
+action = 	2	reward=	3	max_vote=	18
+iteration ..	37410
+action = 	2	reward=	3	max_vote=	17
+iteration ..	37425
+action = 	2	reward=	4	max_vote=	16
+iteration ..	37440
+action = 	2	reward=	4	max_vote=	17
+iteration ..	37455
+action = 	2	reward=	5	max_vote=	16
+iteration ..	37470
+action = 	2	reward=	5	max_vote=	16
+iteration ..	37485
+action = 	2	reward=	6	max_vote=	18
+Game_over: Final score = 	6	nepisodes = 	106
+iteration ..	37500
+action = 	2	reward=	0	max_vote=	18
+iteration ..	37515
+action = 	2	reward=	0	max_vote=	17
+iteration ..	37530
+action = 	2	reward=	0	max_vote=	17
+iteration ..	37545
+action = 	2	reward=	1	max_vote=	16
+iteration ..	37560
+action = 	2	reward=	1	max_vote=	16
+iteration ..	37575
+action = 	2	reward=	1	max_vote=	17
+iteration ..	37590
+action = 	3	reward=	2	max_vote=	18
+iteration ..	37605
+action = 	2	reward=	2	max_vote=	17
+iteration ..	37620
+action = 	2	reward=	2	max_vote=	16
+iteration ..	37635
+action = 	2	reward=	3	max_vote=	17
+iteration ..	37650
+action = 	2	reward=	3	max_vote=	16
+iteration ..	37665
+action = 	2	reward=	3	max_vote=	17
+iteration ..	37680
+action = 	3	reward=	4	max_vote=	18
+iteration ..	37695
+action = 	2	reward=	4	max_vote=	17
+iteration ..	37710
+action = 	2	reward=	5	max_vote=	16
+iteration ..	37725
+action = 	2	reward=	5	max_vote=	17
+iteration ..	37740
+action = 	2	reward=	6	max_vote=	16
+iteration ..	37755
+action = 	2	reward=	6	max_vote=	17
+iteration ..	37770
+action = 	3	reward=	7	max_vote=	16
+Game_over: Final score = 	7	nepisodes = 	107
+iteration ..	37785
+action = 	2	reward=	0	max_vote=	17
+iteration ..	37800
+action = 	2	reward=	0	max_vote=	16
+iteration ..	37815
+action = 	2	reward=	0	max_vote=	17
+iteration ..	37830
+action = 	2	reward=	1	max_vote=	16
+iteration ..	37845
+action = 	4	reward=	1	max_vote=	17
+iteration ..	37860
+action = 	2	reward=	1	max_vote=	16
+iteration ..	37875
+action = 	2	reward=	2	max_vote=	16
+iteration ..	37890
+action = 	2	reward=	2	max_vote=	16
+iteration ..	37905
+action = 	2	reward=	2	max_vote=	16
+iteration ..	37920
+action = 	3	reward=	3	max_vote=	16
+iteration ..	37935
+action = 	2	reward=	3	max_vote=	16
+iteration ..	37950
+action = 	2	reward=	3	max_vote=	17
+iteration ..	37965
+action = 	4	reward=	4	max_vote=	17
+Game_over: Final score = 	4	nepisodes = 	108
+iteration ..	37980
+action = 	2	reward=	0	max_vote=	17
+iteration ..	37995
+action = 	2	reward=	0	max_vote=	18
+iteration ..	38010
+action = 	2	reward=	0	max_vote=	17
+iteration ..	38025
+action = 	2	reward=	0	max_vote=	16
+iteration ..	38040
+action = 	2	reward=	1	max_vote=	16
+iteration ..	38055
+action = 	2	reward=	1	max_vote=	17
+iteration ..	38070
+action = 	1	reward=	1	max_vote=	18
+iteration ..	38085
+action = 	2	reward=	1	max_vote=	16
+iteration ..	38100
+action = 	3	reward=	2	max_vote=	16
+iteration ..	38115
+action = 	3	reward=	2	max_vote=	17
+iteration ..	38130
+action = 	2	reward=	2	max_vote=	17
+iteration ..	38145
+action = 	2	reward=	3	max_vote=	17
+iteration ..	38160
+action = 	2	reward=	3	max_vote=	16
+iteration ..	38175
+action = 	2	reward=	3	max_vote=	16
+iteration ..	38190
+action = 	4	reward=	4	max_vote=	17
+iteration ..	38205
+action = 	2	reward=	4	max_vote=	16
+Game_over: Final score = 	4	nepisodes = 	109
+iteration ..	38220
+action = 	1	reward=	0	max_vote=	18
+iteration ..	38235
+action = 	2	reward=	0	max_vote=	16
+iteration ..	38250
+action = 	2	reward=	0	max_vote=	17
+iteration ..	38265
+action = 	2	reward=	1	max_vote=	16
+iteration ..	38280
+action = 	2	reward=	1	max_vote=	16
+iteration ..	38295
+action = 	1	reward=	1	max_vote=	18
+iteration ..	38310
+action = 	3	reward=	2	max_vote=	16
+Game_over: Final score = 	2	nepisodes = 	110
+iteration ..	38325
+action = 	3	reward=	0	max_vote=	16
+iteration ..	38340
+action = 	2	reward=	0	max_vote=	16
+iteration ..	38355
+action = 	2	reward=	0	max_vote=	16
+iteration ..	38370
+action = 	2	reward=	1	max_vote=	16
+iteration ..	38385
+action = 	2	reward=	1	max_vote=	16
+iteration ..	38400
+action = 	2	reward=	1	max_vote=	17
+iteration ..	38415
+action = 	2	reward=	2	max_vote=	17
+iteration ..	38430
+action = 	2	reward=	2	max_vote=	17
+iteration ..	38445
+action = 	2	reward=	2	max_vote=	17
+iteration ..	38460
+action = 	2	reward=	3	max_vote=	17
+iteration ..	38475
+action = 	3	reward=	3	max_vote=	17
+iteration ..	38490
+action = 	2	reward=	3	max_vote=	17
+iteration ..	38505
+action = 	4	reward=	4	max_vote=	18
+iteration ..	38520
+action = 	2	reward=	4	max_vote=	17
+iteration ..	38535
+action = 	3	reward=	5	max_vote=	18
+iteration ..	38550
+action = 	2	reward=	5	max_vote=	16
+iteration ..	38565
+action = 	2	reward=	6	max_vote=	16
+iteration ..	38580
+action = 	3	reward=	7	max_vote=	17
+iteration ..	38595
+action = 	2	reward=	7	max_vote=	16
+iteration ..	38610
+action = 	2	reward=	7	max_vote=	16
+iteration ..	38625
+action = 	2	reward=	8	max_vote=	17
+iteration ..	38640
+action = 	2	reward=	8	max_vote=	17
+iteration ..	38655
+action = 	4	reward=	8	max_vote=	17
+iteration ..	38670
+action = 	2	reward=	8	max_vote=	17
+iteration ..	38685
+action = 	2	reward=	9	max_vote=	17
+iteration ..	38700
+action = 	2	reward=	9	max_vote=	16
+iteration ..	38715
+action = 	2	reward=	9	max_vote=	16
+iteration ..	38730
+action = 	2	reward=	9	max_vote=	17
+iteration ..	38745
+action = 	2	reward=	10	max_vote=	17
+iteration ..	38760
+action = 	2	reward=	10	max_vote=	16
+iteration ..	38775
+action = 	2	reward=	10	max_vote=	17
+iteration ..	38790
+action = 	2	reward=	10	max_vote=	17
+iteration ..	38805
+action = 	2	reward=	11	max_vote=	17
+iteration ..	38820
+action = 	4	reward=	11	max_vote=	17
+iteration ..	38835
+action = 	2	reward=	11	max_vote=	17
+iteration ..	38850
+action = 	1	reward=	12	max_vote=	18
+iteration ..	38865
+action = 	2	reward=	12	max_vote=	17
+iteration ..	38880
+action = 	2	reward=	13	max_vote=	18
+iteration ..	38895
+action = 	2	reward=	14	max_vote=	16
+iteration ..	38910
+action = 	2	reward=	14	max_vote=	16
+iteration ..	38925
+action = 	2	reward=	15	max_vote=	17
+iteration ..	38940
+action = 	1	reward=	15	max_vote=	17
+Game_over: Final score = 	15	nepisodes = 	111
+iteration ..	38955
+action = 	2	reward=	0	max_vote=	17
+iteration ..	38970
+action = 	2	reward=	0	max_vote=	18
+iteration ..	38985
+action = 	2	reward=	0	max_vote=	17
+iteration ..	39000
+action = 	2	reward=	1	max_vote=	16
+iteration ..	39015
+action = 	4	reward=	1	max_vote=	16
+iteration ..	39030
+action = 	2	reward=	1	max_vote=	16
+iteration ..	39045
+action = 	2	reward=	2	max_vote=	17
+iteration ..	39060
+action = 	2	reward=	2	max_vote=	17
+iteration ..	39075
+action = 	2	reward=	2	max_vote=	16
+iteration ..	39090
+action = 	2	reward=	2	max_vote=	18
+iteration ..	39105
+action = 	1	reward=	3	max_vote=	16
+iteration ..	39120
+action = 	2	reward=	3	max_vote=	16
+iteration ..	39135
+action = 	2	reward=	3	max_vote=	16
+iteration ..	39150
+action = 	2	reward=	4	max_vote=	17
+iteration ..	39165
+action = 	2	reward=	4	max_vote=	16
+iteration ..	39180
+action = 	2	reward=	5	max_vote=	17
+iteration ..	39195
+action = 	4	reward=	5	max_vote=	17
+iteration ..	39210
+action = 	2	reward=	6	max_vote=	16
+iteration ..	39225
+action = 	2	reward=	6	max_vote=	16
+iteration ..	39240
+action = 	2	reward=	7	max_vote=	16
+iteration ..	39255
+action = 	2	reward=	7	max_vote=	16
+iteration ..	39270
+action = 	2	reward=	7	max_vote=	17
+iteration ..	39285
+action = 	2	reward=	8	max_vote=	16
+iteration ..	39300
+action = 	2	reward=	8	max_vote=	17
+iteration ..	39315
+action = 	2	reward=	8	max_vote=	16
+iteration ..	39330
+action = 	2	reward=	8	max_vote=	17
+iteration ..	39345
+action = 	2	reward=	9	max_vote=	16
+iteration ..	39360
+action = 	2	reward=	9	max_vote=	17
+iteration ..	39375
+action = 	4	reward=	9	max_vote=	17
+Game_over: Final score = 	9	nepisodes = 	112
+iteration ..	39390
+action = 	2	reward=	0	max_vote=	16
+iteration ..	39405
+action = 	2	reward=	0	max_vote=	17
+iteration ..	39420
+action = 	2	reward=	0	max_vote=	17
+iteration ..	39435
+action = 	2	reward=	1	max_vote=	16
+iteration ..	39450
+action = 	2	reward=	1	max_vote=	16
+iteration ..	39465
+action = 	2	reward=	1	max_vote=	16
+iteration ..	39480
+action = 	2	reward=	2	max_vote=	17
+iteration ..	39495
+action = 	2	reward=	2	max_vote=	16
+Game_over: Final score = 	2	nepisodes = 	113
+iteration ..	39510
+action = 	2	reward=	0	max_vote=	16
+iteration ..	39525
+action = 	2	reward=	0	max_vote=	17
+iteration ..	39540
+action = 	2	reward=	0	max_vote=	18
+iteration ..	39555
+action = 	2	reward=	1	max_vote=	16
+iteration ..	39570
+action = 	2	reward=	1	max_vote=	16
+iteration ..	39585
+action = 	2	reward=	1	max_vote=	17
+iteration ..	39600
+action = 	2	reward=	1	max_vote=	17
+iteration ..	39615
+action = 	2	reward=	5	max_vote=	16
+iteration ..	39630
+action = 	2	reward=	5	max_vote=	16
+iteration ..	39645
+action = 	4	reward=	5	max_vote=	18
+iteration ..	39660
+action = 	2	reward=	9	max_vote=	18
+iteration ..	39675
+action = 	2	reward=	9	max_vote=	17
+iteration ..	39690
+action = 	3	reward=	9	max_vote=	17
+iteration ..	39705
+action = 	2	reward=	9	max_vote=	16
+iteration ..	39720
+action = 	2	reward=	10	max_vote=	17
+iteration ..	39735
+action = 	1	reward=	10	max_vote=	16
+iteration ..	39750
+action = 	2	reward=	11	max_vote=	16
+iteration ..	39765
+action = 	2	reward=	11	max_vote=	17
+iteration ..	39780
+action = 	2	reward=	15	max_vote=	16
+iteration ..	39795
+action = 	2	reward=	15	max_vote=	16
+iteration ..	39810
+action = 	2	reward=	19	max_vote=	16
+iteration ..	39825
+action = 	4	reward=	19	max_vote=	17
+iteration ..	39840
+action = 	2	reward=	19	max_vote=	16
+iteration ..	39855
+action = 	4	reward=	23	max_vote=	16
+iteration ..	39870
+action = 	4	reward=	23	max_vote=	17
+iteration ..	39885
+action = 	2	reward=	23	max_vote=	16
+iteration ..	39900
+action = 	2	reward=	23	max_vote=	17
+iteration ..	39915
+action = 	2	reward=	23	max_vote=	17
+iteration ..	39930
+action = 	3	reward=	27	max_vote=	18
+iteration ..	39945
+action = 	4	reward=	27	max_vote=	18
+iteration ..	39960
+action = 	2	reward=	27	max_vote=	17
+iteration ..	39975
+action = 	2	reward=	27	max_vote=	16
+iteration ..	39990
+action = 	2	reward=	28	max_vote=	17
+iteration ..	40005
+action = 	3	reward=	28	max_vote=	17
+iteration ..	40020
+action = 	2	reward=	28	max_vote=	18
+iteration ..	40035
+action = 	2	reward=	28	max_vote=	16
+iteration ..	40050
+action = 	2	reward=	29	max_vote=	17
+iteration ..	40065
+action = 	2	reward=	29	max_vote=	17
+iteration ..	40080
+action = 	2	reward=	29	max_vote=	17
+iteration ..	40095
+action = 	4	reward=	30	max_vote=	17
+iteration ..	40110
+action = 	2	reward=	30	max_vote=	17
+iteration ..	40125
+action = 	2	reward=	31	max_vote=	17
+iteration ..	40140
+action = 	1	reward=	31	max_vote=	18
+iteration ..	40155
+action = 	2	reward=	35	max_vote=	16
+iteration ..	40170
+action = 	2	reward=	35	max_vote=	16
+iteration ..	40185
+action = 	2	reward=	35	max_vote=	16
+iteration ..	40200
+action = 	4	reward=	39	max_vote=	18
+iteration ..	40215
+action = 	2	reward=	39	max_vote=	17
+iteration ..	40230
+action = 	4	reward=	40	max_vote=	18
+iteration ..	40245
+action = 	2	reward=	40	max_vote=	17
+iteration ..	40260
+action = 	2	reward=	44	max_vote=	17
+iteration ..	40275
+action = 	2	reward=	44	max_vote=	17
+iteration ..	40290
+action = 	3	reward=	48	max_vote=	18
+iteration ..	40305
+action = 	2	reward=	48	max_vote=	16
+iteration ..	40320
+action = 	2	reward=	49	max_vote=	16
+iteration ..	40335
+action = 	2	reward=	49	max_vote=	16
+iteration ..	40350
+action = 	4	reward=	53	max_vote=	17
+iteration ..	40365
+action = 	2	reward=	53	max_vote=	16
+iteration ..	40380
+action = 	2	reward=	57	max_vote=	17
+iteration ..	40395
+action = 	4	reward=	64	max_vote=	18
+iteration ..	40410
+action = 	2	reward=	68	max_vote=	16
+iteration ..	40425
+action = 	2	reward=	68	max_vote=	17
+iteration ..	40440
+action = 	2	reward=	72	max_vote=	17
+iteration ..	40455
+action = 	2	reward=	73	max_vote=	18
+iteration ..	40470
+action = 	2	reward=	77	max_vote=	16
+iteration ..	40485
+action = 	3	reward=	81	max_vote=	17
+iteration ..	40500
+action = 	2	reward=	81	max_vote=	18
+iteration ..	40515
+action = 	2	reward=	85	max_vote=	16
+iteration ..	40530
+action = 	3	reward=	92	max_vote=	18
+iteration ..	40545
+action = 	4	reward=	96	max_vote=	16
+iteration ..	40560
+action = 	2	reward=	96	max_vote=	17
+iteration ..	40575
+action = 	4	reward=	103	max_vote=	18
+iteration ..	40590
+action = 	3	reward=	107	max_vote=	17
+iteration ..	40605
+action = 	2	reward=	107	max_vote=	17
+iteration ..	40620
+action = 	2	reward=	111	max_vote=	17
+iteration ..	40635
+action = 	2	reward=	115	max_vote=	18
+iteration ..	40650
+action = 	2	reward=	119	max_vote=	17
+iteration ..	40665
+action = 	1	reward=	119	max_vote=	16
+iteration ..	40680
+action = 	2	reward=	123	max_vote=	17
+iteration ..	40695
+action = 	4	reward=	127	max_vote=	17
+iteration ..	40710
+action = 	2	reward=	134	max_vote=	17
+iteration ..	40725
+action = 	2	reward=	134	max_vote=	17
+iteration ..	40740
+action = 	2	reward=	138	max_vote=	17
+iteration ..	40755
+action = 	2	reward=	145	max_vote=	16
+iteration ..	40770
+action = 	2	reward=	145	max_vote=	17
+iteration ..	40785
+action = 	2	reward=	152	max_vote=	16
+iteration ..	40800
+action = 	2	reward=	159	max_vote=	16
+iteration ..	40815
+action = 	4	reward=	166	max_vote=	16
+iteration ..	40830
+action = 	2	reward=	166	max_vote=	16
+iteration ..	40845
+action = 	2	reward=	173	max_vote=	18
+iteration ..	40860
+action = 	2	reward=	180	max_vote=	16
+iteration ..	40875
+action = 	2	reward=	180	max_vote=	17
+iteration ..	40890
+action = 	2	reward=	187	max_vote=	16
+iteration ..	40905
+action = 	4	reward=	191	max_vote=	16
+iteration ..	40920
+action = 	4	reward=	191	max_vote=	17
+iteration ..	40935
+action = 	2	reward=	198	max_vote=	17
+iteration ..	40950
+action = 	2	reward=	205	max_vote=	17
+iteration ..	40965
+action = 	4	reward=	209	max_vote=	17
+iteration ..	40980
+action = 	2	reward=	209	max_vote=	17
+iteration ..	40995
+action = 	2	reward=	216	max_vote=	16
+Game_over: Final score = 	216	nepisodes = 	114
+iteration ..	41010
+action = 	4	reward=	0	max_vote=	16
+iteration ..	41025
+action = 	2	reward=	0	max_vote=	17
+iteration ..	41040
+action = 	2	reward=	0	max_vote=	17
+iteration ..	41055
+action = 	2	reward=	4	max_vote=	16
+iteration ..	41070
+action = 	3	reward=	4	max_vote=	17
+Game_over: Final score = 	4	nepisodes = 	115
+iteration ..	41085
+action = 	2	reward=	0	max_vote=	16
+iteration ..	41100
+action = 	4	reward=	0	max_vote=	16
+iteration ..	41115
+action = 	2	reward=	0	max_vote=	17
+iteration ..	41130
+action = 	2	reward=	1	max_vote=	16
+iteration ..	41145
+action = 	2	reward=	1	max_vote=	16
+iteration ..	41160
+action = 	2	reward=	1	max_vote=	16
+iteration ..	41175
+action = 	2	reward=	2	max_vote=	16
+iteration ..	41190
+action = 	2	reward=	2	max_vote=	17
+iteration ..	41205
+action = 	2	reward=	2	max_vote=	16
+iteration ..	41220
+action = 	2	reward=	3	max_vote=	17
+iteration ..	41235
+action = 	2	reward=	3	max_vote=	16
+iteration ..	41250
+action = 	2	reward=	3	max_vote=	18
+iteration ..	41265
+action = 	4	reward=	4	max_vote=	18
+iteration ..	41280
+action = 	2	reward=	5	max_vote=	16
+iteration ..	41295
+action = 	2	reward=	5	max_vote=	17
+iteration ..	41310
+action = 	2	reward=	6	max_vote=	16
+iteration ..	41325
+action = 	3	reward=	6	max_vote=	17
+iteration ..	41340
+action = 	2	reward=	7	max_vote=	17
+iteration ..	41355
+action = 	2	reward=	7	max_vote=	16
+iteration ..	41370
+action = 	2	reward=	7	max_vote=	17
+iteration ..	41385
+action = 	2	reward=	8	max_vote=	17
+iteration ..	41400
+action = 	2	reward=	8	max_vote=	16
+iteration ..	41415
+action = 	2	reward=	8	max_vote=	17
+iteration ..	41430
+action = 	2	reward=	8	max_vote=	17
+iteration ..	41445
+action = 	2	reward=	9	max_vote=	18
+iteration ..	41460
+action = 	2	reward=	9	max_vote=	17
+iteration ..	41475
+action = 	2	reward=	9	max_vote=	17
+iteration ..	41490
+action = 	2	reward=	9	max_vote=	17
+iteration ..	41505
+action = 	2	reward=	10	max_vote=	16
+iteration ..	41520
+action = 	2	reward=	10	max_vote=	16
+iteration ..	41535
+action = 	1	reward=	10	max_vote=	18
+iteration ..	41550
+action = 	2	reward=	10	max_vote=	17
+iteration ..	41565
+action = 	2	reward=	11	max_vote=	17
+iteration ..	41580
+action = 	2	reward=	11	max_vote=	17
+iteration ..	41595
+action = 	2	reward=	11	max_vote=	16
+iteration ..	41610
+action = 	2	reward=	12	max_vote=	17
+iteration ..	41625
+action = 	2	reward=	12	max_vote=	17
+iteration ..	41640
+action = 	1	reward=	13	max_vote=	16
+iteration ..	41655
+action = 	2	reward=	13	max_vote=	16
+iteration ..	41670
+action = 	3	reward=	14	max_vote=	16
+iteration ..	41685
+action = 	2	reward=	14	max_vote=	16
+iteration ..	41700
+action = 	2	reward=	15	max_vote=	16
+iteration ..	41715
+action = 	2	reward=	15	max_vote=	16
+iteration ..	41730
+action = 	2	reward=	16	max_vote=	16
+iteration ..	41745
+action = 	2	reward=	16	max_vote=	17
+iteration ..	41760
+action = 	2	reward=	17	max_vote=	16
+iteration ..	41775
+action = 	2	reward=	17	max_vote=	16
+iteration ..	41790
+action = 	3	reward=	18	max_vote=	17
+Game_over: Final score = 	18	nepisodes = 	116
+iteration ..	41805
+action = 	0	reward=	0	max_vote=	18
+iteration ..	41820
+action = 	2	reward=	0	max_vote=	16
+iteration ..	41835
+action = 	2	reward=	0	max_vote=	17
+iteration ..	41850
+action = 	2	reward=	1	max_vote=	17
+iteration ..	41865
+action = 	2	reward=	1	max_vote=	16
+iteration ..	41880
+action = 	2	reward=	1	max_vote=	17
+iteration ..	41895
+action = 	2	reward=	2	max_vote=	17
+iteration ..	41910
+action = 	4	reward=	2	max_vote=	17
+Game_over: Final score = 	2	nepisodes = 	117
+iteration ..	41925
+action = 	1	reward=	0	max_vote=	18
+iteration ..	41940
+action = 	2	reward=	0	max_vote=	16
+iteration ..	41955
+action = 	2	reward=	0	max_vote=	17
+iteration ..	41970
+action = 	2	reward=	0	max_vote=	16
+iteration ..	41985
+action = 	2	reward=	1	max_vote=	16
+iteration ..	42000
+action = 	4	reward=	1	max_vote=	16
+iteration ..	42015
+action = 	2	reward=	1	max_vote=	17
+iteration ..	42030
+action = 	2	reward=	2	max_vote=	16
+iteration ..	42045
+action = 	2	reward=	2	max_vote=	16
+iteration ..	42060
+action = 	2	reward=	2	max_vote=	17
+iteration ..	42075
+action = 	2	reward=	3	max_vote=	17
+iteration ..	42090
+action = 	2	reward=	3	max_vote=	16
+iteration ..	42105
+action = 	3	reward=	4	max_vote=	17
+Game_over: Final score = 	4	nepisodes = 	118
+iteration ..	42120
+action = 	2	reward=	0	max_vote=	16
+iteration ..	42135
+action = 	4	reward=	0	max_vote=	18
+iteration ..	42150
+action = 	2	reward=	0	max_vote=	17
+iteration ..	42165
+action = 	2	reward=	0	max_vote=	16
+iteration ..	42180
+action = 	2	reward=	1	max_vote=	17
+iteration ..	42195
+action = 	2	reward=	1	max_vote=	17
+iteration ..	42210
+action = 	2	reward=	1	max_vote=	17
+iteration ..	42225
+action = 	2	reward=	5	max_vote=	16
+iteration ..	42240
+action = 	2	reward=	5	max_vote=	16
+iteration ..	42255
+action = 	2	reward=	5	max_vote=	16
+iteration ..	42270
+action = 	2	reward=	5	max_vote=	16
+iteration ..	42285
+action = 	4	reward=	9	max_vote=	17
+iteration ..	42300
+action = 	2	reward=	10	max_vote=	16
+Game_over: Final score = 	10	nepisodes = 	119
+iteration ..	42315
+action = 	2	reward=	0	max_vote=	18
+iteration ..	42330
+action = 	4	reward=	0	max_vote=	17
+iteration ..	42345
+action = 	2	reward=	0	max_vote=	16
+iteration ..	42360
+action = 	2	reward=	0	max_vote=	16
+iteration ..	42375
+action = 	2	reward=	1	max_vote=	17
+iteration ..	42390
+action = 	2	reward=	1	max_vote=	17
+iteration ..	42405
+action = 	4	reward=	1	max_vote=	17
+iteration ..	42420
+action = 	2	reward=	1	max_vote=	17
+iteration ..	42435
+action = 	2	reward=	5	max_vote=	17
+iteration ..	42450
+action = 	2	reward=	5	max_vote=	16
+iteration ..	42465
+action = 	2	reward=	5	max_vote=	16
+iteration ..	42480
+action = 	2	reward=	5	max_vote=	17
+iteration ..	42495
+action = 	2	reward=	9	max_vote=	16
+iteration ..	42510
+action = 	2	reward=	9	max_vote=	17
+iteration ..	42525
+action = 	2	reward=	13	max_vote=	17
+iteration ..	42540
+action = 	2	reward=	13	max_vote=	16
+iteration ..	42555
+action = 	2	reward=	14	max_vote=	18
+iteration ..	42570
+action = 	2	reward=	14	max_vote=	16
+iteration ..	42585
+action = 	2	reward=	14	max_vote=	16
+iteration ..	42600
+action = 	2	reward=	21	max_vote=	17
+iteration ..	42615
+action = 	2	reward=	28	max_vote=	16
+iteration ..	42630
+action = 	1	reward=	29	max_vote=	16
+iteration ..	42645
+action = 	2	reward=	33	max_vote=	16
+Game_over: Final score = 	33	nepisodes = 	120
+iteration ..	42660
+action = 	2	reward=	0	max_vote=	17
+iteration ..	42675
+action = 	2	reward=	0	max_vote=	17
+iteration ..	42690
+action = 	2	reward=	0	max_vote=	17
+iteration ..	42705
+action = 	2	reward=	0	max_vote=	17
+iteration ..	42720
+action = 	2	reward=	1	max_vote=	16
+iteration ..	42735
+action = 	2	reward=	1	max_vote=	16
+iteration ..	42750
+action = 	2	reward=	1	max_vote=	17
+iteration ..	42765
+action = 	1	reward=	2	max_vote=	18
+iteration ..	42780
+action = 	2	reward=	2	max_vote=	18
+iteration ..	42795
+action = 	2	reward=	2	max_vote=	16
+iteration ..	42810
+action = 	2	reward=	3	max_vote=	17
+iteration ..	42825
+action = 	2	reward=	3	max_vote=	17
+iteration ..	42840
+action = 	2	reward=	3	max_vote=	17
+iteration ..	42855
+action = 	3	reward=	4	max_vote=	16
+iteration ..	42870
+action = 	2	reward=	4	max_vote=	17
+iteration ..	42885
+action = 	2	reward=	5	max_vote=	16
+iteration ..	42900
+action = 	2	reward=	5	max_vote=	17
+iteration ..	42915
+action = 	2	reward=	6	max_vote=	17
+iteration ..	42930
+action = 	2	reward=	6	max_vote=	16
+iteration ..	42945
+action = 	4	reward=	7	max_vote=	18
+iteration ..	42960
+action = 	2	reward=	7	max_vote=	17
+iteration ..	42975
+action = 	2	reward=	7	max_vote=	18
+iteration ..	42990
+action = 	2	reward=	8	max_vote=	17
+iteration ..	43005
+action = 	2	reward=	8	max_vote=	17
+iteration ..	43020
+action = 	2	reward=	8	max_vote=	17
+iteration ..	43035
+action = 	2	reward=	9	max_vote=	17
+iteration ..	43050
+action = 	2	reward=	9	max_vote=	16
+iteration ..	43065
+action = 	2	reward=	9	max_vote=	17
+iteration ..	43080
+action = 	2	reward=	9	max_vote=	17
+iteration ..	43095
+action = 	2	reward=	10	max_vote=	16
+iteration ..	43110
+action = 	2	reward=	10	max_vote=	16
+iteration ..	43125
+action = 	2	reward=	10	max_vote=	17
+iteration ..	43140
+action = 	2	reward=	10	max_vote=	17
+iteration ..	43155
+action = 	2	reward=	11	max_vote=	16
+iteration ..	43170
+action = 	2	reward=	11	max_vote=	17
+iteration ..	43185
+action = 	2	reward=	11	max_vote=	16
+iteration ..	43200
+action = 	2	reward=	12	max_vote=	16
+iteration ..	43215
+action = 	4	reward=	12	max_vote=	18
+Game_over: Final score = 	12	nepisodes = 	121
+iteration ..	43230
+action = 	2	reward=	0	max_vote=	16
+iteration ..	43245
+action = 	2	reward=	0	max_vote=	17
+iteration ..	43260
+action = 	2	reward=	0	max_vote=	17
+iteration ..	43275
+action = 	4	reward=	1	max_vote=	17
+iteration ..	43290
+action = 	2	reward=	1	max_vote=	16
+iteration ..	43305
+action = 	2	reward=	2	max_vote=	16
+iteration ..	43320
+action = 	2	reward=	2	max_vote=	16
+iteration ..	43335
+action = 	2	reward=	2	max_vote=	17
+iteration ..	43350
+action = 	2	reward=	3	max_vote=	16
+iteration ..	43365
+action = 	2	reward=	3	max_vote=	17
+iteration ..	43380
+action = 	2	reward=	3	max_vote=	16
+iteration ..	43395
+action = 	1	reward=	4	max_vote=	18
+iteration ..	43410
+action = 	2	reward=	4	max_vote=	17
+iteration ..	43425
+action = 	2	reward=	8	max_vote=	16
+iteration ..	43440
+action = 	2	reward=	8	max_vote=	17
+iteration ..	43455
+action = 	4	reward=	9	max_vote=	17
+iteration ..	43470
+action = 	2	reward=	9	max_vote=	17
+iteration ..	43485
+action = 	2	reward=	9	max_vote=	16
+iteration ..	43500
+action = 	2	reward=	10	max_vote=	17
+iteration ..	43515
+action = 	2	reward=	10	max_vote=	16
+iteration ..	43530
+action = 	2	reward=	11	max_vote=	17
+iteration ..	43545
+action = 	1	reward=	11	max_vote=	18
+iteration ..	43560
+action = 	2	reward=	11	max_vote=	17
+iteration ..	43575
+action = 	4	reward=	11	max_vote=	18
+iteration ..	43590
+action = 	3	reward=	12	max_vote=	16
+iteration ..	43605
+action = 	4	reward=	12	max_vote=	18
+iteration ..	43620
+action = 	2	reward=	12	max_vote=	16
+iteration ..	43635
+action = 	2	reward=	12	max_vote=	17
+iteration ..	43650
+action = 	2	reward=	16	max_vote=	17
+iteration ..	43665
+action = 	2	reward=	16	max_vote=	17
+iteration ..	43680
+action = 	4	reward=	16	max_vote=	18
+iteration ..	43695
+action = 	2	reward=	16	max_vote=	17
+iteration ..	43710
+action = 	3	reward=	17	max_vote=	18
+iteration ..	43725
+action = 	2	reward=	17	max_vote=	17
+iteration ..	43740
+action = 	3	reward=	17	max_vote=	17
+Game_over: Final score = 	17	nepisodes = 	122
+iteration ..	43755
+action = 	2	reward=	0	max_vote=	16
+iteration ..	43770
+action = 	2	reward=	0	max_vote=	16
+iteration ..	43785
+action = 	2	reward=	0	max_vote=	17
+iteration ..	43800
+action = 	2	reward=	4	max_vote=	16
+iteration ..	43815
+action = 	2	reward=	4	max_vote=	17
+iteration ..	43830
+action = 	2	reward=	4	max_vote=	16
+iteration ..	43845
+action = 	4	reward=	5	max_vote=	17
+iteration ..	43860
+action = 	2	reward=	5	max_vote=	17
+iteration ..	43875
+action = 	2	reward=	5	max_vote=	16
+iteration ..	43890
+action = 	2	reward=	5	max_vote=	16
+iteration ..	43905
+action = 	2	reward=	6	max_vote=	17
+iteration ..	43920
+action = 	2	reward=	6	max_vote=	17
+iteration ..	43935
+action = 	2	reward=	7	max_vote=	16
+iteration ..	43950
+action = 	2	reward=	7	max_vote=	16
+Game_over: Final score = 	7	nepisodes = 	123
+iteration ..	43965
+action = 	2	reward=	0	max_vote=	17
+iteration ..	43980
+action = 	2	reward=	0	max_vote=	17
+iteration ..	43995
+action = 	2	reward=	0	max_vote=	18
+iteration ..	44010
+action = 	2	reward=	4	max_vote=	18
+iteration ..	44025
+action = 	3	reward=	5	max_vote=	16
+Game_over: Final score = 	5	nepisodes = 	124
+iteration ..	44040
+action = 	2	reward=	0	max_vote=	17
+iteration ..	44055
+action = 	2	reward=	0	max_vote=	16
+iteration ..	44070
+action = 	2	reward=	0	max_vote=	17
+iteration ..	44085
+action = 	4	reward=	1	max_vote=	18
+iteration ..	44100
+action = 	4	reward=	1	max_vote=	16
+iteration ..	44115
+action = 	2	reward=	1	max_vote=	16
+iteration ..	44130
+action = 	2	reward=	2	max_vote=	18
+iteration ..	44145
+action = 	2	reward=	2	max_vote=	16
+iteration ..	44160
+action = 	2	reward=	2	max_vote=	16
+iteration ..	44175
+action = 	2	reward=	2	max_vote=	16
+iteration ..	44190
+action = 	2	reward=	3	max_vote=	17
+iteration ..	44205
+action = 	2	reward=	3	max_vote=	16
+iteration ..	44220
+action = 	2	reward=	4	max_vote=	17
+iteration ..	44235
+action = 	2	reward=	4	max_vote=	17
+iteration ..	44250
+action = 	2	reward=	8	max_vote=	16
+iteration ..	44265
+action = 	2	reward=	8	max_vote=	16
+iteration ..	44280
+action = 	2	reward=	12	max_vote=	16
+iteration ..	44295
+action = 	4	reward=	12	max_vote=	18
+iteration ..	44310
+action = 	2	reward=	12	max_vote=	17
+iteration ..	44325
+action = 	3	reward=	16	max_vote=	17
+iteration ..	44340
+action = 	2	reward=	17	max_vote=	17
+Game_over: Final score = 	17	nepisodes = 	125
+iteration ..	44355
+action = 	2	reward=	0	max_vote=	17
+iteration ..	44370
+action = 	2	reward=	0	max_vote=	16
+iteration ..	44385
+action = 	2	reward=	0	max_vote=	17
+iteration ..	44400
+action = 	2	reward=	1	max_vote=	16
+iteration ..	44415
+action = 	2	reward=	1	max_vote=	16
+iteration ..	44430
+action = 	3	reward=	2	max_vote=	18
+iteration ..	44445
+action = 	2	reward=	2	max_vote=	16
+iteration ..	44460
+action = 	2	reward=	2	max_vote=	17
+iteration ..	44475
+action = 	2	reward=	3	max_vote=	16
+iteration ..	44490
+action = 	2	reward=	3	max_vote=	18
+iteration ..	44505
+action = 	2	reward=	3	max_vote=	17
+iteration ..	44520
+action = 	2	reward=	4	max_vote=	16
+iteration ..	44535
+action = 	2	reward=	4	max_vote=	17
+iteration ..	44550
+action = 	2	reward=	5	max_vote=	16
+iteration ..	44565
+action = 	2	reward=	5	max_vote=	16
+iteration ..	44580
+action = 	2	reward=	6	max_vote=	18
+iteration ..	44595
+action = 	2	reward=	6	max_vote=	17
+iteration ..	44610
+action = 	4	reward=	7	max_vote=	18
+iteration ..	44625
+action = 	2	reward=	7	max_vote=	18
+iteration ..	44640
+action = 	2	reward=	7	max_vote=	17
+iteration ..	44655
+action = 	2	reward=	8	max_vote=	17
+iteration ..	44670
+action = 	2	reward=	8	max_vote=	16
+iteration ..	44685
+action = 	2	reward=	8	max_vote=	17
+iteration ..	44700
+action = 	2	reward=	8	max_vote=	16
+iteration ..	44715
+action = 	4	reward=	9	max_vote=	17
+iteration ..	44730
+action = 	2	reward=	9	max_vote=	16
+iteration ..	44745
+action = 	2	reward=	9	max_vote=	16
+iteration ..	44760
+action = 	1	reward=	10	max_vote=	16
+iteration ..	44775
+action = 	2	reward=	10	max_vote=	17
+iteration ..	44790
+action = 	4	reward=	10	max_vote=	16
+iteration ..	44805
+action = 	2	reward=	10	max_vote=	16
+iteration ..	44820
+action = 	2	reward=	11	max_vote=	17
+iteration ..	44835
+action = 	2	reward=	11	max_vote=	17
+iteration ..	44850
+action = 	2	reward=	11	max_vote=	16
+iteration ..	44865
+action = 	2	reward=	12	max_vote=	17
+iteration ..	44880
+action = 	2	reward=	12	max_vote=	16
+iteration ..	44895
+action = 	2	reward=	13	max_vote=	16
+iteration ..	44910
+action = 	2	reward=	13	max_vote=	17
+iteration ..	44925
+action = 	4	reward=	14	max_vote=	18
+iteration ..	44940
+action = 	2	reward=	14	max_vote=	17
+iteration ..	44955
+action = 	2	reward=	15	max_vote=	17
+iteration ..	44970
+action = 	2	reward=	15	max_vote=	17
+iteration ..	44985
+action = 	4	reward=	16	max_vote=	17
+iteration ..	45000
+action = 	2	reward=	16	max_vote=	17
+iteration ..	45015
+action = 	2	reward=	17	max_vote=	17
+iteration ..	45030
+action = 	2	reward=	17	max_vote=	16
+iteration ..	45045
+action = 	2	reward=	18	max_vote=	17
+iteration ..	45060
+action = 	2	reward=	18	max_vote=	16
+iteration ..	45075
+action = 	2	reward=	19	max_vote=	16
+iteration ..	45090
+action = 	2	reward=	19	max_vote=	16
+iteration ..	45105
+action = 	2	reward=	20	max_vote=	16
+iteration ..	45120
+action = 	2	reward=	20	max_vote=	17
+iteration ..	45135
+action = 	3	reward=	21	max_vote=	18
+iteration ..	45150
+action = 	2	reward=	21	max_vote=	17
+iteration ..	45165
+action = 	2	reward=	22	max_vote=	17
+iteration ..	45180
+action = 	2	reward=	22	max_vote=	17
+iteration ..	45195
+action = 	2	reward=	23	max_vote=	16
+iteration ..	45210
+action = 	2	reward=	23	max_vote=	17
+iteration ..	45225
+action = 	2	reward=	24	max_vote=	16
+iteration ..	45240
+action = 	2	reward=	24	max_vote=	16
+iteration ..	45255
+action = 	2	reward=	25	max_vote=	16
+iteration ..	45270
+action = 	2	reward=	25	max_vote=	16
+iteration ..	45285
+action = 	4	reward=	29	max_vote=	17
+iteration ..	45300
+action = 	2	reward=	29	max_vote=	17
+iteration ..	45315
+action = 	2	reward=	30	max_vote=	16
+iteration ..	45330
+action = 	2	reward=	30	max_vote=	17
+iteration ..	45345
+action = 	2	reward=	31	max_vote=	16
+iteration ..	45360
+action = 	2	reward=	31	max_vote=	17
+iteration ..	45375
+action = 	2	reward=	32	max_vote=	17
+iteration ..	45390
+action = 	2	reward=	32	max_vote=	17
+iteration ..	45405
+action = 	2	reward=	36	max_vote=	16
+iteration ..	45420
+action = 	3	reward=	36	max_vote=	17
+iteration ..	45435
+action = 	2	reward=	37	max_vote=	16
+iteration ..	45450
+action = 	3	reward=	37	max_vote=	16
+iteration ..	45465
+action = 	2	reward=	41	max_vote=	16
+iteration ..	45480
+action = 	4	reward=	41	max_vote=	16
+Game_over: Final score = 	41	nepisodes = 	126
+iteration ..	45495
+action = 	2	reward=	0	max_vote=	16
+iteration ..	45510
+action = 	3	reward=	0	max_vote=	17
+iteration ..	45525
+action = 	2	reward=	0	max_vote=	16
+iteration ..	45540
+action = 	2	reward=	4	max_vote=	16
+iteration ..	45555
+action = 	2	reward=	4	max_vote=	16
+iteration ..	45570
+action = 	2	reward=	4	max_vote=	16
+iteration ..	45585
+action = 	2	reward=	8	max_vote=	18
+iteration ..	45600
+action = 	4	reward=	12	max_vote=	16
+iteration ..	45615
+action = 	2	reward=	12	max_vote=	16
+iteration ..	45630
+action = 	2	reward=	16	max_vote=	16
+iteration ..	45645
+action = 	3	reward=	23	max_vote=	16
+iteration ..	45660
+action = 	2	reward=	27	max_vote=	17
+iteration ..	45675
+action = 	2	reward=	31	max_vote=	17
+iteration ..	45690
+action = 	2	reward=	31	max_vote=	16
+iteration ..	45705
+action = 	2	reward=	32	max_vote=	16
+iteration ..	45720
+action = 	2	reward=	36	max_vote=	18
+iteration ..	45735
+action = 	2	reward=	43	max_vote=	16
+iteration ..	45750
+action = 	2	reward=	43	max_vote=	17
+iteration ..	45765
+action = 	2	reward=	47	max_vote=	17
+iteration ..	45780
+action = 	2	reward=	54	max_vote=	17
+iteration ..	45795
+action = 	1	reward=	55	max_vote=	16
+iteration ..	45810
+action = 	2	reward=	55	max_vote=	16
+iteration ..	45825
+action = 	2	reward=	59	max_vote=	16
+iteration ..	45840
+action = 	2	reward=	60	max_vote=	16
+iteration ..	45855
+action = 	4	reward=	64	max_vote=	18
+iteration ..	45870
+action = 	3	reward=	65	max_vote=	18
+iteration ..	45885
+action = 	2	reward=	69	max_vote=	16
+iteration ..	45900
+action = 	2	reward=	69	max_vote=	17
+iteration ..	45915
+action = 	2	reward=	73	max_vote=	17
+iteration ..	45930
+action = 	3	reward=	74	max_vote=	18
+iteration ..	45945
+action = 	3	reward=	78	max_vote=	17
+iteration ..	45960
+action = 	2	reward=	82	max_vote=	17
+iteration ..	45975
+action = 	2	reward=	82	max_vote=	16
+iteration ..	45990
+action = 	3	reward=	86	max_vote=	16
+iteration ..	46005
+action = 	3	reward=	90	max_vote=	16
+Game_over: Final score = 	90	nepisodes = 	127
+iteration ..	46020
+action = 	4	reward=	0	max_vote=	17
+iteration ..	46035
+action = 	4	reward=	0	max_vote=	17
+iteration ..	46050
+action = 	2	reward=	0	max_vote=	16
+iteration ..	46065
+action = 	3	reward=	0	max_vote=	16
+iteration ..	46080
+action = 	3	reward=	4	max_vote=	18
+iteration ..	46095
+action = 	3	reward=	8	max_vote=	18
+iteration ..	46110
+action = 	2	reward=	12	max_vote=	17
+iteration ..	46125
+action = 	2	reward=	12	max_vote=	16
+iteration ..	46140
+action = 	1	reward=	16	max_vote=	16
+iteration ..	46155
+action = 	2	reward=	20	max_vote=	16
+iteration ..	46170
+action = 	4	reward=	20	max_vote=	17
+iteration ..	46185
+action = 	2	reward=	27	max_vote=	17
+iteration ..	46200
+action = 	3	reward=	31	max_vote=	17
+iteration ..	46215
+action = 	4	reward=	32	max_vote=	17
+iteration ..	46230
+action = 	4	reward=	36	max_vote=	17
+iteration ..	46245
+action = 	2	reward=	36	max_vote=	16
+iteration ..	46260
+action = 	2	reward=	43	max_vote=	18
+iteration ..	46275
+action = 	3	reward=	47	max_vote=	18
+Game_over: Final score = 	47	nepisodes = 	128
+iteration ..	46290
+action = 	2	reward=	0	max_vote=	17
+iteration ..	46305
+action = 	2	reward=	0	max_vote=	16
+iteration ..	46320
+action = 	2	reward=	0	max_vote=	17
+iteration ..	46335
+action = 	2	reward=	0	max_vote=	16
+iteration ..	46350
+action = 	1	reward=	7	max_vote=	18
+iteration ..	46365
+action = 	4	reward=	11	max_vote=	17
+iteration ..	46380
+action = 	2	reward=	11	max_vote=	16
+iteration ..	46395
+action = 	3	reward=	15	max_vote=	16
+Game_over: Final score = 	15	nepisodes = 	129
+iteration ..	46410
+action = 	2	reward=	0	max_vote=	16
+iteration ..	46425
+action = 	4	reward=	0	max_vote=	18
+iteration ..	46440
+action = 	2	reward=	0	max_vote=	16
+iteration ..	46455
+action = 	2	reward=	0	max_vote=	16
+iteration ..	46470
+action = 	4	reward=	7	max_vote=	17
+Game_over: Final score = 	7	nepisodes = 	130
+iteration ..	46485
+action = 	2	reward=	0	max_vote=	17
+iteration ..	46500
+action = 	2	reward=	0	max_vote=	16
+iteration ..	46515
+action = 	2	reward=	0	max_vote=	16
+iteration ..	46530
+action = 	2	reward=	1	max_vote=	17
+iteration ..	46545
+action = 	2	reward=	1	max_vote=	16
+iteration ..	46560
+action = 	3	reward=	2	max_vote=	17
+iteration ..	46575
+action = 	2	reward=	2	max_vote=	16
+iteration ..	46590
+action = 	2	reward=	2	max_vote=	16
+iteration ..	46605
+action = 	2	reward=	2	max_vote=	16
+iteration ..	46620
+action = 	2	reward=	3	max_vote=	17
+iteration ..	46635
+action = 	2	reward=	3	max_vote=	16
+iteration ..	46650
+action = 	2	reward=	4	max_vote=	16
+iteration ..	46665
+action = 	2	reward=	4	max_vote=	16
+iteration ..	46680
+action = 	3	reward=	5	max_vote=	18
+iteration ..	46695
+action = 	2	reward=	5	max_vote=	17
+iteration ..	46710
+action = 	4	reward=	6	max_vote=	18
+iteration ..	46725
+action = 	2	reward=	6	max_vote=	17
+iteration ..	46740
+action = 	4	reward=	7	max_vote=	17
+iteration ..	46755
+action = 	4	reward=	7	max_vote=	17
+iteration ..	46770
+action = 	2	reward=	7	max_vote=	17
+iteration ..	46785
+action = 	2	reward=	8	max_vote=	17
+iteration ..	46800
+action = 	2	reward=	8	max_vote=	16
+iteration ..	46815
+action = 	2	reward=	8	max_vote=	17
+iteration ..	46830
+action = 	2	reward=	8	max_vote=	17
+iteration ..	46845
+action = 	2	reward=	9	max_vote=	17
+iteration ..	46860
+action = 	1	reward=	9	max_vote=	16
+iteration ..	46875
+action = 	2	reward=	9	max_vote=	17
+iteration ..	46890
+action = 	2	reward=	9	max_vote=	16
+iteration ..	46905
+action = 	2	reward=	10	max_vote=	17
+iteration ..	46920
+action = 	2	reward=	10	max_vote=	16
+iteration ..	46935
+action = 	2	reward=	10	max_vote=	17
+iteration ..	46950
+action = 	2	reward=	10	max_vote=	17
+iteration ..	46965
+action = 	2	reward=	11	max_vote=	16
+iteration ..	46980
+action = 	4	reward=	11	max_vote=	17
+iteration ..	46995
+action = 	3	reward=	12	max_vote=	18
+iteration ..	47010
+action = 	4	reward=	12	max_vote=	16
+iteration ..	47025
+action = 	2	reward=	13	max_vote=	16
+iteration ..	47040
+action = 	4	reward=	13	max_vote=	17
+Game_over: Final score = 	13	nepisodes = 	131
+iteration ..	47055
+action = 	2	reward=	0	max_vote=	17
+iteration ..	47070
+action = 	1	reward=	0	max_vote=	16
+iteration ..	47085
+action = 	2	reward=	0	max_vote=	17
+iteration ..	47100
+action = 	1	reward=	1	max_vote=	16
+iteration ..	47115
+action = 	2	reward=	1	max_vote=	16
+iteration ..	47130
+action = 	4	reward=	1	max_vote=	16
+iteration ..	47145
+action = 	2	reward=	1	max_vote=	17
+iteration ..	47160
+action = 	2	reward=	2	max_vote=	17
+iteration ..	47175
+action = 	2	reward=	2	max_vote=	16
+iteration ..	47190
+action = 	1	reward=	2	max_vote=	18
+iteration ..	47205
+action = 	2	reward=	2	max_vote=	17
+iteration ..	47220
+action = 	2	reward=	3	max_vote=	17
+iteration ..	47235
+action = 	2	reward=	3	max_vote=	17
+iteration ..	47250
+action = 	2	reward=	3	max_vote=	17
+iteration ..	47265
+action = 	2	reward=	4	max_vote=	16
+iteration ..	47280
+action = 	2	reward=	4	max_vote=	16
+iteration ..	47295
+action = 	4	reward=	5	max_vote=	16
+iteration ..	47310
+action = 	2	reward=	5	max_vote=	16
+iteration ..	47325
+action = 	4	reward=	6	max_vote=	17
+iteration ..	47340
+action = 	4	reward=	6	max_vote=	16
+iteration ..	47355
+action = 	2	reward=	7	max_vote=	16
+iteration ..	47370
+action = 	2	reward=	7	max_vote=	16
+iteration ..	47385
+action = 	2	reward=	7	max_vote=	17
+iteration ..	47400
+action = 	2	reward=	8	max_vote=	16
+iteration ..	47415
+action = 	2	reward=	8	max_vote=	17
+iteration ..	47430
+action = 	2	reward=	8	max_vote=	17
+iteration ..	47445
+action = 	2	reward=	8	max_vote=	17
+iteration ..	47460
+action = 	3	reward=	8	max_vote=	17
+iteration ..	47475
+action = 	2	reward=	9	max_vote=	17
+iteration ..	47490
+action = 	4	reward=	9	max_vote=	18
+iteration ..	47505
+action = 	2	reward=	9	max_vote=	18
+iteration ..	47520
+action = 	2	reward=	10	max_vote=	17
+iteration ..	47535
+action = 	2	reward=	10	max_vote=	16
+iteration ..	47550
+action = 	3	reward=	10	max_vote=	16
+iteration ..	47565
+action = 	2	reward=	10	max_vote=	17
+iteration ..	47580
+action = 	2	reward=	11	max_vote=	16
+iteration ..	47595
+action = 	2	reward=	11	max_vote=	16
+iteration ..	47610
+action = 	2	reward=	11	max_vote=	16
+iteration ..	47625
+action = 	2	reward=	12	max_vote=	16
+iteration ..	47640
+action = 	2	reward=	12	max_vote=	16
+iteration ..	47655
+action = 	2	reward=	16	max_vote=	17
+iteration ..	47670
+action = 	2	reward=	16	max_vote=	17
+iteration ..	47685
+action = 	2	reward=	16	max_vote=	17
+iteration ..	47700
+action = 	1	reward=	20	max_vote=	18
+iteration ..	47715
+action = 	2	reward=	24	max_vote=	16
+iteration ..	47730
+action = 	4	reward=	25	max_vote=	18
+iteration ..	47745
+action = 	4	reward=	29	max_vote=	18
+iteration ..	47760
+action = 	2	reward=	29	max_vote=	17
+iteration ..	47775
+action = 	2	reward=	30	max_vote=	16
+iteration ..	47790
+action = 	3	reward=	34	max_vote=	18
+iteration ..	47805
+action = 	2	reward=	38	max_vote=	16
+iteration ..	47820
+action = 	2	reward=	38	max_vote=	17
+iteration ..	47835
+action = 	2	reward=	39	max_vote=	16
+iteration ..	47850
+action = 	2	reward=	40	max_vote=	18
+Game_over: Final score = 	40	nepisodes = 	132
+iteration ..	47865
+action = 	2	reward=	0	max_vote=	16
+iteration ..	47880
+action = 	2	reward=	0	max_vote=	17
+iteration ..	47895
+action = 	2	reward=	0	max_vote=	16
+iteration ..	47910
+action = 	2	reward=	1	max_vote=	17
+iteration ..	47925
+action = 	2	reward=	1	max_vote=	17
+iteration ..	47940
+action = 	2	reward=	1	max_vote=	16
+iteration ..	47955
+action = 	2	reward=	2	max_vote=	17
+iteration ..	47970
+action = 	2	reward=	2	max_vote=	17
+iteration ..	47985
+action = 	2	reward=	2	max_vote=	18
+iteration ..	48000
+action = 	3	reward=	3	max_vote=	17
+iteration ..	48015
+action = 	2	reward=	3	max_vote=	16
+iteration ..	48030
+action = 	2	reward=	3	max_vote=	17
+iteration ..	48045
+action = 	2	reward=	7	max_vote=	16
+iteration ..	48060
+action = 	3	reward=	7	max_vote=	18
+iteration ..	48075
+action = 	4	reward=	11	max_vote=	18
+Game_over: Final score = 	11	nepisodes = 	133
+iteration ..	48090
+action = 	1	reward=	0	max_vote=	18
+iteration ..	48105
+action = 	1	reward=	0	max_vote=	17
+iteration ..	48120
+action = 	2	reward=	0	max_vote=	17
+iteration ..	48135
+action = 	3	reward=	4	max_vote=	18
+iteration ..	48150
+action = 	4	reward=	5	max_vote=	17
+Game_over: Final score = 	5	nepisodes = 	134
+iteration ..	48165
+action = 	2	reward=	0	max_vote=	16
+iteration ..	48180
+action = 	2	reward=	0	max_vote=	17
+iteration ..	48195
+action = 	2	reward=	0	max_vote=	17
+iteration ..	48210
+action = 	2	reward=	0	max_vote=	17
+iteration ..	48225
+action = 	2	reward=	4	max_vote=	17
+iteration ..	48240
+action = 	2	reward=	4	max_vote=	17
+iteration ..	48255
+action = 	4	reward=	4	max_vote=	17
+Game_over: Final score = 	4	nepisodes = 	135
+iteration ..	48270
+action = 	2	reward=	0	max_vote=	16
+iteration ..	48285
+action = 	2	reward=	0	max_vote=	16
+iteration ..	48300
+action = 	2	reward=	0	max_vote=	17
+iteration ..	48315
+action = 	2	reward=	1	max_vote=	16
+iteration ..	48330
+action = 	2	reward=	1	max_vote=	17
+iteration ..	48345
+action = 	3	reward=	2	max_vote=	18
+iteration ..	48360
+action = 	4	reward=	2	max_vote=	18
+iteration ..	48375
+action = 	2	reward=	2	max_vote=	17
+iteration ..	48390
+action = 	2	reward=	3	max_vote=	18
+iteration ..	48405
+action = 	2	reward=	3	max_vote=	17
+iteration ..	48420
+action = 	2	reward=	4	max_vote=	17
+iteration ..	48435
+action = 	2	reward=	4	max_vote=	16
+iteration ..	48450
+action = 	2	reward=	5	max_vote=	16
+iteration ..	48465
+action = 	2	reward=	5	max_vote=	17
+iteration ..	48480
+action = 	2	reward=	6	max_vote=	16
+iteration ..	48495
+action = 	2	reward=	6	max_vote=	17
+iteration ..	48510
+action = 	2	reward=	7	max_vote=	17
+iteration ..	48525
+action = 	2	reward=	7	max_vote=	17
+iteration ..	48540
+action = 	2	reward=	7	max_vote=	17
+iteration ..	48555
+action = 	2	reward=	8	max_vote=	17
+iteration ..	48570
+action = 	2	reward=	8	max_vote=	17
+iteration ..	48585
+action = 	2	reward=	8	max_vote=	17
+iteration ..	48600
+action = 	2	reward=	8	max_vote=	17
+iteration ..	48615
+action = 	4	reward=	9	max_vote=	17
+iteration ..	48630
+action = 	2	reward=	9	max_vote=	17
+iteration ..	48645
+action = 	2	reward=	9	max_vote=	17
+iteration ..	48660
+action = 	2	reward=	9	max_vote=	16
+iteration ..	48675
+action = 	2	reward=	10	max_vote=	16
+iteration ..	48690
+action = 	4	reward=	10	max_vote=	16
+iteration ..	48705
+action = 	2	reward=	10	max_vote=	17
+iteration ..	48720
+action = 	3	reward=	10	max_vote=	18
+iteration ..	48735
+action = 	2	reward=	11	max_vote=	17
+iteration ..	48750
+action = 	4	reward=	11	max_vote=	17
+iteration ..	48765
+action = 	2	reward=	11	max_vote=	16
+iteration ..	48780
+action = 	2	reward=	12	max_vote=	16
+iteration ..	48795
+action = 	2	reward=	12	max_vote=	17
+iteration ..	48810
+action = 	1	reward=	13	max_vote=	16
+iteration ..	48825
+action = 	2	reward=	13	max_vote=	17
+iteration ..	48840
+action = 	4	reward=	14	max_vote=	16
+iteration ..	48855
+action = 	2	reward=	14	max_vote=	17
+iteration ..	48870
+action = 	2	reward=	15	max_vote=	17
+iteration ..	48885
+action = 	2	reward=	15	max_vote=	16
+iteration ..	48900
+action = 	3	reward=	16	max_vote=	16
+iteration ..	48915
+action = 	4	reward=	17	max_vote=	17
+iteration ..	48930
+action = 	2	reward=	17	max_vote=	16
+iteration ..	48945
+action = 	2	reward=	18	max_vote=	16
+iteration ..	48960
+action = 	4	reward=	18	max_vote=	18
+iteration ..	48975
+action = 	2	reward=	18	max_vote=	16
+iteration ..	48990
+action = 	2	reward=	22	max_vote=	16
+iteration ..	49005
+action = 	2	reward=	22	max_vote=	17
+iteration ..	49020
+action = 	1	reward=	23	max_vote=	17
+iteration ..	49035
+action = 	2	reward=	23	max_vote=	16
+iteration ..	49050
+action = 	2	reward=	24	max_vote=	18
+iteration ..	49065
+action = 	2	reward=	24	max_vote=	17
+iteration ..	49080
+action = 	4	reward=	28	max_vote=	16
+Game_over: Final score = 	28	nepisodes = 	136
+iteration ..	49095
+action = 	1	reward=	0	max_vote=	18
+iteration ..	49110
+action = 	2	reward=	0	max_vote=	17
+iteration ..	49125
+action = 	2	reward=	0	max_vote=	17
+iteration ..	49140
+action = 	2	reward=	0	max_vote=	16
+iteration ..	49155
+action = 	2	reward=	1	max_vote=	16
+iteration ..	49170
+action = 	3	reward=	1	max_vote=	18
+iteration ..	49185
+action = 	2	reward=	1	max_vote=	17
+iteration ..	49200
+action = 	2	reward=	2	max_vote=	16
+iteration ..	49215
+action = 	1	reward=	2	max_vote=	18
+iteration ..	49230
+action = 	2	reward=	2	max_vote=	16
+iteration ..	49245
+action = 	2	reward=	3	max_vote=	17
+iteration ..	49260
+action = 	2	reward=	3	max_vote=	17
+iteration ..	49275
+action = 	2	reward=	3	max_vote=	17
+iteration ..	49290
+action = 	2	reward=	4	max_vote=	16
+iteration ..	49305
+action = 	2	reward=	4	max_vote=	17
+iteration ..	49320
+action = 	2	reward=	8	max_vote=	17
+iteration ..	49335
+action = 	2	reward=	8	max_vote=	16
+iteration ..	49350
+action = 	2	reward=	9	max_vote=	16
+iteration ..	49365
+action = 	3	reward=	9	max_vote=	17
+iteration ..	49380
+action = 	2	reward=	10	max_vote=	16
+iteration ..	49395
+action = 	2	reward=	10	max_vote=	16
+iteration ..	49410
+action = 	2	reward=	10	max_vote=	17
+iteration ..	49425
+action = 	2	reward=	11	max_vote=	16
+iteration ..	49440
+action = 	2	reward=	11	max_vote=	17
+iteration ..	49455
+action = 	4	reward=	11	max_vote=	17
+Game_over: Final score = 	11	nepisodes = 	137
+iteration ..	49470
+action = 	1	reward=	0	max_vote=	18
+iteration ..	49485
+action = 	2	reward=	0	max_vote=	16
+iteration ..	49500
+action = 	2	reward=	0	max_vote=	17
+iteration ..	49515
+action = 	2	reward=	0	max_vote=	16
+iteration ..	49530
+action = 	2	reward=	4	max_vote=	17
+iteration ..	49545
+action = 	2	reward=	4	max_vote=	16
+iteration ..	49560
+action = 	2	reward=	4	max_vote=	17
+iteration ..	49575
+action = 	2	reward=	4	max_vote=	17
+iteration ..	49590
+action = 	2	reward=	8	max_vote=	16
+iteration ..	49605
+action = 	2	reward=	8	max_vote=	16
+iteration ..	49620
+action = 	2	reward=	8	max_vote=	16
+iteration ..	49635
+action = 	2	reward=	8	max_vote=	17
+iteration ..	49650
+action = 	2	reward=	12	max_vote=	16
+iteration ..	49665
+action = 	4	reward=	12	max_vote=	17
+iteration ..	49680
+action = 	2	reward=	13	max_vote=	17
+iteration ..	49695
+action = 	2	reward=	13	max_vote=	16
+iteration ..	49710
+action = 	3	reward=	14	max_vote=	17
+iteration ..	49725
+action = 	3	reward=	14	max_vote=	18
+iteration ..	49740
+action = 	2	reward=	14	max_vote=	17
+iteration ..	49755
+action = 	4	reward=	15	max_vote=	18
+Game_over: Final score = 	15	nepisodes = 	138
+iteration ..	49770
+action = 	2	reward=	0	max_vote=	17
+iteration ..	49785
+action = 	2	reward=	0	max_vote=	16
+iteration ..	49800
+action = 	2	reward=	0	max_vote=	17
+iteration ..	49815
+action = 	2	reward=	0	max_vote=	17
+iteration ..	49830
+action = 	2	reward=	4	max_vote=	16
+iteration ..	49845
+action = 	2	reward=	4	max_vote=	17
+iteration ..	49860
+action = 	2	reward=	4	max_vote=	17
+iteration ..	49875
+action = 	2	reward=	4	max_vote=	16
+iteration ..	49890
+action = 	2	reward=	8	max_vote=	17
+iteration ..	49905
+action = 	3	reward=	15	max_vote=	17
+iteration ..	49920
+action = 	1	reward=	19	max_vote=	16
+iteration ..	49935
+action = 	2	reward=	19	max_vote=	16
+iteration ..	49950
+action = 	2	reward=	23	max_vote=	16
+iteration ..	49965
+action = 	2	reward=	24	max_vote=	16
+iteration ..	49980
+action = 	2	reward=	28	max_vote=	17
+iteration ..	49995
+action = 	2	reward=	32	max_vote=	16
+=========================
+Finished Testing:
+Number of episodes = 	138
+Average Score = 	39.478260869565
